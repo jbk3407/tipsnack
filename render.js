@@ -3,7 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const { execFileSync } = require('child_process');
 
-const CHROME = process.env.CHROME || 'C:/Program Files/Google/Chrome/Application/chrome.exe';
+const CHROME = process.env.CHROME || (process.platform === 'win32'
+  ? 'C:/Program Files/Google/Chrome/Application/chrome.exe' : 'chromium');
 const HANDLE = '@tip.snack';
 const post = JSON.parse(fs.readFileSync(path.join(__dirname, 'post.json'), 'utf8'));
 const out = path.join(__dirname, 'out');
@@ -58,7 +59,7 @@ const shot = (file, h, body) => {
   fs.writeFileSync(html, `<!doctype html><meta charset="utf-8"><style>${css}body{height:${h}px}</style>${wrap}`);
   execFileSync(CHROME, ['--headless=new', '--disable-gpu', '--hide-scrollbars', '--force-device-scale-factor=1',
     `--window-size=1080,${h}`, '--virtual-time-budget=5000', `--screenshot=${file}`,
-    'file:///' + html.replace(/\\/g, '/')], { stdio: 'ignore' });
+    '--no-sandbox', 'file:///' + html.replace(/\\/g, '/').replace(/^\//, '')], { stdio: 'ignore' });
   fs.unlinkSync(html);
 };
 fs.mkdirSync(path.join(out, 'reel'), { recursive: true });

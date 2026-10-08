@@ -45,6 +45,14 @@ const publish = async id => {
 
 (async () => {
   const imgs = fs.readdirSync(dir).filter(f => /^\d+\.png$/.test(f)).sort();
+  // 방금 push 한 경우 GitHub Pages 배포를 기다림 (최대 10분)
+  const files = [...imgs, ...(fs.existsSync(path.join(dir, 'reel.mp4')) ? ['reel.mp4'] : [])];
+  for (let i = 0; ; i++) {
+    const codes = await Promise.all(files.map(f => fetch(url(f), { method: 'HEAD' }).then(r => r.status)));
+    if (codes.every(c => c === 200)) break;
+    if (i >= 60) throw new Error('공개 URL 이 열리지 않음: ' + url(files[0]));
+    await sleep(10000);
+  }
   const children = [];
   for (const f of imgs) children.push((await api('POST', `${IG_USER_ID}/media`, { image_url: url(f), is_carousel_item: 'true' })).id);
   for (const c of children) await ready(c);
