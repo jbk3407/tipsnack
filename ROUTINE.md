@@ -8,7 +8,7 @@
 - `.env` 에 `IG_TOKEN`, `IG_USER_ID` 가 있어야 한다 (publish.js 가 자동으로 읽음). 없으면 즉시 중단하고 보고. **토큰 값은 절대 출력·커밋하지 않는다.**
 - `node_modules` 가 없으면 `npm ci`. Chrome 은 `C:/Program Files/Google/Chrome/Application/chrome.exe` 를 render.js 가 자동 사용.
 - (클라우드에서 돌릴 경우에만) 환경변수로 토큰을 받고, Chromium 은 `apt-get install -y chromium fonts-noto-cjk fonts-noto-color-emoji` 후 `CHROME` 지정.
-- 게시 슬롯 `$D` = KST 날짜 + 오전/오후: `D=$(TZ=Asia/Seoul date +%F)-$( [ $(TZ=Asia/Seoul date +%H) -lt 12 ] && echo am || echo pm )` (예 `2026-10-09-am`).
+- 게시 슬롯 `$D` = KST 날짜 + 오전/오후: `D=$(date +%F)-$( [ $(date +%H) -lt 12 ] && echo am || echo pm )` (PC 시계가 KST. Git Bash 는 `TZ=Asia/Seoul` 을 무시하므로 쓰지 말 것) (예 `2026-10-09-am`).
   `posts/$D/published.json` 이 이미 있으면 이 슬롯은 게시 완료 → 아무것도 하지 말고 종료.
 
 ## 1. 주제 고르기
