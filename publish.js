@@ -1,4 +1,4 @@
-// node publish.js posts/2026-10-08
+// node publish.js posts/2026-10-08-am
 // 해당 폴더의 01.png.. 를 캐러셀로, reel.mp4 를 릴스로 게시 (공개 URL = PUBLIC_BASE/<폴더>/<파일>)
 const fs = require('fs');
 const path = require('path');
@@ -14,7 +14,7 @@ const { IG_TOKEN, IG_USER_ID } = env;
 if (!IG_TOKEN || !IG_USER_ID) throw new Error('IG_TOKEN / IG_USER_ID 없음');
 
 const dir = process.argv[2];
-if (!dir) throw new Error('사용법: node publish.js posts/YYYY-MM-DD');
+if (!dir) throw new Error('사용법: node publish.js posts/YYYY-MM-DD-am');
 const url = f => `${BASE}/${dir.replace(/\\/g, '/')}/${f}`;
 const caption = fs.readFileSync(path.join(dir, 'caption.txt'), 'utf8');
 const sleep = ms => new Promise(r => setTimeout(r, ms));

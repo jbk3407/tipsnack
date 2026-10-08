@@ -4,7 +4,7 @@
 
 ## 0. 준비
 실행 위치는 사용자 PC(Windows)의 `C:\Users\LT01-P022-2301\tipsnack`. 셸은 Bash(Git Bash) 기준.
-- `git pull -q` 로 최신화.
+- `git pull -q` 로 최신화. 커밋 작성자가 없으면 `git config user.name jbk3407 && git config user.email jbk3407@users.noreply.github.com`.
 - `.env` 에 `IG_TOKEN`, `IG_USER_ID` 가 있어야 한다 (publish.js 가 자동으로 읽음). 없으면 즉시 중단하고 보고. **토큰 값은 절대 출력·커밋하지 않는다.**
 - `node_modules` 가 없으면 `npm ci`. Chrome 은 `C:/Program Files/Google/Chrome/Application/chrome.exe` 를 render.js 가 자동 사용.
 - (클라우드에서 돌릴 경우에만) 환경변수로 토큰을 받고, Chromium 은 `apt-get install -y chromium fonts-noto-cjk fonts-noto-color-emoji` 후 `CHROME` 지정.
