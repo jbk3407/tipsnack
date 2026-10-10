@@ -1,6 +1,15 @@
 # 매일 게시 루틴 (@tip.snack)
 
-매일 07:00, 15:00 KST 에 클라우드 루틴이 이 문서를 그대로 따른다. 사람 개입 없이 끝까지 진행하고, 실패하면 원인을 남기고 멈춘다.
+매일 07:00, 15:00 KST 에 로컬 예약 작업이 이 문서를 그대로 따른다. 사람 개입 없이 끝까지 진행하고, 실패하면 원인을 남기고 멈춘다.
+
+## 무승인 실행 규칙 (중요)
+승인 없이 돌도록 허용된 것은 아래 셋뿐이다. **이 외의 명령·도구는 쓰지 않는다** (쓰면 승인 대기로 멈춤).
+- Bash 도구로 `bash /c/Users/LT01-P022-2301/tipsnack/run.sh prepare|render|publish` (정확히 이 형태, 앞에 cd·&& 붙이지 말 것)
+- Read 도구로 `C:\Users\LT01-P022-2301\tipsnack\` 아래 파일 읽기
+- Write 도구로 `C:\Users\LT01-P022-2301\tipsnack\post.json` 쓰기
+
+순서: `run.sh prepare` (DONE 이면 종료) → 주제 고르고 post.json 작성(1·2절) → `run.sh render` → out/01.png, out/05.png, out/09.png Read 로 검수(3절) → `run.sh publish` → 보고.
+아래 0·4절의 개별 명령은 run.sh 안에 이미 들어 있다(참고용).
 
 ## 0. 준비
 실행 위치는 사용자 PC(Windows)의 `C:\Users\LT01-P022-2301\tipsnack`. 셸은 Bash(Git Bash) 기준.
