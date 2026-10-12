@@ -1,50 +1,104 @@
-# 매일 게시 루틴 (@tip.snack)
+# 정기 게시 지침 (@tip.snack)
 
-매일 07:00, 15:00 KST 에 로컬 예약 작업이 이 문서를 그대로 따른다. 사람 개입 없이 끝까지 진행하고, 실패하면 원인을 남기고 멈춘다.
+매일 07:00, 15:00 KST 에 로컬 예약 작업이 이 문서를 따른다. 슬롯(오전/오후)마다 **캐러셀 1개 + 릴스 1개**를 게시한다.
+사람 개입 없이 끝까지 진행한다. 검수에 실패해 해결하지 못하면 그 슬롯은 게시하지 않고 원인을 보고한다.
 
-## 무승인 실행 규칙 (중요)
-승인 없이 돌도록 허용된 것은 아래 셋뿐이다. **이 외의 명령·도구는 쓰지 않는다** (쓰면 승인 대기로 멈춤).
-- Bash 도구로 `bash /c/Users/LT01-P022-2301/tipsnack/run.sh prepare|render|publish` (정확히 이 형태, 앞에 cd·&& 붙이지 말 것)
-- Read 도구로 `C:\Users\LT01-P022-2301\tipsnack\` 아래 파일 읽기
-- Write 도구로 `C:\Users\LT01-P022-2301\tipsnack\post.json` 쓰기
+계정 콘셉트: **익숙해져도 다정하게. 사랑하는 사람과 오래, 예쁘게 사랑하는 연습.**
+콘텐츠 소개 문구: **매일 한 입, 다정한 사랑 @tip.snack**
 
-순서: `run.sh prepare` (DONE 이면 종료) → 주제 고르고 post.json 작성(1·2절) → `run.sh render` → out/01.png, out/05.png, out/09.png Read 로 검수(3절) → `run.sh publish` → 보고.
-아래 0·4절의 개별 명령은 run.sh 안에 이미 들어 있다(참고용).
+## 1. 사용 가능한 도구 (이 외에는 쓰지 않는다 — 쓰면 승인 대기로 멈춤)
+- Bash: `bash /c/Users/LT01-P022-2301/tipsnack/run.sh prepare` / `render` / `publish` — 정확히 이 형태. 앞뒤에 cd·&&·파이프 금지.
+- Read: `C:\Users\LT01-P022-2301\tipsnack\` 아래 파일. 단 `.env` 는 읽지 않는다 (토큰 점검은 스크립트가 함).
+- Write: `C:\Users\LT01-P022-2301\tipsnack\post.json` 만.
 
-## 0. 준비
-실행 위치는 사용자 PC(Windows)의 `C:\Users\LT01-P022-2301\tipsnack`. 셸은 Bash(Git Bash) 기준.
-- `git pull -q` 로 최신화. 커밋 작성자가 없으면 `git config user.name jbk3407 && git config user.email jbk3407@users.noreply.github.com`.
-- `.env` 에 `IG_TOKEN`, `IG_USER_ID` 가 있어야 한다 (publish.js 가 자동으로 읽음). 없으면 즉시 중단하고 보고. **토큰 값은 절대 출력·커밋하지 않는다.**
-- `node_modules` 가 없으면 `npm ci`. Chrome 은 `C:/Program Files/Google/Chrome/Application/chrome.exe` 를 render.js 가 자동 사용.
-- (클라우드에서 돌릴 경우에만) 환경변수로 토큰을 받고, Chromium 은 `apt-get install -y chromium fonts-noto-cjk fonts-noto-color-emoji` 후 `CHROME` 지정.
-- 게시 슬롯 `$D` = KST 날짜 + 오전/오후: `D=$(date +%F)-$( [ $(date +%H) -lt 12 ] && echo am || echo pm )` (PC 시계가 KST. Git Bash 는 `TZ=Asia/Seoul` 을 무시하므로 쓰지 말 것) (예 `2026-10-09-am`).
-  `posts/$D/published.json` 이 이미 있으면 이 슬롯은 게시 완료 → 아무것도 하지 말고 종료.
+## 2. 순서
+1. `run.sh prepare` → `DONE` 이면 즉시 종료. `HISTORY_ERROR` 가 나오면 이력을 확인했다고 하지 말고 게시 중단·보고.
+2. 출력된 최근 30일 이력을 보고 주제를 고른다 (3절).
+3. `post.json` 을 새 형식(4절)으로 Write. 형식 예시: `examples\practical.post.json`(대화형), `examples\story.post.json`(이야기형). 지난 게시물의 post.json 형식을 베끼지 않는다.
+4. `run.sh render` → 렌더 + 최종 MP4 검수. 실패하면 출력된 이유대로 post.json 을 고쳐 다시 render (슬롯당 최대 3회, 스크립트가 강제).
+5. 육안 검수(5절) → 통과하면 post.json 에 `visualReview` 를 추가해 Write.
+6. `run.sh publish` → 마지막에 출력되는 published.json 의 링크를 보고한다.
 
-## 1. 주제 고르기
-- `posts/*/post.json` 의 `topic` 을 모두 읽어 지금까지 다룬 주제 목록을 만든다. 겹치거나 아주 비슷한 주제는 금지.
-- 카테고리는 아래를 순서대로 돌린다 (직전 게시물과 다른 카테고리, 같은 날 오전·오후도 서로 다르게):
-  업무·디지털(엑셀/윈도우/맥/스마트폰/AI 도구) → 생활·살림 → 자기계발·습관 → 음식·요리 → 여행·외출
-- **금지**: 세금·금리·지원금·법·의료·투자처럼 숫자/제도가 바뀌거나 틀리면 해가 되는 주제, 시사 뉴스, 특정 브랜드 비방, 저작권 있는 문구 인용.
-- 확실히 아는 사실만 쓴다. 단축키·메뉴 이름처럼 검증 가능한 것은 정확해야 한다. 애매하면 그 항목은 빼고 다른 팁으로.
+## 3. 주제 고르기
+카테고리 7개 (category 값은 아래 문자열 그대로):
+- 다정하게 말하기
+- 고마움과 애정 표현
+- 취향과 작은 이야기를 기억하는 배려
+- 평범한 하루의 설렘
+- 서로의 시간과 경계 존중
+- 서운함을 솔직하고 부드럽게 전하기
+- 다툰 뒤 다시 대화하기
 
-## 2. post.json 작성
-루트의 `post.json` 을 오늘 내용으로 덮어쓴다. 형식은 기존 파일과 동일:
-- `topic`: 짧은 주제명
-- `cover`: `kicker`(카테고리 라벨, 예 "업무 꿀팁"), `title`(두 줄, `\n` 으로 구분, 한 줄 9자 이내), `sub`(한 줄)
-- `cards`: 정확히 7개. 각 `keys`(키 모양 배지로 표시됨. 단축키 주제면 키 이름들, 아니면 핵심 키워드 1개, 6자 이내, 이모지 1개 포함 가능), `title`(12자 이내), `desc`(두 줄, 줄당 20자 이내), `example`(25자 이내)
-- `outro`: `title` 은 "오늘의 팁 스낵 끝 🍪" 고정, `sub` 는 주의사항/기준 한두 줄
-- `caption`: 기존과 같은 구조 (후킹 한 줄 → 7개 요약 → 마무리 → "매일 한 입 꿀팁은 @tip.snack" → 해시태그 8~12개, 마지막은 #팁스낵)
+- 직전 게시물과 다른 카테고리. 같은 날 오전·오후도 서로 다르게.
+- 형식(format)은 직전과 다르게 고르는 것을 기본으로 한다: `practical`(다정한 대화형) ↔ `story`(일상 이야기형).
+- 갈등·서운함·다툼 카테고리는 연달아 쓰지 않는다. 설렘·고마움·편안함·즐거운 일상이 중심.
+- 최근 30일 이력의 주제·요약·릴스 첫 문장과 같은 상황·핵심 대사·결론을 재탕하지 않는다. 제목만 바꾼 같은 내용 금지.
+- 과거 꿀팁 게시물(`[과거 꿀팁: …]`)은 이력에 보이지만 새 주제 중복 판단에는 영향 없음.
 
-## 3. 렌더링 + 검수
-- `node render.js` → `out/01.png ~ 09.png`, `out/reel/*.png`
-- `node reel.js` → `out/reel.mp4`
-- **반드시 out/01.png, 05.png, 09.png 를 열어서 직접 본다.** 글자가 박스를 넘치거나, 잘리거나, 네모(□)로 깨지면 post.json 문구를 줄이고 다시 렌더링. 3회 실패하면 중단.
+표현 원칙:
+- 따뜻하고 담백한 한국어, 실제 대화에서 쓸 법한 문장. 추상적 명언보다 구체적인 말과 행동.
+- 번역투·훈계조·억지 감성 문구 금지. "이렇게 하면 관계가 좋아진다" 같은 효과 단정 금지 (예시로 제안).
+- 성별·MBTI·애착유형으로 상대 심리 단정 금지. 밀당·질투 유발·감시·통제를 기술로 다루지 않는다.
+- 일방적 희생·참기를 권하지 않는다. 연구·통계·전문가 발언을 지어내지 않는다.
+- 창작 상황을 실제 사연으로 소개하지 않는다. 유명인 문구·다른 계정 글·실제 사적 대화 사용 금지. 의학적 조언으로 확장 금지.
+- 일부 금칙어(MBTI, 애착유형, 밀당, "연구에 따르면" 등)는 스크립트가 자동으로 막는다.
 
-## 4. 게시
-- `mkdir -p posts/$D && cp out/0*.png out/reel.mp4 out/caption.txt post.json posts/$D/`
-- `git add -A && git commit -m "post: $D <topic>" && git push origin HEAD:main`
-- `node publish.js posts/$D` (Pages 배포를 알아서 기다린 뒤 캐러셀 + 릴스 게시, `published.json` 생성)
-- `git add -A && git commit -m "published: $D" && git push origin HEAD:main`
+## 4. post.json 형식 (version 2)
+```json
+{
+  "version": 2,
+  "topic": "주제명 (24자 이내)",
+  "category": "3절의 카테고리 문자열 중 하나",
+  "format": "practical 또는 story",
+  "summary": "핵심 내용 한 줄 (60자 이내, 다음 주제 중복 판단에 쓰임)",
+  "cover": { "kicker": "작은 라벨 10자", "title": "두 줄\n한 줄 9자 이내", "sub": "한 줄 22자 이내" },
+  "cards": [
+    { "label": "주제 라벨 8자", "title": "12자 이내", "desc": "두 줄 이내\n한 줄 18자", "example": "예문·행동 두 줄 이내\n한 줄 18자" }
+  ],
+  "outro": { "title": "익숙해져도, 다정하게", "sub": "질문 또는 여운, 두 줄 이내\n한 줄 16자" },
+  "caption": "캐러셀 캡션. '매일 한 입, 다정한 사랑 @tip.snack' 포함. 해시태그 2~6개, 내용과 맞는 것만",
+  "reel": {
+    "caption": "릴스 전용 캡션. 캐러셀 캡션과 달라야 함. 번호 목록 요약 금지. 해시태그 4개 이하",
+    "scenes": [
+      { "label": "(선택) 상황 설명 18자", "items": [ { "who": "me", "text": "말풍선 16자" } ], "dur": 3.2 },
+      { "items": [ { "text": "문장 16자" }, { "text": "다음 문장" } ], "dur": 5.0 }
+    ]
+  }
+}
+```
+- `cards` 는 정확히 7개. 서로 다른 팁 7개를 억지로 만들지 말고, **한 주제를 상황 → 표현 → 예문 → 작은 행동** 순으로 풀어낸다. 중복 문장 금지.
+- `reel.scenes`: 4~6개, 장면당 `items` 1~3개. `who` 가 있으면 말풍선(`me` 오른쪽, `you` 왼쪽), 없으면 가운데 문장.
+- 장면 `dur`(초): 2.5~8. 문장마다 (등장 0.4초 + 읽기 0.9초 + 글자당 0.11초) 이상이어야 하며, 부족하면 render 가 거부하고 최소값을 알려 준다. 전체 15~30초(권장 18~25초).
+- 릴스 대본은 캐러셀 요약이 아니다. 한 편에 핵심 메시지 하나. 첫 장면부터 상황이나 핵심 문장. 마지막 장면은 질문 하나 또는 여운 (좋아요·저장·공유·팔로우 요구 금지). 마지막 장면에 소개 문구는 자동으로 붙는다.
+  - practical(대화형): 구체적 상황 1개 + 실제로 쓸 수 있는 대사(말풍선).
+  - story(이야기형): 작은 행동 하나를 짧은 이야기로 (가운데 문장 위주).
+- 릴스 오디오: 무음 (음성·음악 없음). 무음으로도 이해되게 쓴다.
+- `visualReview` 는 render 전에 넣지 않는다 (5절).
 
-## 5. 보고
-마지막 메시지에 주제, 캐러셀/릴스 링크, 문제가 있었다면 그 내용을 짧게 적는다.
+## 5. render 결과 검수
+`run.sh render` 가 만드는 것:
+- 캐러셀: `out\01.png` ~ `out\09.png`
+- 릴스: `out\reel.mp4`
+- 최종 MP4 에서 추출한 프레임: `out\check\scene-1.png` … (장면별), `out\check\motion-a/b/c.png` (문장 등장 전·중·후)
+- 한눈 보기: `out\check\reel-sheet.png`
+- 검수 보고서: `out\check\report.md` (기계 검사 통과/실패, 육안 항목은 '미검증')
+
+render 가 실패(exit 1)하면 보고서의 실패 항목을 고친다. 문구로 해결할 수 있으면 post.json 을 줄이거나 다듬어 다시 render.
+기계 검사가 통과하면 반드시 Read 로 직접 본다:
+- `out\01.png`, `out\05.png`, `out\09.png`
+- `out\check\reel-sheet.png` (작아서 판단이 어려우면 `out\check\scene-N.png`)
+- `out\check\report.md`
+확인할 것: 글자 깨짐(□)·잘림·겹침, 어색한 줄바꿈, 문장 흐름과 순서, 표현 원칙 위반.
+문제가 없으면 post.json 을 Read 한 뒤 아래 필드를 **추가**해 Write (다른 필드는 바꾸지 않음 — 바꾸면 다시 render 해야 함):
+```json
+"visualReview": { "renderId": "report.md 의 renderId", "carousel": "통과", "reel": "통과", "notes": "본 파일과 판단 한 줄" }
+```
+문제가 있으면 post.json 을 고쳐 다시 render 한다 (visualReview 는 새 renderId 로 다시 기록).
+
+## 6. 게시
+`run.sh publish` 는 다음이 모두 맞을 때만 게시한다: 검수 보고서 통과, post.json·출력 파일이 검수한 것과 동일, visualReview 의 renderId 일치.
+- 캐러셀에는 `caption`, 릴스에는 `reel.caption` 이 들어간다.
+- 결과는 `posts\<슬롯>\published.json` 에 기록되고 커밋·푸시된다. 캐러셀만 성공하고 릴스가 실패하면 기록이 남아 다음 실행에서 캐러셀을 다시 올리지 않는다(릴스는 자동 재시도하지 않음 → 보고).
+
+## 7. 보고 (마지막 메시지)
+슬롯 / 카테고리·형식·주제 / 캐러셀 링크 / 릴스 링크 / 렌더 시도 횟수 / 문제점. 게시하지 않았다면 그 이유. 실제로 출력된 링크만 적는다.

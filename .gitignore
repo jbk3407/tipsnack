@@ -1,3 +1,5 @@
 .env
 out/
 node_modules/
+.state/
+drafts/
