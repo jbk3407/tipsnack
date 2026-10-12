@@ -44,7 +44,8 @@ else {
 
   // 3. 장면 시간
   const r = m.reel, bad = [];
-  r.states.forEach(s => { if (!(s.dur >= FADE + 0.5)) bad.push(`${s.file} ${s.dur}s`); });
+  // 입력 중 상태(typing)는 짧게(0.6초 이상), 나머지는 등장+최소 읽기 시간 이상
+  r.states.forEach(s => { if (!(s.dur >= (s.typing ? 0.6 : FADE + 0.5))) bad.push(`${s.file} ${s.dur}s`); });
   if (m.version === 2) post.reel.scenes.forEach((s, i) => {
     const sc = r.scenes[i];
     if (!sc || Math.abs((sc.end - sc.start) - s.dur) > 0.01) bad.push(`장면 ${i + 1} 시간표 불일치`);
@@ -138,6 +139,26 @@ else {
       add('첫 프레임 (시작 상태)', '기계', ok ? '통과' : '실패', `0초 프레임이 ${r.states[0].file} 와 일치(차이 ${d0.toFixed(2)}), 빈 화면 아님(std ${std(f0).toFixed(1)}). out/check/first-frame.png, first-0.6s.png`);
     }
 
+    // 8-2. 전개 속도: 최종 MP4 를 0.25초 간격으로 비교해 화면이 안 바뀌는 가장 긴 구간과 변화 횟수
+    {
+      const W = 108, H = 192, step = 0.25;
+      const raw = ff(['-v', 'error', '-i', mp4, '-vf', `fps=${1 / step},scale=${W}:${H},format=gray`, '-f', 'rawvideo', '-']).stdout;
+      const n = Math.floor(raw.length / (W * H)), fr = i => raw.subarray(i * W * H, (i + 1) * W * H);
+      let runLen = 0, best = 0, bestAt = 0, events = 0, prevStatic = true;
+      for (let i = 1; i < n; i++) {
+        const st = diff(fr(i), fr(i - 1)) < 0.15;
+        if (st) { runLen++; if (runLen > best) { best = runLen; bestAt = i - runLen; } } else { runLen = 0; if (prevStatic) events++; }
+        prevStatic = st;
+      }
+      const longest = (best + 1) * step, perTen = events / (n * step) * 10;
+      const LIMIT = m.legacy || m.version === 1 ? 6 : 5;
+      add('전개 속도 (정지 구간)', '기계', n > 4 && longest <= LIMIT ? '통과' : '실패',
+        `화면이 그대로인 최장 구간 ${longest.toFixed(2)}초(${(bestAt * step).toFixed(2)}초부터, 상한 ${LIMIT}초), 화면 변화 ${events}회(10초당 ${perTen.toFixed(1)}회). 재미 자체는 육안 판단`);
+      // 타임라인 시트: 2초마다 한 장 (전개를 한눈에)
+      const tl = ff(['-v', 'error', '-y', '-i', mp4, '-vf', 'fps=1/2,scale=180:320,tile=10x2:padding=4:color=0x222222', '-frames:v', '1', path.join(dir, 'timeline.png')]).status === 0;
+      add('타임라인 이미지 생성', '기계', tl ? '통과' : '실패', tl ? 'out/check/timeline.png (2초 간격)' : '생성 실패');
+    }
+
     // 9. 검수용 한눈 이미지 (최종 MP4 프레임으로)
     const n = r.scenes.length;
     const inputs = []; r.scenes.forEach(sc => inputs.push('-i', path.join(dir, `scene-${sc.index}.png`)));
@@ -166,7 +187,7 @@ if (m && post && m.version === 2 && !m.legacy) {
 }
 add('표지·첫 장면 육안 검수 (covers.png)', '육안', '미검증', '제목이 먼저 보이는지, 강조어·대비·줄바꿈, 제목이 본문 내용과 맞는지. 흥미·공감은 기계로 판정하지 않음');
 add('캐러셀 육안 검수 (01·05·09.png)', '육안', '미검증', '예약 실행이 Read 로 직접 보고 post.json 의 visualReview 에 기록');
-add('릴스 육안 검수 (reel-sheet.png, scene-*.png)', '육안', '미검증', '같음. 오디오는 무음이라 음성 검수 대상 없음');
+add('릴스 육안 검수 (timeline.png, reel-sheet.png, scene-*.png)', '육안', '미검증', '같음. 오디오는 무음이라 음성 검수 대상 없음');
 
 const ok = checks.filter(c => c.kind === '기계').every(c => c.status === '통과' || (c.status === '미검증' && m && m.version === 1));
 const outputs = {};

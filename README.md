@@ -15,9 +15,10 @@ Instagram @tip.snack 자동 게시. 콘셉트: **익숙해져도 다정하게 �
 - `lib/post.js` — post.json(v2) 스키마 검증(카테고리·감정·표지 스타일·첫 장면 후킹 규칙), 읽기 시간 규칙, 내용 해시, 이력 비교(직전 카테고리·감정 연속·표지 제목·글자 2-gram 유사도 0.3)
 - `render.js` — 캐러셀 9장(`out/01..09.png`) + 릴스 장면 상태(`out/reel/s<장면>-<문장>.png`) + `out/render.json`. Chrome 으로 실제 레이아웃을 재서 글자 넘침을 기록
 - `render.js` 릴스: 말풍선만 있는 장면은 메신저 대화방 화면(연속 장면은 메시지가 쌓임), 나머지는 크림색 카드 화면
+- 릴스 구성 `reel.mode`: `focus`(한 상황 집중, 새 게시물 기본) / `summary`(카드 1~7 요약, 생략 시 기본값·기존 호환). 연출: `typing`(답장 전 '입력 중…' 0.8초), `big`(강조 한 줄). 장면 여유 시간 상한(1.5초, 마지막 2.5초)
 - `reel.js` — 장면 상태를 xfade 로 이어 `out/reel.mp4` (1080x1920, 30fps, H.264, 무음 AAC). 문장이 실제로 페이드인되며 등장
 - `render.js` 표지: bold/dark/bubble 스타일, 제목 크기 자동, 강조어. 같은 디자인으로 릴스 커버 `out/reel-cover.png`. 릴스 첫 장면은 0초부터 완성된 후킹 문장
-- `check.js` — 최종 MP4 검수: 디코딩, 길이=시간표, 규격, 오디오, 장면 프레임=입력, 빈/중복 장면, 움직임, 첫 프레임, 글자 넘침, 이력 비교. `out/check/report.{json,md}`, `scene-N.png`, `motion-*.png`, `first-frame.png`, `reel-sheet.png`, `covers.png`
+- `check.js` — 최종 MP4 검수: 디코딩, 길이=시간표, 규격, 오디오, 장면 프레임=입력, 빈/중복 장면, 움직임, 첫 프레임, 전개 속도(같은 화면 최장 5초), 글자 넘침, 이력 비교. `out/check/report.{json,md}`, `scene-N.png`, `motion-*.png`, `first-frame.png`, `reel-sheet.png`, `covers.png`, `timeline.png`(2초 간격)
 - `publish.js` — 게이트(보고서 통과·해시 일치·육안 검수 renderId) + Instagram Graph API 게시. 캐러셀=`caption.txt`, 릴스=`reel-caption.txt` + 커버 `cover_url`(거부 시 첫 프레임). 부분 성공도 즉시 기록
 - `history.js` — 최근 30일 이력(표지·상황·요약·릴스 흐름·감정, 최근 분포). 읽기 실패는 `HISTORY_ERROR`
 - `examples/*.post.json` — v2 예시 (대화형 / 이야기형)

@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { execFileSync } = require('child_process');
-const { validate, contentHash, FADE, loadHistory, compareHistory } = require('./lib/post');
+const { validate, contentHash, FADE, TYPING, loadHistory, compareHistory } = require('./lib/post');
 
 const CHROME = process.env.CHROME || (process.platform === 'win32'
   ? 'C:/Program Files/Google/Chrome/Application/chrome.exe' : 'chromium');
@@ -238,14 +238,17 @@ const CSS_R = `${CSS2}
 .kb{max-width:600px;font-size:44px;line-height:62px;font-weight:500;padding:20px 30px;border-radius:30px;color:#1E1E1E}
 .cme .kb{background:#FEE500;border-top-right-radius:8px}
 .cyou .kb{background:#fff;border-top-left-radius:8px}
-.tm{font-size:26px;line-height:34px;color:#4E5968;white-space:nowrap}`;
+.tm{font-size:26px;line-height:34px;color:#4E5968;white-space:nowrap}
+.dots{display:inline-flex;gap:12px;align-items:center;height:62px}.dots i{width:16px;height:16px;border-radius:50%;background:#9AA5B1;display:block}.dots i:nth-child(2){opacity:.7}.dots i:nth-child(3){opacity:.45}
+.line.big{font-family:'Noto Sans KR',sans-serif;font-size:84px;line-height:114px;font-weight:900;letter-spacing:-0.03em;color:#C2582F}`;
 
 // 메신저 대화방 화면 (말풍선만 있는 장면). history = 바로 앞의 연속된 대화 장면들 → 위에 남고 새 메시지가 아래에 쌓임
-function chatBody(history, s, si, shown, last, name) {
+// typingAt: 이 장면의 typingAt 번째 메시지 자리에 '입력 중…' 말풍선을 대신 보여 줌 (답장 직전 긴장감)
+function chatBody(history, s, si, shown, last, name, typingAt = -1) {
   const msgs = [];
   const pushScene = (sc, idx, visibleN, current) => {
     if (sc.label) msgs.push({ sys: sc.label, current });
-    sc.items.forEach((it, j) => msgs.push({ ...it, time: `오후 9:${String(12 + idx).padStart(2, '0')}`, hide: j >= visibleN, current }));
+    sc.items.forEach((it, j) => msgs.push({ ...it, time: `오후 9:${String(12 + idx).padStart(2, '0')}`, hide: j >= visibleN && !(current && j === typingAt), dots: current && j === typingAt, current }));
   };
   history.forEach(h => pushScene(h.s, h.si, h.s.items.length, false));
   if (last) msgs.push({ sys: BRAND, current: true });
@@ -256,12 +259,13 @@ function chatBody(history, s, si, shown, last, name) {
     const prev = msgs[i - 1], next = msgs[i + 1];
     const first = !prev || prev.sys || prev.who !== m.who;          // 같은 사람 연속 메시지의 첫 번째
     const tail = !next || next.sys || next.who !== m.who;           // 마지막에만 시간 표시
-    const bf = m.current ? ' data-fit="2"' : '';
-    const tm = tail ? `<span class="tm">${m.time}</span>` : '';
+    const bf = m.current && !m.dots ? ' data-fit="2"' : '';
+    const body = m.dots ? '<span class="dots"><i></i><i></i><i></i></span>' : esc(m.text);
+    const tm = tail && !m.dots ? `<span class="tm">${m.time}</span>` : '';
     const cls = m.hide ? ' hide' : '';
-    if (m.who === 'me') return `<div class="row cme${cls}">${tm}<div class="kb"${bf}>${esc(m.text)}</div></div>`;
+    if (m.who === 'me') return `<div class="row cme${cls}">${tm}<div class="kb"${bf}>${body}</div></div>`;
     return `<div class="row cyou${cls}">${first ? `<div class="av">${esc([...name][0])}</div>` : '<div class="avsp"></div>'}
-      <div class="col">${first ? `<div class="nm">${esc(name)}</div>` : ''}<div class="row"><div class="kb"${bf}>${esc(m.text)}</div>${tm}</div></div></div>`;
+      <div class="col">${first ? `<div class="nm">${esc(name)}</div>` : ''}<div class="row"><div class="kb"${bf}>${body}</div>${tm}</div></div></div>`;
   }).join('');
   return `<div class="chat"><div class="chead"><span class="back">‹</span><span>${esc(name)}</span></div>
     <div class="cbody">${html}</div><div class="cinput">메시지 입력</div></div>`;
@@ -276,7 +280,7 @@ function sceneBody(s, shown, last, hook) {
     const cls = j < shown ? '' : ' hide';
     return it.who
       ? `<div class="b ${it.who}${cls}" data-fit="2">${esc(it.text)}</div>`
-      : `<div class="line${hook ? ' hook' : ''}${cls}" data-fit="2">${hook ? hookMark(it.text) : esc(it.text)}</div>`;
+      : `<div class="line${hook ? ' hook' : it.big ? ' big' : ''}${cls}" data-fit="2">${hook ? hookMark(it.text) : esc(it.text)}</div>`;
   }).join('');
   return `<div class="dot" style="width:520px;height:520px;right:-200px;top:-160px"></div>
     <div class="box">${last ? `<div class="brand" data-fit="1">${esc(BRAND)}</div>` : ''}
@@ -294,24 +298,26 @@ if (isV2) {
     const start = t;
     const chat = isChat(s);
     if (!chat) history = [];
-    const body = k => chat ? chatBody(history, s, si, k, last, chatName) : sceneBody(s, k, last, si === 0);
+    const body = (k, typingAt) => chat ? chatBody(history, s, si, k, last, chatName, typingAt) : sceneBody(s, k, last, si === 0);
     // 문장 k 는 (등장 + 읽기) 시간만큼 머문다. 남는 시간은 마지막 문장에 붙여 여운으로 쓴다.
-    const base = s.items.map(it => FADE + readT(it.text));
-    const extra = s.dur - base.reduce((a, b) => a + b, 0);
-    // 첫 장면(후킹)은 순차 등장 없이 0초부터 전부 보이게: 첫 프레임 = 기본 커버 = 완성된 후킹 문장
-    if (si === 0) {
-      const file = `reel/s1-${s.items.length}.png`;
-      const issues = page(path.join(out, file), 1080, 1920, CSS_R, body(s.items.length), SAFE_R, true);
-      if (issues) manifest.fit.reel.push({ file, issues });
-      states.push({ file, dur: +s.dur.toFixed(3), scene: 1, item: s.items.length, style: chat ? 'chat' : 'card', hook: true });
-      t += s.dur;
-    } else s.items.forEach((_, k) => {
+    const base = s.items.map((it, k) => (si === 0 && k === 0 ? 0 : FADE) + readT(it.text));
+    const extra = s.dur - base.reduce((a, b) => a + b, 0) - (chat ? s.items.filter(it => it.typing).length * TYPING : 0);
+    // 첫 장면(후킹): 첫 문장은 0초에 이미 완성 상태(페이드 없음 → 읽기 시간만 머묾), 둘째 문장(답장·반전)은 곧바로 이어 등장.
+    // 커버는 reel-cover.png(cover_url)가 맡으므로 첫 프레임을 '완성 장면'으로 고정할 필요 없이 초반 리듬을 우선한다
+    s.items.forEach((it, k) => {
+      // typing: 답장 직전 '입력 중…' 상태를 TYPING 초 먼저 보여 준다
+      if (it.typing && chat) {
+        const tf = `reel/s${si + 1}-${k + 1}t.png`;
+        page(path.join(out, tf), 1080, 1920, CSS_R, body(k, k), SAFE_R, false);
+        states.push({ file: tf, dur: TYPING, scene: si + 1, item: k + 1, style: 'chat', typing: true });
+        t += TYPING;
+      }
       const file = `reel/s${si + 1}-${k + 1}.png`;
       const full = k === s.items.length - 1;
       const issues = page(path.join(out, file), 1080, 1920, CSS_R, body(k + 1), SAFE_R, full);
       if (issues) manifest.fit.reel.push({ file, issues });
       const dur = base[k] + (full ? extra : 0);
-      states.push({ file, dur: +dur.toFixed(3), scene: si + 1, item: k + 1, style: chat ? 'chat' : 'card' });
+      states.push({ file, dur: +dur.toFixed(3), scene: si + 1, item: k + 1, style: chat ? 'chat' : 'card', ...(si === 0 ? { hook: true } : {}) });
       t += dur;
     });
     if (chat) history.push({ s, si });

@@ -43,7 +43,7 @@ const expect = (c, m) => { if (!c) throw new Error(m); };
 
 // 1·2. 새 형식 두 시안: 렌더 + 최종 MP4 검수 + 모의 게시 캡션 분리
 const drafts = {};
-for (const [key, file] of [['practical', 'practical.post.json'], ['story', 'story.post.json']]) {
+for (const [key, file] of [['practical', 'practical.post.json'], ['story', 'story.post.json'], ['focus', 'focus.post.json']]) {
   t(`새 형식 렌더·검수 (${key})`, () => {
     const d = ws(example(file), { posts: true }); // 실제 이력과 비교
     const r = pipeline(d);
@@ -220,8 +220,8 @@ t('서로 다른 주제는 통과 (유사도 실측)', () => {
   return `대화형 최대 ${x.s.toFixed(2)}(${x.slot}), 이야기형 최대 ${y.s.toFixed(2)}(${y.slot}), 두 예시끼리 ${ab.toFixed(2)} < ${lib.SIM_LIMIT}`;
 });
 t('이력 규칙: 직전 카테고리·같은 표지 제목·감정 3연속', () => {
-  const b = posted('2026-10-12-extra2');
-  const p1 = example('story.post.json'); p1.category = b.category;               // 직전과 같은 카테고리
+  const lastV2 = require(path.join(SRC, 'lib/post')).loadHistory(SRC).items.filter(h => h.post.version === 2).pop().post;
+  const p1 = example('story.post.json'); p1.category = lastV2.category;          // 직전(가장 최근) 게시물과 같은 카테고리
   const r1 = run(ws(p1, { posts: true }), 'node', ['render.js']);
   expect(r1.code !== 0 && /직전 게시물.*같은 카테고리/.test(r1.out), r1.out);
   const p2 = example('practical.post.json'); p2.cover.title = '고마워 뒤에\n한마디 더'; p2.cover.emphasis = '한마디'; // 이미 쓴 표지 제목
@@ -255,12 +255,52 @@ t('후킹 규칙: 첫 장면·표지', () => {
   for (const [f, re] of cases) { const p = example('story.post.json'); f(p); const r = run(ws(p), 'node', ['render.js']); expect(r.code !== 0 && re.test(r.out), `${re}: ${r.out}`); }
   return `${cases.length}가지 위반 모두 거부`;
 });
-t('첫 프레임 = 완성된 후킹 장면', () => {
-  const d = drafts.story; expect(d, '렌더 실패로 생략');
-  const c = report(d).checks.find(x => x.id === '첫 프레임 (시작 상태)');
+t('첫 장면: 0초에 첫 문장 완성, 둘째 문장 2.2초 안에 등장', () => {
+  const out = [];
+  for (const k of ['story', 'focus']) {
+    const d = drafts[k]; expect(d, `${k} 렌더 실패로 생략`);
+    const c = report(d).checks.find(x => x.id === '첫 프레임 (시작 상태)');
+    const m = JSON.parse(fs.readFileSync(path.join(d, 'out/render.json'), 'utf8'));
+    const s0 = m.reel.states[0];
+    expect(c.status === '통과' && s0.hook && s0.item === 1, c.detail);
+    expect(m.reel.states[1].scene === 1 && s0.dur <= 2.2, `둘째 문장 ${s0.dur}초 뒤`);
+    out.push(`${k}: 둘째 문장 ${s0.dur}초`);
+  }
+  return out.join(', ');
+});
+t('릴스 모드: summary 는 1~7 필수, focus 는 한 상황 집중', () => {
+  const lib = require(path.join(SRC, 'lib/post'));
+  const f = example('focus.post.json');
+  expect(lib.validate(f).errors.length === 0, 'focus 예시 실패');
+  const s = example('focus.post.json'); s.reel.mode = 'summary';
+  expect(lib.validate(s).errors.some(x => /카드 내용을 다루지 않음/.test(x)), 'summary 인데 카드 누락 통과');
+  const old = example('practical.post.json'); delete old.reel.mode;
+  expect(lib.validate(old).errors.length === 0, 'mode 없는 기존 형식(=summary) 실패');
+  const bad = example('focus.post.json'); bad.reel.mode = 'random';
+  expect(lib.validate(bad).errors.some(x => /reel\.mode/.test(x)), '잘못된 mode 통과');
+  return 'focus 통과, focus→summary 시 카드 누락 거부, mode 생략=summary 호환, 잘못된 mode 거부';
+});
+t('typing·big·정지 상한 규칙', () => {
+  const lib = require(path.join(SRC, 'lib/post'));
+  const cases = [
+    [p => { p.reel.scenes[3].items[0].typing = true; }, /typing: 말풍선/],
+    [p => { p.reel.scenes[1].items[0].big = true; }, /big: 가운데 문장/],
+    [p => { p.reel.scenes[0].items[1].typing = true; }, /첫 장면은 0초부터/],
+    [p => { p.reel.scenes[4].dur += 2; }, /화면이 멈춰 보임/],
+    [p => { p.reel.scenes[1].dur -= 0.6; }, /읽기에 짧음/], // typing 0.8초도 필요 시간에 포함
+  ];
+  for (const [f, re] of cases) { const p = example('focus.post.json'); f(p); const e = lib.validate(p).errors; expect(e.some(x => re.test(x)), `${re}: ${e.join(' / ')}`); }
+  return `${cases.length}가지 위반 거부`;
+});
+t('입력 중… 상태와 전개 속도 검사', () => {
+  const d = drafts.focus; expect(d, '렌더 실패로 생략');
   const m = JSON.parse(fs.readFileSync(path.join(d, 'out/render.json'), 'utf8'));
-  expect(c.status === '통과' && m.reel.states[0].hook && m.reel.states[0].item === example('story.post.json').reel.scenes[0].items.length, c.detail);
-  return c.detail.split('.')[0];
+  const typing = m.reel.states.filter(s => s.typing);
+  expect(typing.length === 3 && typing.every(s => s.dur === 0.8), `typing 상태 ${typing.length}개`);
+  const c = report(d).checks.find(x => x.id === '전개 속도 (정지 구간)');
+  expect(c && c.status === '통과', c && c.detail);
+  expect(fs.existsSync(path.join(d, 'out/check/timeline.png')), 'timeline.png 없음');
+  return `typing 상태 ${typing.length}개, ${c.detail.split('.')[0]}`;
 });
 t('기존 v2(새 필드 없음) 호환 렌더 + 게시 거부', () => {
   const d = ws(posted('2026-10-12-extra2'));
