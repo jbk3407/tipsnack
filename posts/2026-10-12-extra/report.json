@@ -1,0 +1,107 @@
+{
+  "ok": true,
+  "renderId": "96d1f64845ce",
+  "inputHash": "fdd6fab670cb1602ca29d13e28a9bdf4ade1f99d38c4da894164fbcd5db9230c",
+  "version": 2,
+  "checkedAt": "2026-10-12T06:44:28.690Z",
+  "outputs": {
+    "01.png": "c152df16542ae4a969230c897548e7ad6e9a4c9f6e1ecfc9a23733345e4017a6",
+    "02.png": "13dc51e291fe825c6daa6eb526988ac277a132b4279023b90f73df2e75d5fab4",
+    "03.png": "1835bb3acfe1d9b66f5e5a934ef8f7e6afb87770bbbcca73163ce4342d3f53ea",
+    "04.png": "62845d47128ec3a15c07038643bae833134a9ff1df0da8bbd2fe44e8b6b6618b",
+    "05.png": "096f9adc2c1b6cbb36004bf6a16a23acea38d0883614e394d447d082e175f277",
+    "06.png": "8850a1a9703a341811e88e62ff24f999a1f3d6d5d33d5f6fa2fefc99a50ab0ad",
+    "07.png": "18d90a8f155405f1278b95fbaeee80ae3b986f77c926efadeb7608f72e5a56f5",
+    "08.png": "6a55659994e139ec495660c6674cabcc319edb27ea135437306971efa1eb76d3",
+    "09.png": "6bf287bec418d66fade0df3c26d8f7d880d948104dabdac58afe97e804a477ce",
+    "caption.txt": "9b9997ffa45f20a3071eb4f3daca79e40336ae578c5c4be01de11ad23b77ec28",
+    "reel-caption.txt": "02e126871e7813b972d6df1481d54b50c62fd87ae87b0f3f9d5ce9fd807066ca",
+    "reel.mp4": "96c3e3212c35c6a99dd7ad54b712fe9e04ac15a25de7e74d3a10edb5b6cda171"
+  },
+  "checks": [
+    {
+      "id": "post.json 필수 필드·형식",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "version 2"
+    },
+    {
+      "id": "렌더 입력 = 현재 post.json",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "renderId 96d1f64845ce"
+    },
+    {
+      "id": "장면 시간 유효성",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "장면 5개 / 상태 8개 / 합계 22.2초"
+    },
+    {
+      "id": "텍스트 넘침·잘림(레이아웃 실측)",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "캐러셀 9장 + 릴스 장면 5개 검사"
+    },
+    {
+      "id": "출력 파일 존재·최신·입력 일치",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "20개 파일"
+    },
+    {
+      "id": "최종 MP4 디코딩",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "전체 프레임 오류 없이 디코딩"
+    },
+    {
+      "id": "영상 길이 = 장면 시간표",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "MP4 22.2초 / 시간표 22.2초"
+    },
+    {
+      "id": "영상 규격 (H.264, 1080x1920, 30fps)",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1080x1920 [SAR 1:1 DAR 9:16], 143 kb/s, 30 fps, 30 tbr, 15"
+    },
+    {
+      "id": "오디오",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "무음 AAC 트랙 (소리 없음, 음성·음악 미사용)"
+    },
+    {
+      "id": "MP4 장면 구성 = 입력 장면 (누락·빈 장면 없음)",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "장면 5개 모두 일치"
+    },
+    {
+      "id": "움직임(문장 등장 애니메이션)",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "reel/s2-2.png 등장 5.49초 전후 프레임 차이 전→중 0.29, 중→후 0.29, 전→후 0.58 (중간 프레임이 양쪽과 달라야 함)"
+    },
+    {
+      "id": "검수용 이미지 생성 (MP4 프레임)",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "out/check/reel-sheet.png"
+    },
+    {
+      "id": "캐러셀 육안 검수 (01·05·09.png)",
+      "kind": "육안",
+      "status": "미검증",
+      "detail": "예약 실행이 Read 로 직접 보고 post.json 의 visualReview 에 기록"
+    },
+    {
+      "id": "릴스 육안 검수 (reel-sheet.png, scene-*.png)",
+      "kind": "육안",
+      "status": "미검증",
+      "detail": "같음. 오디오는 무음이라 음성 검수 대상 없음"
+    }
+  ]
+}
