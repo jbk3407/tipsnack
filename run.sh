@@ -32,7 +32,7 @@ case "${1:-}" in
     if [ -f "posts/$D/published.json" ]; then echo "이미 게시됨: $D"; exit 0; fi
     node publish.js --gate
     mkdir -p "posts/$D"
-    cp out/0*.png out/reel.mp4 out/caption.txt out/reel-caption.txt out/check/report.json out/check/report.md post.json "posts/$D/"
+    cp out/0*.png out/reel.mp4 out/reel-cover.png out/caption.txt out/reel-caption.txt out/check/report.json out/check/report.md post.json "posts/$D/"
     git add "posts/$D" post.json && git commit -qm "post: $D $(node -p "require('./post.json').topic")" && git push -q origin HEAD:main
     rc=0; node publish.js "posts/$D" || rc=$?
     if [ -f "posts/$D/published.json" ]; then

@@ -21,6 +21,7 @@ function gate(dir) {
   const rep = JSON.parse(fs.readFileSync(rp, 'utf8'));
   if (!rep.ok) return '검수 보고서가 실패 상태';
   if (rep.version !== 2) return '새 형식(version 2)만 게시 가능';
+  if (rep.legacy) return '호환 렌더(TIPSNACK_ALLOW_LEGACY) 결과는 게시 불가';
   const post = JSON.parse(fs.readFileSync(path.join(dir, dir === OUT ? '../post.json' : 'post.json'), 'utf8'));
   if (contentHash(post) !== rep.inputHash) return 'post.json 이 검수한 렌더 이후 바뀜 → 다시 render';
   for (const [f, h] of Object.entries(rep.outputs)) {
@@ -88,11 +89,12 @@ const publish = async id => {
   const imgs = fs.readdirSync(dir).filter(f => /^\d+\.png$/.test(f)).sort();
   if (DRY) {
     if (!rec.carousel) { rec.carousel = 'DRY-RUN'; console.log(`[DRY] CAROUSEL ${imgs.length}장, caption.txt:\n${caption}\n`); save(); }
-    if (!rec.reel) { rec.reel = 'DRY-RUN'; console.log(`[DRY] REELS reel.mp4, reel-caption.txt:\n${reelCaption}`); save(); }
+    if (!rec.reel) { rec.reel = 'DRY-RUN'; console.log(`[DRY] REELS reel.mp4, cover=${fs.existsSync(path.join(dir, 'reel-cover.png')) ? 'reel-cover.png' : '첫 프레임'}, reel-caption.txt:\n${reelCaption}`); save(); }
     return;
   }
   // 방금 push 한 경우 GitHub Pages 배포를 기다림 (최대 10분)
-  const files = [...imgs, 'reel.mp4'];
+  const hasCover = fs.existsSync(path.join(dir, 'reel-cover.png'));
+  const files = [...imgs, 'reel.mp4', ...(hasCover ? ['reel-cover.png'] : [])];
   for (let i = 0; ; i++) {
     const codes = await Promise.all(files.map(f => fetch(url(f), { method: 'HEAD' }).then(r => r.status)));
     if (codes.every(c => c === 200)) break;
@@ -109,7 +111,14 @@ const publish = async id => {
     console.log('캐러셀 게시:', rec.carousel);
   }
   if (!rec.reel) {
-    const reel = await api('POST', `${IG_USER_ID}/media`, { media_type: 'REELS', video_url: url('reel.mp4'), caption: reelCaption, share_to_feed: 'true' });
+    const params = { media_type: 'REELS', video_url: url('reel.mp4'), caption: reelCaption, share_to_feed: 'true' };
+    let reel;
+    // 커버 이미지 지정(cover_url). 거부되면 커버 없이(=첫 프레임) 다시 만든다. 첫 프레임도 후킹 장면이라 차선책
+    if (hasCover) {
+      try { reel = await api('POST', `${IG_USER_ID}/media`, { ...params, cover_url: url('reel-cover.png') }); rec.reelCover = 'cover_url'; }
+      catch (err) { console.log('cover_url 거부, 첫 프레임 커버로 진행:', err.message); rec.reelCover = `첫 프레임 (cover_url 거부: ${err.message})`; }
+    }
+    if (!reel) reel = await api('POST', `${IG_USER_ID}/media`, params);
     rec.reel = await publish(reel.id);
     save();
     console.log('릴스 게시:', rec.reel);

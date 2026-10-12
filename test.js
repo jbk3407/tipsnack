@@ -15,7 +15,9 @@ const results = [];
 function ws(post, { posts = false } = {}) {
   const d = fs.mkdtempSync(path.join(os.tmpdir(), 'tipsnack-test-'));
   for (const f of CODE) fs.cpSync(path.join(SRC, f), path.join(d, f), { recursive: true });
+  // 이력은 필수(없으면 HISTORY_ERROR). posts=true 면 실제 게시 기록 복사, 아니면 빈 폴더
   if (posts) fs.cpSync(path.join(SRC, 'posts'), path.join(d, 'posts'), { recursive: true });
+  else fs.mkdirSync(path.join(d, 'posts'));
   if (post) fs.writeFileSync(path.join(d, 'post.json'), JSON.stringify(post, null, 2));
   return d;
 }
@@ -43,7 +45,7 @@ const expect = (c, m) => { if (!c) throw new Error(m); };
 const drafts = {};
 for (const [key, file] of [['practical', 'practical.post.json'], ['story', 'story.post.json']]) {
   t(`새 형식 렌더·검수 (${key})`, () => {
-    const d = ws(example(file));
+    const d = ws(example(file), { posts: true }); // 실제 이력과 비교
     const r = pipeline(d);
     expect(r.code === 0, `${r.step} 실패: ${r.out}`);
     const rep = report(d);
@@ -56,7 +58,7 @@ for (const [key, file] of [['practical', 'practical.post.json'], ['story', 'stor
     review(d);
     expect(run(d, 'node', ['publish.js', '--gate']).code === 0, '게이트 실패');
     const slot = path.join(d, 'posts', 'test-slot'); fs.mkdirSync(slot, { recursive: true });
-    for (const f of [...fs.readdirSync(path.join(d, 'out')).filter(f => /^\d+\.png$/.test(f)), 'reel.mp4', 'caption.txt', 'reel-caption.txt'])
+    for (const f of [...fs.readdirSync(path.join(d, 'out')).filter(f => /^\d+\.png$/.test(f)), 'reel.mp4', 'reel-cover.png', 'caption.txt', 'reel-caption.txt'])
       fs.copyFileSync(path.join(d, 'out', f), path.join(slot, f));
     for (const f of ['report.json', 'report.md']) fs.copyFileSync(path.join(d, 'out/check', f), path.join(slot, f));
     fs.copyFileSync(path.join(d, 'post.json'), path.join(slot, 'post.json'));
@@ -66,7 +68,8 @@ for (const [key, file] of [['practical', 'practical.post.json'], ['story', 'stor
     const [car, reel] = r.out.split('[DRY] REELS');
     expect(car.includes(p.caption) && !car.includes(p.reel.caption), '캐러셀에 캐러셀 캡션이 안 감');
     expect(reel.includes(p.reel.caption) && !reel.includes(p.caption), '릴스에 릴스 캡션이 안 감');
-    return '캐러셀=caption, 릴스=reel.caption';
+    expect(/cover=reel-cover\.png/.test(reel), '릴스 커버 이미지가 지정되지 않음');
+    return '캐러셀=caption, 릴스=reel.caption, 릴스 커버=reel-cover.png';
   });
 }
 
@@ -195,12 +198,88 @@ t('최근 30일 이력 + 읽기 실패 표시', () => {
   return `${ok.out.split('\n')[0]} / 깨진 파일·폴더 없음 → HISTORY_ERROR`;
 });
 
+// 12. 중복 방지: 이미 게시된 이야기(2026-10-12-extra2, 편의점 과자)를 소재만 바꾼 변형은 거부
+const posted = slot => JSON.parse(fs.readFileSync(path.join(SRC, 'posts', slot, 'post.json'), 'utf8'));
+t('중복 변형(과자→빵) 거부', () => {
+  const b = posted('2026-10-12-extra2');
+  const p = JSON.parse(JSON.stringify(b).replace(/편의점/g, '빵집').replace(/과자/g, '빵'));
+  delete p.visualReview;
+  Object.assign(p, { category: '고마움과 애정 표현', topic: '네가 좋아하는 빵', emotion: '고마움', situation: '빵집에 들렀다가 상대가 좋아하는 빵을 하나 더 사 온 날' });
+  Object.assign(p.cover, { style: 'bold', title: '빵 하나\n더 샀어' });
+  const r = run(ws(p, { posts: true }), 'node', ['render.js']);
+  expect(r.code !== 0 && /2026-10-12-extra2.*너무 비슷함/.test(r.out), r.out);
+  return r.out.split('\n').find(l => /너무 비슷함/.test(l)).trim();
+});
+t('서로 다른 주제는 통과 (유사도 실측)', () => {
+  const lib = require(path.join(SRC, 'lib/post'));
+  const h = lib.loadHistory(SRC).items;
+  const a = example('practical.post.json'), s = example('story.post.json');
+  const top = p => lib.compareHistory(p, h).nearest[0];
+  const x = top(a), y = top(s), ab = lib.similarity(a, s);
+  expect(x.s < lib.SIM_LIMIT && y.s < lib.SIM_LIMIT && ab < lib.SIM_LIMIT, '비중복이 상한을 넘음');
+  return `대화형 최대 ${x.s.toFixed(2)}(${x.slot}), 이야기형 최대 ${y.s.toFixed(2)}(${y.slot}), 두 예시끼리 ${ab.toFixed(2)} < ${lib.SIM_LIMIT}`;
+});
+t('이력 규칙: 직전 카테고리·같은 표지 제목·감정 3연속', () => {
+  const b = posted('2026-10-12-extra2');
+  const p1 = example('story.post.json'); p1.category = b.category;               // 직전과 같은 카테고리
+  const r1 = run(ws(p1, { posts: true }), 'node', ['render.js']);
+  expect(r1.code !== 0 && /직전 게시물.*같은 카테고리/.test(r1.out), r1.out);
+  const p2 = example('practical.post.json'); p2.cover.title = '고마워 뒤에\n한마디 더'; p2.cover.emphasis = '한마디'; // 이미 쓴 표지 제목
+  const r2 = run(ws(p2, { posts: true }), 'node', ['render.js']);
+  expect(r2.code !== 0 && /cover\.title 이 2026-10-12-extra/.test(r2.out), r2.out);
+  const lib = require(path.join(SRC, 'lib/post'));
+  const fake = e => ({ slot: '2099-01-0' + e.length, post: { ...example('story.post.json'), topic: e, category: '고마움과 애정 표현', emotion: '설렘', summary: e, situation: e, cards: [], reel: { scenes: [] }, cover: { title: e } } });
+  const c = lib.compareHistory(example('story.post.json'), [fake('가'), fake('나나')]);
+  expect(c.errors.some(x => /3연속/.test(x)), JSON.stringify(c.errors));
+  return '세 가지 모두 거부';
+});
+t('이력 읽기 실패 시 렌더 중단', () => {
+  const d = ws(example('story.post.json'), { posts: true });
+  fs.writeFileSync(path.join(d, 'posts/2026-10-12-extra/post.json'), '{broken');
+  const r = run(d, 'node', ['render.js']);
+  expect(r.code !== 0 && /HISTORY_ERROR/.test(r.out), r.out);
+  const d2 = ws(example('story.post.json')); fs.rmSync(path.join(d2, 'posts'), { recursive: true });
+  const r2 = run(d2, 'node', ['render.js']);
+  expect(r2.code !== 0 && /HISTORY_ERROR/.test(r2.out), r2.out);
+  return '깨진 기록·posts 없음 → HISTORY_ERROR';
+});
+t('후킹 규칙: 첫 장면·표지', () => {
+  const cases = [
+    [p => { p.reel.scenes[0].card = 2; }, /첫 장면은 1번 카드/],
+    [p => { p.reel.scenes[0].items[0].text = '주말 아침에 먼저 일어났는데'; }, /14자 이하/],
+    [p => { p.cover.emphasis = '없는말'; }, /cover\.emphasis/],
+    [p => { p.cover.title = p.topic.slice(0, 9); p.topic = p.cover.title; delete p.cover.emphasis; }, /주제명을 그대로/],
+    [p => { p.cover.style = 'neon'; }, /cover\.style/],
+    [p => { delete p.situation; }, /situation/],
+  ];
+  for (const [f, re] of cases) { const p = example('story.post.json'); f(p); const r = run(ws(p), 'node', ['render.js']); expect(r.code !== 0 && re.test(r.out), `${re}: ${r.out}`); }
+  return `${cases.length}가지 위반 모두 거부`;
+});
+t('첫 프레임 = 완성된 후킹 장면', () => {
+  const d = drafts.story; expect(d, '렌더 실패로 생략');
+  const c = report(d).checks.find(x => x.id === '첫 프레임 (시작 상태)');
+  const m = JSON.parse(fs.readFileSync(path.join(d, 'out/render.json'), 'utf8'));
+  expect(c.status === '통과' && m.reel.states[0].hook && m.reel.states[0].item === example('story.post.json').reel.scenes[0].items.length, c.detail);
+  return c.detail.split('.')[0];
+});
+t('기존 v2(새 필드 없음) 호환 렌더 + 게시 거부', () => {
+  const d = ws(posted('2026-10-12-extra2'));
+  const r = pipeline(d, { TIPSNACK_ALLOW_LEGACY: '1' });
+  expect(r.code === 0, `${r.step}: ${r.out}`);
+  expect(report(d).legacy === true, 'legacy 표시 없음');
+  review(d);
+  const g = run(d, 'node', ['publish.js', '--gate']);
+  expect(g.code !== 0 && /호환 렌더/.test(g.out), g.out);
+  expect(run(ws(posted('2026-10-12-extra2')), 'node', ['render.js']).code !== 0, '예약 경로에서 새 필드 없는 v2 가 렌더됨');
+  return '호환 렌더 OK, 게이트·예약 경로 거부';
+});
+
 // 시안 보관 (개발 출력 경로)
 if (process.argv.includes('--drafts')) for (const [k, d] of Object.entries(drafts)) {
   const dst = path.join(SRC, 'drafts', k);
   fs.rmSync(dst, { recursive: true, force: true });
   // 테스트 7·8 에서 post.json 을 건드렸으므로 원본 예시로 다시 렌더한 결과를 저장
-  const fresh = ws(example(`${k}.post.json`));
+  const fresh = ws(example(`${k}.post.json`), { posts: true });
   const r = pipeline(fresh);
   fs.cpSync(path.join(fresh, 'out'), dst, { recursive: true });
   fs.copyFileSync(path.join(fresh, 'post.json'), path.join(dst, 'post.json'));

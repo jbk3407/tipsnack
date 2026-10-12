@@ -6,7 +6,7 @@ const path = require('path');
 const crypto = require('crypto');
 const { spawnSync } = require('child_process');
 const ffmpeg = process.env.FFMPEG || require('ffmpeg-static');
-const { validate, contentHash, sceneMinDur, FADE } = require('./lib/post');
+const { validate, contentHash, sceneMinDur, FADE, loadHistory, compareHistory } = require('./lib/post');
 
 const root = __dirname;
 const out = path.join(root, 'out');
@@ -36,7 +36,7 @@ try { post = JSON.parse(fs.readFileSync(path.join(root, 'post.json'), 'utf8')); 
 if (!m || !post) add('입력', '기계', '실패', 'out/render.json 또는 post.json 을 읽지 못함');
 else {
   // 1. post.json 형식
-  const v = validate(post, { allowLegacy: m.version === 1 });
+  const v = validate(post, { allowLegacy: m.version === 1 || !!m.legacy });
   add('post.json 필수 필드·형식', '기계', v.errors.length ? '실패' : '통과', v.errors.join(' / ') || `version ${v.version}` + (v.warnings.length ? ` (경고: ${v.warnings.join(', ')})` : ''));
   // 2. 렌더에 쓴 입력과 현재 post.json 이 같은가 (문구 수정 후 재렌더 없이 게시 방지)
   add('렌더 입력 = 현재 post.json', '기계', contentHash(post) === m.inputHash ? '통과' : '실패',
@@ -62,7 +62,8 @@ else {
 
   // 5. 출력 파일 존재 + 이번 렌더 이후 생성됐는지
   const t0 = Date.parse(m.createdAt) - 2000;
-  const outs = [...m.carousel, ...r.states.map(s => s.file), 'caption.txt', 'reel-caption.txt', 'reel.mp4'];
+  const outs = [...m.carousel, ...r.states.map(s => s.file), 'caption.txt', 'reel-caption.txt', 'reel.mp4', ...(m.reelCover ? [m.reelCover] : [])];
+  if (m.version === 2 && !m.legacy && !m.reelCover) outs.push('reel-cover.png(미생성)');
   const missing = outs.filter(f => !fs.existsSync(path.join(out, f)) || fs.statSync(path.join(out, f)).mtimeMs < t0);
   const expectN = (post.cards || []).length + 2;
   if (m.carousel.length !== expectN) missing.push(`캐러셀 ${m.carousel.length}장(기대 ${expectN})`);
@@ -126,23 +127,51 @@ else {
         `${r.states[k].file} 등장 ${tb.toFixed(2)}초 전후 프레임 차이 전→중 ${ab.toFixed(2)}, 중→후 ${bc.toFixed(2)}, 전→후 ${ac.toFixed(2)} (중간 프레임이 양쪽과 달라야 함)`);
     }
 
+    // 8-1. 첫 프레임: 커버를 따로 못 쓸 때 Instagram 이 쓰는 화면. 빈 화면이 아니고 첫 장면 첫 상태와 같아야 함
+    const f0 = gray(mp4, 0), s0 = gray(path.join(out, r.states[0].file));
+    png(0, 'first-frame.png'); png(Math.min(0.6, r.total), 'first-0.6s.png');
+    if (!f0 || !s0) add('첫 프레임 (시작 상태)', '기계', '실패', '프레임 추출 실패');
+    else {
+      const others = r.states.slice(1).map(st => gray(path.join(out, st.file))).filter(Boolean);
+      const d0 = diff(f0, s0), closest = Math.min(...others.map(o => diff(f0, o)), Infinity);
+      const ok = std(f0) >= 3 && d0 <= closest;
+      add('첫 프레임 (시작 상태)', '기계', ok ? '통과' : '실패', `0초 프레임이 ${r.states[0].file} 와 일치(차이 ${d0.toFixed(2)}), 빈 화면 아님(std ${std(f0).toFixed(1)}). out/check/first-frame.png, first-0.6s.png`);
+    }
+
     // 9. 검수용 한눈 이미지 (최종 MP4 프레임으로)
     const n = r.scenes.length;
     const inputs = []; r.scenes.forEach(sc => inputs.push('-i', path.join(dir, `scene-${sc.index}.png`)));
     const tiles = r.scenes.map((_, i) => `[${i}:v]scale=360:640[t${i}]`).join(';') + ';' + r.scenes.map((_, i) => `[t${i}]`).join('') + `hstack=inputs=${n}`;
     const sheet = n > 1 ? ff(['-v', 'error', '-y', ...inputs, '-filter_complex', tiles, path.join(dir, 'reel-sheet.png')]).status === 0 : false;
     add('검수용 이미지 생성 (MP4 프레임)', '기계', sheet ? '통과' : '실패', sheet ? 'out/check/reel-sheet.png' : '생성 실패');
+    // 표지 한눈 보기: 캐러셀 표지 | 릴스 커버 | 영상 첫 프레임
+    if (m.reelCover && fs.existsSync(path.join(out, m.reelCover))) {
+      const ok = ff(['-v', 'error', '-y', '-i', path.join(out, m.carousel[0]), '-i', path.join(out, m.reelCover), '-i', path.join(dir, 'first-frame.png'),
+        '-filter_complex', '[0]scale=512:640,pad=512:910:0:135:color=0xEEE6DB[a];[1]scale=512:910[b];[2]scale=512:910[c];[a][b][c]hstack=3', path.join(dir, 'covers.png')]).status === 0;
+      add('표지 검수 이미지 생성', '기계', ok ? '통과' : '실패', ok ? 'out/check/covers.png (캐러셀 표지 | 릴스 커버 | 첫 프레임)' : '생성 실패');
+    }
   }
 }
 
 // 사람이 직접 봐야 하는 항목: 자동 통과시키지 않는다
+// 이력 비교 결과 (렌더 때와 같은 규칙을 다시 적용)
+if (m && post && m.version === 2 && !m.legacy) {
+  try {
+    const h = loadHistory(root);
+    const c = compareHistory(post, h.items);
+    const bad = [...h.errors, ...c.errors];
+    add('기존 게시물과 중복·이력 규칙', '기계', bad.length ? '실패' : '통과',
+      bad.join(' / ') || `${h.items.length}건과 비교, 가장 비슷한 ${c.nearest.map(x => `${x.slot} ${x.s.toFixed(2)}`).join(', ') || '없음'} (글자 기준 유사도: 의미가 같은지는 육안 판단)`);
+  } catch (err) { add('기존 게시물과 중복·이력 규칙', '기계', '실패', 'HISTORY_ERROR ' + err.message); }
+}
+add('표지·첫 장면 육안 검수 (covers.png)', '육안', '미검증', '제목이 먼저 보이는지, 강조어·대비·줄바꿈, 제목이 본문 내용과 맞는지. 흥미·공감은 기계로 판정하지 않음');
 add('캐러셀 육안 검수 (01·05·09.png)', '육안', '미검증', '예약 실행이 Read 로 직접 보고 post.json 의 visualReview 에 기록');
 add('릴스 육안 검수 (reel-sheet.png, scene-*.png)', '육안', '미검증', '같음. 오디오는 무음이라 음성 검수 대상 없음');
 
 const ok = checks.filter(c => c.kind === '기계').every(c => c.status === '통과' || (c.status === '미검증' && m && m.version === 1));
 const outputs = {};
-if (m) for (const f of [...m.carousel, 'caption.txt', 'reel-caption.txt', 'reel.mp4']) if (fs.existsSync(path.join(out, f))) outputs[f] = sha(path.join(out, f));
-const report = { ok, renderId: m && m.renderId, inputHash: m && m.inputHash, version: m && m.version, checkedAt: new Date().toISOString(), outputs, checks };
+if (m) for (const f of [...m.carousel, 'caption.txt', 'reel-caption.txt', 'reel.mp4', ...(m.reelCover ? [m.reelCover] : [])]) if (fs.existsSync(path.join(out, f))) outputs[f] = sha(path.join(out, f));
+const report = { ok, renderId: m && m.renderId, inputHash: m && m.inputHash, version: m && m.version, legacy: !!(m && m.legacy), checkedAt: new Date().toISOString(), outputs, checks };
 fs.writeFileSync(path.join(dir, 'report.json'), JSON.stringify(report, null, 2));
 const md = [`# 렌더 검수 보고서`, '', `- 결과: **${ok ? '기계 검사 통과' : '실패 — 게시 불가'}**`, `- renderId: \`${report.renderId}\``,
   `- 검수 시각: ${report.checkedAt}`, '', '| 구분 | 항목 | 결과 | 내용 |', '|---|---|---|---|',

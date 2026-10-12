@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { execFileSync } = require('child_process');
-const { validate, contentHash, FADE } = require('./lib/post');
+const { validate, contentHash, FADE, loadHistory, compareHistory } = require('./lib/post');
 
 const CHROME = process.env.CHROME || (process.platform === 'win32'
   ? 'C:/Program Files/Google/Chrome/Application/chrome.exe' : 'chromium');
@@ -15,11 +15,27 @@ const root = __dirname;
 const out = path.join(root, 'out');
 const post = JSON.parse(fs.readFileSync(path.join(root, 'post.json'), 'utf8'));
 
-const v = validate(post, { allowLegacy: process.env.TIPSNACK_ALLOW_LEGACY === '1' });
+const LEGACY = process.env.TIPSNACK_ALLOW_LEGACY === '1';
+const v = validate(post, { allowLegacy: LEGACY });
 v.warnings.forEach(x => console.log('경고:', x));
 if (v.errors.length) {
   console.error('post.json 검증 실패 (렌더하지 않음):\n- ' + v.errors.join('\n- '));
   process.exit(1);
+}
+// 이력 비교: 직전과 같은 카테고리, 감정 3연속, 같은 표지 제목, 내용 유사도 초과는 렌더하지 않는다
+let historyInfo = null;
+if (v.version === 2 && !LEGACY) {
+  let hist;
+  try { hist = loadHistory(root); } catch (err) { console.error(`HISTORY_ERROR posts 폴더를 읽지 못함: ${err.message}`); process.exit(1); }
+  if (hist.errors.length) { console.error(`HISTORY_ERROR 읽기 실패: ${hist.errors.join(', ')}`); process.exit(1); }
+  const cmp = compareHistory(post, hist.items);
+  cmp.warnings.forEach(x => console.log('경고:', x));
+  if (cmp.errors.length) {
+    console.error('기존 게시물과 겹침/이력 규칙 위반 (렌더하지 않음):\n- ' + cmp.errors.join('\n- '));
+    process.exit(1);
+  }
+  historyInfo = { compared: hist.items.length, nearest: cmp.nearest };
+  console.log(`이력 비교: ${hist.items.length}건, 가장 비슷한 게시물 ${cmp.nearest.map(x => `${x.slot} ${x.s.toFixed(2)}`).join(', ') || '없음'}`);
 }
 fs.mkdirSync(path.join(out, 'reel'), { recursive: true });
 
@@ -65,6 +81,7 @@ const manifest = {
   createdAt: new Date().toISOString(),
   version: v.version,
   inputHash: contentHash(post),
+  legacy: LEGACY, history: historyInfo,
   carousel: [], fit: { carousel: [], reel: [] }, reel: null,
 };
 
@@ -80,17 +97,45 @@ body{overflow:hidden;font-family:'Noto Sans KR','Malgun Gothic',sans-serif;backg
 .dot{position:absolute;border-radius:50%;background:#F1E3D3}`;
 const SAFE_C = [80, 80, 1000, 1240];
 
+// ───────── 표지 (캐러셀 1장 + 릴스 커버 공용). 제목이 가장 먼저 보이도록 크게, 라벨·부제는 작게.
+// style: bold(크림 바탕) / dark(진한 갈색 바탕, 고대비) / bubble(제목을 노란 말풍선으로). emphasis 는 강조색+형광펜
+const COVER = {
+  bold:   { bg: '#FBF5EC', ink: '#2B1D15', em: '#C2582F', mark: '#F7D7B5', kicker: '#A88B76', sub: '#6E5646', dot: '#F1E3D3' },
+  dark:   { bg: '#35251C', ink: '#FFF4E6', em: '#FFC56E', mark: 'transparent', kicker: '#CDAE95', sub: '#E6D3C1', dot: '#4A3529' },
+  bubble: { bg: '#FBF5EC', ink: '#1E1E1E', em: '#B4441F', mark: 'transparent', kicker: '#A88B76', sub: '#6E5646', dot: '#F1E3D3' },
+};
+// 제목 한 줄의 대략적인 폭(em): 한글 1, 공백 0.32, 영문·숫자·문장부호 0.55
+const emw = l => [...l].reduce((s, ch) => s + (ch === ' ' ? 0.32 : /[\x21-\x7e“”‘’…·]/.test(ch) ? 0.55 : 1), 0);
+function coverBody(p, H, footHtml) {
+  const c = p.cover, st = c.style || 'bold', k = COVER[st] || COVER.bold;
+  const tall = H > 1400;
+  const lines = c.title.split('\n');
+  const maxW = st === 'bubble' ? 800 : 900;
+  // 짧은 제목일수록 크게 (최대 168/180px). 실제 넘침은 data-fit 이 다시 잰다
+  const size = Math.min(tall ? 180 : 168, Math.floor(maxW / (Math.max(...lines.map(emw)) * 0.97)));
+  const mark = s => (c.emphasis && s.includes(c.emphasis))
+    ? esc(s).replace(esc(c.emphasis), `<span style="color:${k.em};background:linear-gradient(transparent 60%, ${k.mark} 60%)">${esc(c.emphasis)}</span>`) : esc(s);
+  const title = `<h1 data-fit="${lines.length}" style="font-size:${size}px;line-height:${Math.round(size * 1.16)}px;font-weight:900;letter-spacing:-0.03em;color:${k.ink}">${lines.map(mark).join('<br>')}</h1>`;
+  const head = st === 'bubble'
+    ? `<div style="display:flex;align-items:center;gap:18px;margin-bottom:26px"><div style="width:76px;height:76px;border-radius:30px;background:#F1E3D3;color:#C2714F;font-size:34px;font-weight:900;display:flex;align-items:center;justify-content:center">${esc([...(p.reel && p.reel.chatName || '너')][0])}</div>
+        <span style="font-size:32px;color:${k.kicker};font-weight:700">${esc(c.kicker)}</span></div>
+       <div style="align-self:flex-start;background:#FEE500;border-radius:56px;border-top-left-radius:12px;padding:44px 56px;box-shadow:0 10px 0 rgba(0,0,0,.06)">${title}</div>`
+    : `<div data-fit="1" style="font-size:32px;line-height:44px;font-weight:700;letter-spacing:0.08em;color:${k.kicker};margin-bottom:34px">— ${esc(c.kicker)}</div>${title}`;
+  const top = tall ? 360 : 110, bottom = tall ? 420 : 250;
+  return `<div style="position:absolute;inset:0;background:${k.bg}"></div>
+    <div class="dot" style="width:560px;height:560px;right:-230px;top:-200px;background:${k.dot}"></div>
+    <div style="position:absolute;left:90px;right:90px;top:${top}px;bottom:${bottom}px;display:flex;flex-direction:column;justify-content:center">
+      ${head}
+      <p data-fit="1" style="font-size:${tall ? 44 : 40}px;line-height:${tall ? 62 : 56}px;font-weight:500;margin-top:44px;color:${k.sub}">${esc(c.sub)}</p>
+    </div>${footHtml(k)}`;
+}
+
 function carouselV2(p) {
   const total = p.cards.length + 2;
   const foot = i => `<div class="foot"><span>${HANDLE}</span><span>${i} / ${total}</span></div>`;
   return [
-    `<div class="dot" style="width:620px;height:620px;right:-220px;top:-180px"></div>
-     <div style="position:absolute;left:90px;right:90px;top:330px">
-       <span class="pill" data-fit="1">${esc(p.cover.kicker)}</span>
-       <h1 data-fit="2" style="font-size:118px;line-height:150px;font-weight:900;margin-top:56px;letter-spacing:-3px">${esc(p.cover.title)}</h1>
-       <p data-fit="1" style="font-size:44px;line-height:64px;font-weight:500;margin-top:48px;color:#7A6252">${esc(p.cover.sub)}</p>
-     </div>
-     <div style="position:absolute;right:90px;top:1110px;font-size:38px;line-height:56px;font-weight:700;color:#C2714F">옆으로 넘겨 보세요 →</div>${foot(1)}`,
+    coverBody(p, 1350, k => `<div style="position:absolute;right:90px;top:1110px;font-size:38px;line-height:56px;font-weight:700;color:${k.em}">옆으로 넘겨 보세요 →</div>
+      <div class="foot" style="color:${k.kicker}"><span>${HANDLE}</span><span>1 / ${total}</span></div>`),
     // 카드: 위쪽 진행 막대(흐름 위치) + 아래쪽 연결 문장(bridge → 다음 장)으로 한 이야기처럼 이어지게
     ...p.cards.map((c, i) => `
      <div class="dot" style="width:420px;height:420px;right:-170px;top:-150px"></div>
@@ -177,6 +222,7 @@ const CSS_R = `${CSS2}
 .me{align-self:flex-end;background:#C2714F;color:#fff;border-bottom-right-radius:12px}
 .you{align-self:flex-start;background:#FFFDF9;color:#3E2C22;border:3px solid #EADBC9;border-bottom-left-radius:12px}
 .hide{visibility:hidden}
+.line.hook{font-family:'Noto Sans KR',sans-serif;font-size:88px;line-height:120px;font-weight:900;letter-spacing:-0.03em;color:#2B1D15}
 .chat{position:absolute;inset:0;background:#BACEE0}
 .chead{position:absolute;left:0;right:0;top:150px;height:100px;display:flex;align-items:center;gap:26px;padding:0 60px;font-size:40px;font-weight:700;color:#1E1E1E}
 .chead .back{font-size:60px;font-weight:400;line-height:60px}
@@ -221,13 +267,16 @@ function chatBody(history, s, si, shown, last, name) {
     <div class="cbody">${html}</div><div class="cinput">메시지 입력</div></div>`;
 }
 
-function sceneBody(s, shown, last) {
+// 첫 장면에서도 표지 강조어(cover.emphasis)를 같은 강조색으로
+const hookMark = t => { const em = post.cover && post.cover.emphasis; return em && t.includes(em) ? esc(t).replace(esc(em), `<span style="color:#C2582F">${esc(em)}</span>`) : esc(t); };
+// hook=true: 첫 장면(1번 카드). 영상 첫 프레임이자 기본 커버가 되므로 크고 굵게
+function sceneBody(s, shown, last, hook) {
   // 아직 등장하지 않은 문장도 자리는 차지(visibility:hidden) → 새 문장이 나올 때 기존 문장이 움직이지 않음
   const items = s.items.map((it, j) => {
     const cls = j < shown ? '' : ' hide';
     return it.who
       ? `<div class="b ${it.who}${cls}" data-fit="2">${esc(it.text)}</div>`
-      : `<div class="line${cls}" data-fit="2">${esc(it.text)}</div>`;
+      : `<div class="line${hook ? ' hook' : ''}${cls}" data-fit="2">${hook ? hookMark(it.text) : esc(it.text)}</div>`;
   }).join('');
   return `<div class="dot" style="width:520px;height:520px;right:-200px;top:-160px"></div>
     <div class="box">${last ? `<div class="brand" data-fit="1">${esc(BRAND)}</div>` : ''}
@@ -245,11 +294,18 @@ if (isV2) {
     const start = t;
     const chat = isChat(s);
     if (!chat) history = [];
-    const body = k => chat ? chatBody(history, s, si, k, last, chatName) : sceneBody(s, k, last);
+    const body = k => chat ? chatBody(history, s, si, k, last, chatName) : sceneBody(s, k, last, si === 0);
     // 문장 k 는 (등장 + 읽기) 시간만큼 머문다. 남는 시간은 마지막 문장에 붙여 여운으로 쓴다.
     const base = s.items.map(it => FADE + readT(it.text));
     const extra = s.dur - base.reduce((a, b) => a + b, 0);
-    s.items.forEach((_, k) => {
+    // 첫 장면(후킹)은 순차 등장 없이 0초부터 전부 보이게: 첫 프레임 = 기본 커버 = 완성된 후킹 문장
+    if (si === 0) {
+      const file = `reel/s1-${s.items.length}.png`;
+      const issues = page(path.join(out, file), 1080, 1920, CSS_R, body(s.items.length), SAFE_R, true);
+      if (issues) manifest.fit.reel.push({ file, issues });
+      states.push({ file, dur: +s.dur.toFixed(3), scene: 1, item: s.items.length, style: chat ? 'chat' : 'card', hook: true });
+      t += s.dur;
+    } else s.items.forEach((_, k) => {
       const file = `reel/s${si + 1}-${k + 1}.png`;
       const full = k === s.items.length - 1;
       const issues = page(path.join(out, file), 1080, 1920, CSS_R, body(k + 1), SAFE_R, full);
@@ -262,6 +318,12 @@ if (isV2) {
     scenes.push({ index: si + 1, start: +start.toFixed(3), end: +t.toFixed(3), last: states[states.length - 1].file });
   });
   manifest.reel = { mode: 'scenes', transition: 'fade', fade: FADE, states, scenes, total: +t.toFixed(3) };
+  // 릴스 커버 이미지 (publish 가 cover_url 로 지정). 프로필 그리드는 가운데 4:5 로 잘리므로 제목은 가운데 영역에
+  const coverIssues = page(path.join(out, 'reel-cover.png'), 1080, 1920, CSS2, coverBody(post, 1920,
+    k => `<div style="position:absolute;left:0;right:0;top:1560px;text-align:center;font-size:32px;font-weight:700;color:${k.kicker}">${esc(BRAND)}</div>`),
+    [90, 300, 990, 1560], true);
+  manifest.reelCover = 'reel-cover.png';
+  manifest.fit.reel.push({ file: 'reel-cover.png', issues: coverIssues });
   fs.writeFileSync(path.join(out, 'reel-caption.txt'), post.reel.caption);
 } else {
   // 과거 형식: 캐러셀 카드를 세로 화면에 배치해 장당 3초 (기존 방식)
