@@ -91,14 +91,20 @@ t('필수 데이터 누락 시 중단', () => {
   const p2 = example('practical.post.json'); p2.cards.pop();
   const r2 = run(ws(p2), 'node', ['render.js']);
   expect(r2.code !== 0 && /정확히 7개/.test(r2.out), r2.out);
-  return 'reel 누락, cards 6개 → 렌더 거부';
+  const p3 = example('practical.post.json'); delete p3.cards[1].bridge;
+  const r3 = run(ws(p3), 'node', ['render.js']);
+  expect(r3.code !== 0 && /cards\[1\]\.bridge/.test(r3.out), r3.out);
+  const p4 = example('practical.post.json'); p4.reel.scenes = p4.reel.scenes.filter(s => s.card !== 5);
+  const r4 = run(ws(p4), 'node', ['render.js']);
+  expect(r4.code !== 0 && /5번 카드 내용을 다루지 않음/.test(r4.out), r4.out);
+  return 'reel 누락, cards 6개, 연결 문장 누락, 릴스가 5번 카드 누락 → 렌더 거부';
 });
 
 // 5. 비정상 장면 시간
 t('비정상 장면 시간 입력 시 중단', () => {
   const cases = [[1.0, /2.5~8초|짧음/], ['3', /숫자/], [20, /2.5~8초/], [2.6, /읽기에 짧음/]];
   for (const [dur, re] of cases) {
-    const p = example('practical.post.json'); p.reel.scenes[1].dur = dur;
+    const p = example('practical.post.json'); p.reel.scenes[3].dur = dur; // 말풍선 2개 장면 (읽기 최소 4.9초)
     const r = run(ws(p), 'node', ['render.js']);
     expect(r.code !== 0 && re.test(r.out), `dur=${dur}: ${r.out}`);
   }

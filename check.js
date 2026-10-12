@@ -17,12 +17,13 @@ fs.mkdirSync(dir, { recursive: true });
 const checks = [];
 const add = (id, kind, status, detail) => checks.push({ id, kind, status, detail });
 const sha = f => crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
+const GW = 270, GH = 480;
 const ff = args => spawnSync(ffmpeg, args, { encoding: 'buffer', maxBuffer: 1 << 26 });
-// 프레임 하나를 54x96 회색조 원시 픽셀로 (비교용)
+// 프레임 하나를 270x480 회색조 원시 픽셀로 (비교용). 54x96 은 글자만 다른 장면을 구분하지 못해 해상도를 올림
 const gray = (src, t) => {
   const a = t === undefined ? ['-i', src] : ['-ss', t.toFixed(3), '-i', src];
-  const r = ff(['-v', 'error', ...a, '-frames:v', '1', '-vf', 'scale=54:96,format=gray', '-f', 'rawvideo', '-']);
-  return r.status === 0 && r.stdout.length === 54 * 96 ? r.stdout : null;
+  const r = ff(['-v', 'error', ...a, '-frames:v', '1', '-vf', `scale=${GW}:${GH},format=gray`, '-f', 'rawvideo', '-']);
+  return r.status === 0 && r.stdout.length === GW * GH ? r.stdout : null;
 };
 const diff = (a, b) => { let s = 0; for (let i = 0; i < a.length; i++) s += Math.abs(a[i] - b[i]); return s / a.length; };
 const std = a => { const m = a.reduce((s, x) => s + x, 0) / a.length; return Math.sqrt(a.reduce((s, x) => s + (x - m) ** 2, 0) / a.length); };
@@ -90,18 +91,22 @@ else {
     add('오디오', '기계', hasAudio ? '통과' : '실패', hasAudio ? (silent ? '무음 AAC 트랙 (소리 없음, 음성·음악 미사용)' : `소리 있음 (max ${vol[1]} dB)`) : 'AAC 트랙 없음');
 
     // 7. 장면별 대표 프레임: 최종 MP4 에서 추출 → 입력 PNG 와 비교, 빈 장면·중복 장면 검사
+    // 각 장면 프레임은 '모든 장면 입력 중 자기 입력과 가장 가까워야' 한다 (누락·뒤바뀜·중복 탐지).
+    // 고정 임계값은 채도 높은 색에서 YUV 압축 오차(~0.9)와 장면 간 차이(~1.5)가 가까워 쓰지 않는다.
     const sceneIssues = [];
-    let prevG = null;
-    r.scenes.forEach(sc => {
+    const srcs = r.scenes.map(sc => gray(path.join(out, sc.last)));
+    r.scenes.forEach((sc, i) => {
       const t = Math.max(sc.start, sc.end - 0.25);
       const file = `scene-${sc.index}.png`;
       if (!png(t, file)) return sceneIssues.push(`장면 ${sc.index} 프레임 추출 실패`);
-      const g = gray(mp4, t), src = gray(path.join(out, sc.last));
-      if (!g || !src) return sceneIssues.push(`장면 ${sc.index} 비교 실패`);
+      const g = gray(mp4, t);
+      if (!g || srcs.some(s => !s)) return sceneIssues.push(`장면 ${sc.index} 비교 실패`);
       if (std(g) < 3) sceneIssues.push(`장면 ${sc.index} 빈 화면`);
-      if (diff(g, src) > 6) sceneIssues.push(`장면 ${sc.index} 가 입력 이미지와 다름(${diff(g, src).toFixed(1)})`);
-      if (prevG && diff(g, prevG) < 0.8) sceneIssues.push(`장면 ${sc.index} 가 직전 장면과 같음`);
-      prevG = g;
+      const ds = srcs.map(s => diff(g, s));
+      const best = ds.indexOf(Math.min(...ds));
+      if (best !== i && ds[best] < ds[i]) sceneIssues.push(`장면 ${sc.index} 프레임이 장면 ${best + 1} 입력과 더 비슷함`);
+      if (ds[i] > 3) sceneIssues.push(`장면 ${sc.index} 가 입력 이미지와 다름(${ds[i].toFixed(2)})`);
+      if (i > 0 && diff(srcs[i], srcs[i - 1]) < 0.05) sceneIssues.push(`장면 ${sc.index} 가 직전 장면과 같음`);
     });
     add('MP4 장면 구성 = 입력 장면 (누락·빈 장면 없음)', '기계', sceneIssues.length ? '실패' : '통과', sceneIssues.join(', ') || `장면 ${r.scenes.length}개 모두 일치`);
 

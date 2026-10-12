@@ -32,6 +32,10 @@ const h=el.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom),l
 if(el.scrollWidth>el.clientWidth+1)bad.push('가로 넘침: '+t);
 if(lines>+el.dataset.fit)bad.push('줄 수 초과('+lines+'>'+el.dataset.fit+'): '+t);
 if(r.left<S[0]-1||r.top<S[1]-1||r.right>S[2]+1||r.bottom>S[3]+1)bad.push('안전 영역 밖: '+t);}
+const els=[...document.querySelectorAll('[data-fit]')].filter(e=>getComputedStyle(e).visibility!=='hidden');
+for(let i=0;i<els.length;i++)for(let j=i+1;j<els.length;j++){const a=els[i].getBoundingClientRect(),b=els[j].getBoundingClientRect();
+const w=Math.min(a.right,b.right)-Math.max(a.left,b.left),h=Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top);
+if(w>2&&h>2)bad.push('겹침: '+els[i].textContent.trim().slice(0,12)+' / '+els[j].textContent.trim().slice(0,12));}
 document.getElementById('fit').textContent=JSON.stringify(bad);});</script>`;
 
 // 한 페이지를 PNG 로 찍는다. fit=true 면 같은 페이지의 레이아웃 검사 결과도 돌려준다.
@@ -85,16 +89,21 @@ function carouselV2(p) {
        <span class="pill" data-fit="1">${esc(p.cover.kicker)}</span>
        <h1 data-fit="2" style="font-size:118px;line-height:150px;font-weight:900;margin-top:56px;letter-spacing:-3px">${esc(p.cover.title)}</h1>
        <p data-fit="1" style="font-size:44px;line-height:64px;font-weight:500;margin-top:48px;color:#7A6252">${esc(p.cover.sub)}</p>
-     </div>${foot(1)}`,
+     </div>
+     <div style="position:absolute;right:90px;top:1110px;font-size:38px;line-height:56px;font-weight:700;color:#C2714F">옆으로 넘겨 보세요 →</div>${foot(1)}`,
+    // 카드: 위쪽 진행 막대(흐름 위치) + 아래쪽 연결 문장(bridge → 다음 장)으로 한 이야기처럼 이어지게
     ...p.cards.map((c, i) => `
      <div class="dot" style="width:420px;height:420px;right:-170px;top:-150px"></div>
-     <div style="position:absolute;left:90px;top:130px;font-size:110px;line-height:120px;font-weight:900;color:#C2714F;letter-spacing:-4px">${String(i + 1).padStart(2, '0')}</div>
-     <div style="position:absolute;left:90px;right:90px;top:380px">
+     <div style="position:absolute;left:90px;right:90px;top:150px;display:flex;gap:12px">
+       ${p.cards.map((_, j) => `<div style="flex:1;height:10px;border-radius:5px;background:${j <= i ? '#C2714F' : '#EADBC9'}"></div>`).join('')}
+     </div>
+     <div style="position:absolute;left:90px;right:90px;top:290px">
        <span class="label" data-fit="1">${esc(c.label)}</span>
        <h2 data-fit="1" style="font-size:86px;line-height:110px;font-weight:900;margin-top:52px;letter-spacing:-2px">${esc(c.title)}</h2>
        <p data-fit="2" style="font-size:46px;line-height:72px;font-weight:500;margin-top:30px;color:#5C4334">${esc(c.desc)}</p>
        <div class="serif" data-fit="2" style="margin-top:56px;background:#FFFDF9;border-left:10px solid #C2714F;border-radius:20px;padding:30px 40px;font-size:42px;line-height:62px;font-weight:700;color:#3E2C22">${esc(c.example)}</div>
-     </div>${foot(i + 2)}`),
+     </div>
+     ${c.bridge ? `<div data-fit="1" style="position:absolute;left:90px;right:90px;top:1110px;font-size:40px;line-height:58px;font-weight:700;color:#C2714F">${esc(c.bridge)} →</div>` : ''}${foot(i + 2)}`),
     `<div class="dot" style="width:820px;height:820px;left:130px;top:170px"></div>
      <div style="position:absolute;left:90px;right:90px;top:420px;text-align:center">
        <h2 class="serif" data-fit="1" style="font-size:82px;line-height:110px;font-weight:700">${esc(p.outro.title)}</h2>
