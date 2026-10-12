@@ -6,6 +6,7 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 D=$(date +%F)-$( [ "$(date +%H)" -lt 12 ] && echo am || echo pm )  # PC 시계 = KST
+D=${TIPSNACK_SLOT:-$D}  # 수동 추가 게시용 (예약 실행은 쓰지 않음)
 mkdir -p .state
 
 case "${1:-}" in
