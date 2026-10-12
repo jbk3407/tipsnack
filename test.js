@@ -43,7 +43,7 @@ const expect = (c, m) => { if (!c) throw new Error(m); };
 
 // 1·2. 새 형식 두 시안: 렌더 + 최종 MP4 검수 + 모의 게시 캡션 분리
 const drafts = {};
-for (const [key, file] of [['practical', 'practical.post.json'], ['story', 'story.post.json'], ['focus', 'focus.post.json']]) {
+for (const [key, file] of [['coffee', 'coffee.post.json'], ['kimchi', 'kimchi.post.json']]) {
   t(`새 형식 렌더·검수 (${key})`, () => {
     const d = ws(example(file), { posts: true }); // 실제 이력과 비교
     const r = pipeline(d);
@@ -88,26 +88,26 @@ t('과거 형식 호환 렌더', () => {
 
 // 4. 필수 데이터 누락
 t('필수 데이터 누락 시 중단', () => {
-  const p = example('practical.post.json'); delete p.reel;
+  const p = example('coffee.post.json'); delete p.reel;
   const r = run(ws(p), 'node', ['render.js']);
   expect(r.code !== 0 && /reel 누락/.test(r.out), r.out);
-  const p2 = example('practical.post.json'); p2.cards.pop();
+  const p2 = example('coffee.post.json'); p2.cards.pop();
   const r2 = run(ws(p2), 'node', ['render.js']);
   expect(r2.code !== 0 && /정확히 7개/.test(r2.out), r2.out);
-  const p3 = example('practical.post.json'); delete p3.cards[1].bridge;
+  const p3 = example('coffee.post.json'); delete p3.cards[1].bridge;
   const r3 = run(ws(p3), 'node', ['render.js']);
   expect(r3.code !== 0 && /cards\[1\]\.bridge/.test(r3.out), r3.out);
-  const p4 = example('practical.post.json'); p4.reel.scenes = p4.reel.scenes.filter(s => s.card !== 5);
+  const p4 = example('coffee.post.json'); p4.reel.scenes = p4.reel.scenes.filter(s => !s.summary);
   const r4 = run(ws(p4), 'node', ['render.js']);
-  expect(r4.code !== 0 && /5번 카드 내용을 다루지 않음/.test(r4.out), r4.out);
-  return 'reel 누락, cards 6개, 연결 문장 누락, 릴스가 5번 카드 누락 → 렌더 거부';
+  expect(r4.code !== 0 && /요약\(summary: true\)/.test(r4.out), r4.out);
+  return 'reel 누락, cards 6개, 연결 문장 누락, 릴스 요약 장면 누락 → 렌더 거부';
 });
 
 // 5. 비정상 장면 시간
 t('비정상 장면 시간 입력 시 중단', () => {
   const cases = [[1.0, /2.5~8초|짧음/], ['3', /숫자/], [20, /2.5~8초/], [2.6, /읽기에 짧음/]];
   for (const [dur, re] of cases) {
-    const p = example('practical.post.json'); p.reel.scenes[3].dur = dur; // 말풍선 2개 장면 (읽기 최소 4.9초)
+    const p = example('coffee.post.json'); p.reel.scenes[3].dur = dur; // 말풍선 2개 장면 (읽기 최소 4.9초)
     const r = run(ws(p), 'node', ['render.js']);
     expect(r.code !== 0 && re.test(r.out), `dur=${dur}: ${r.out}`);
   }
@@ -116,7 +116,7 @@ t('비정상 장면 시간 입력 시 중단', () => {
 
 // 6. 긴 문장 넘침 탐지 (글자 수 제한은 통과하지만 실제로 넘치는 경우)
 t('긴 문장 넘침 탐지', () => {
-  const p = example('practical.post.json'); p.cards[2].title = 'WWWWWWWWWWWW';
+  const p = example('coffee.post.json'); p.cards[2].title = 'WWWWWWWWWWWW';
   const d = ws(p);
   const r = pipeline(d);
   expect(r.code !== 0 && r.step === 'check.js', '넘침이 통과됨');
@@ -127,7 +127,7 @@ t('긴 문장 넘침 탐지', () => {
 
 // 7. 렌더 후 문구 수정 → 이전 검수로 게시 불가
 t('수정 전 검수로 수정 후 데이터 게시 방지', () => {
-  const d = drafts.practical; expect(d, '렌더 실패로 생략');
+  const d = drafts.coffee; expect(d, '렌더 실패로 생략');
   review(d); // 검수 통과 + 육안 기록까지 된 상태에서
   setPost(d, p => { p.caption = p.caption + '\n수정'; }); // 렌더 없이 문구만 수정
   const g = run(d, 'node', ['publish.js', '--gate']);
@@ -138,7 +138,7 @@ t('수정 전 검수로 수정 후 데이터 게시 방지', () => {
 
 // 8. 육안 검수 기록 없음 / renderId 불일치
 t('육안 검수 기록 없으면 게시 불가', () => {
-  const d = drafts.story; expect(d, '렌더 실패로 생략');
+  const d = drafts.kimchi; expect(d, '렌더 실패로 생략');
   setPost(d, p => { delete p.visualReview; });
   expect(run(d, 'node', ['publish.js', '--gate']).code !== 0, '기록 없이 통과');
   setPost(d, p => { p.visualReview = { renderId: 'deadbeef', carousel: '통과', reel: '통과' }; });
@@ -150,7 +150,7 @@ t('육안 검수 기록 없으면 게시 불가', () => {
 
 // 9. 오래된 출력 섞임 방지: run.sh render 가 out/ 을 비우는지
 t('오래된 출력 파일 제거', () => {
-  const d = ws(example('story.post.json'));
+  const d = ws(example('kimchi.post.json'));
   fs.mkdirSync(path.join(d, 'out/reel'), { recursive: true });
   fs.writeFileSync(path.join(d, 'out/10.png'), 'stale'); fs.writeFileSync(path.join(d, 'out/reel/old.png'), 'stale');
   const r = run(d, 'bash', ['run.sh', 'render']);
@@ -163,19 +163,19 @@ t('오래된 출력 파일 제거', () => {
 t('게시 완료 슬롯 DONE + 렌더 3회 제한', () => {
   const D = new Date(); const pad = n => String(n).padStart(2, '0');
   const slot = `${D.getFullYear()}-${pad(D.getMonth() + 1)}-${pad(D.getDate())}-${D.getHours() < 12 ? 'am' : 'pm'}`;
-  const d = ws(example('story.post.json'));
+  const d = ws(example('kimchi.post.json'));
   fs.mkdirSync(path.join(d, 'posts', slot), { recursive: true });
   fs.writeFileSync(path.join(d, 'posts', slot, 'published.json'), '{}');
   const a = run(d, 'bash', ['run.sh', 'render']), b = run(d, 'bash', ['run.sh', 'publish']);
   expect(/DONE/.test(a.out) && /이미 게시됨/.test(b.out) && !fs.existsSync(path.join(d, 'out')), a.out + b.out);
-  const d2 = ws(example('story.post.json'));
+  const d2 = ws(example('kimchi.post.json'));
   fs.mkdirSync(path.join(d2, '.state')); fs.writeFileSync(path.join(d2, '.state', `render-${slot}`), '3');
   const c = run(d2, 'bash', ['run.sh', 'render']);
   expect(c.code !== 0 && /3회 초과/.test(c.out), c.out);
   return `슬롯 ${slot}: DONE 종료, 4번째 렌더 거부`;
 });
 t('부분 게시 후 재실행 시 성공분 재게시 안 함', () => {
-  const d = drafts.story; expect(d, '렌더 실패로 생략');
+  const d = drafts.kimchi; expect(d, '렌더 실패로 생략');
   const slot = path.join(d, 'posts', 'test-slot');
   fs.writeFileSync(path.join(slot, 'published.json'), JSON.stringify({ carousel: 'https://example/p/1', error: 'reel 실패' }));
   fs.copyFileSync(path.join(d, 'post.json'), path.join(slot, 'post.json'));
@@ -198,47 +198,46 @@ t('최근 30일 이력 + 읽기 실패 표시', () => {
   return `${ok.out.split('\n')[0]} / 깨진 파일·폴더 없음 → HISTORY_ERROR`;
 });
 
-// 12. 중복 방지: 이미 게시된 이야기(2026-10-12-extra2, 편의점 과자)를 소재만 바꾼 변형은 거부
+// 12. 중복 방지: 이미 게시된 이야기(김치찌개)를 소재만 바꾼 변형(된장찌개)은 거부
 const posted = slot => JSON.parse(fs.readFileSync(path.join(SRC, 'posts', slot, 'post.json'), 'utf8'));
-t('중복 변형(과자→빵) 거부', () => {
-  const b = posted('2026-10-12-extra2');
-  const p = JSON.parse(JSON.stringify(b).replace(/편의점/g, '빵집').replace(/과자/g, '빵'));
-  delete p.visualReview;
-  Object.assign(p, { category: '고마움과 애정 표현', topic: '네가 좋아하는 빵', emotion: '고마움', situation: '빵집에 들렀다가 상대가 좋아하는 빵을 하나 더 사 온 날' });
-  Object.assign(p.cover, { style: 'bold', title: '빵 하나\n더 샀어' });
-  const r = run(ws(p, { posts: true }), 'node', ['render.js']);
-  expect(r.code !== 0 && /2026-10-12-extra2.*너무 비슷함/.test(r.out), r.out);
+const HSLOT = '2099-12-31-am'; // 이력 맨 끝에 엄마 카톡 게시물 하나를 끼워 넣는다
+const withHist = (p, h) => { const d = ws(p, { posts: true }); fs.mkdirSync(path.join(d, 'posts', HSLOT)); fs.writeFileSync(path.join(d, 'posts', HSLOT, 'post.json'), JSON.stringify(h)); return d; };
+t('중복 변형(김치찌개→된장찌개) 거부', () => {
+  const p = JSON.parse(JSON.stringify(example('kimchi.post.json')).replace(/김치찌개/g, '된장찌개'));
+  Object.assign(p, { category: '식재료', topic: '엄마표 된장찌개' });
+  Object.assign(p.cover, { title: '엄마 된장찌개\n뭐 넣어?', emphasis: '된장찌개' });
+  const r = run(withHist(p, example('kimchi.post.json')), 'node', ['render.js']);
+  expect(r.code !== 0 && new RegExp(HSLOT + '.*너무 비슷함').test(r.out), r.out);
   return r.out.split('\n').find(l => /너무 비슷함/.test(l)).trim();
 });
 t('서로 다른 주제는 통과 (유사도 실측)', () => {
   const lib = require(path.join(SRC, 'lib/post'));
   const h = lib.loadHistory(SRC).items;
-  const a = example('practical.post.json'), s = example('story.post.json');
+  const a = example('coffee.post.json'), s = example('kimchi.post.json');
   const top = p => lib.compareHistory(p, h).nearest[0];
   const x = top(a), y = top(s), ab = lib.similarity(a, s);
   expect(x.s < lib.SIM_LIMIT && y.s < lib.SIM_LIMIT && ab < lib.SIM_LIMIT, '비중복이 상한을 넘음');
   return `대화형 최대 ${x.s.toFixed(2)}(${x.slot}), 이야기형 최대 ${y.s.toFixed(2)}(${y.slot}), 두 예시끼리 ${ab.toFixed(2)} < ${lib.SIM_LIMIT}`;
 });
 t('이력 규칙: 직전 카테고리·같은 표지 제목·감정 3연속', () => {
-  const lastV2 = require(path.join(SRC, 'lib/post')).loadHistory(SRC).items.filter(h => h.post.version === 2).pop().post;
-  const p1 = example('story.post.json'); p1.category = lastV2.category;          // 직전(가장 최근) 게시물과 같은 카테고리
-  const r1 = run(ws(p1, { posts: true }), 'node', ['render.js']);
+  const p1 = example('coffee.post.json'); p1.category = '요리';          // 직전(김치찌개)과 같은 카테고리
+  const r1 = run(withHist(p1, example('kimchi.post.json')), 'node', ['render.js']);
   expect(r1.code !== 0 && /직전 게시물.*같은 카테고리/.test(r1.out), r1.out);
-  const p2 = example('practical.post.json'); p2.cover.title = '고마워 뒤에\n한마디 더'; p2.cover.emphasis = '한마디'; // 이미 쓴 표지 제목
+  const p2 = example('coffee.post.json'); p2.cover.title = '고마워 뒤에\n한마디 더'; p2.cover.emphasis = '한마디'; // 이미 쓴 표지 제목
   const r2 = run(ws(p2, { posts: true }), 'node', ['render.js']);
   expect(r2.code !== 0 && /cover\.title 이 2026-10-12-extra/.test(r2.out), r2.out);
   const lib = require(path.join(SRC, 'lib/post'));
-  const fake = e => ({ slot: '2099-01-0' + e.length, post: { ...example('story.post.json'), topic: e, category: '고마움과 애정 표현', emotion: '설렘', summary: e, situation: e, cards: [], reel: { scenes: [] }, cover: { title: e } } });
-  const c = lib.compareHistory(example('story.post.json'), [fake('가'), fake('나나')]);
+  const fake = e => ({ slot: '2099-01-0' + e.length, post: { ...example('kimchi.post.json'), topic: e, category: '청소', emotion: '장난·웃음', summary: e, situation: e, cards: [], reel: { scenes: [] }, cover: { title: e } } });
+  const c = lib.compareHistory(example('kimchi.post.json'), [fake('가'), fake('나나')]);
   expect(c.errors.some(x => /3연속/.test(x)), JSON.stringify(c.errors));
   return '세 가지 모두 거부';
 });
 t('이력 읽기 실패 시 렌더 중단', () => {
-  const d = ws(example('story.post.json'), { posts: true });
+  const d = ws(example('kimchi.post.json'), { posts: true });
   fs.writeFileSync(path.join(d, 'posts/2026-10-12-extra/post.json'), '{broken');
   const r = run(d, 'node', ['render.js']);
   expect(r.code !== 0 && /HISTORY_ERROR/.test(r.out), r.out);
-  const d2 = ws(example('story.post.json')); fs.rmSync(path.join(d2, 'posts'), { recursive: true });
+  const d2 = ws(example('kimchi.post.json')); fs.rmSync(path.join(d2, 'posts'), { recursive: true });
   const r2 = run(d2, 'node', ['render.js']);
   expect(r2.code !== 0 && /HISTORY_ERROR/.test(r2.out), r2.out);
   return '깨진 기록·posts 없음 → HISTORY_ERROR';
@@ -246,54 +245,59 @@ t('이력 읽기 실패 시 렌더 중단', () => {
 t('후킹 규칙: 첫 장면·표지', () => {
   const cases = [
     [p => { p.reel.scenes[0].card = 2; }, /첫 장면은 1번 카드/],
-    [p => { p.reel.scenes[0].items[0].text = '주말 아침에 먼저 일어났는데'; }, /14자 이하/],
+    [p => { p.reel.scenes[0].items[0].text = '엄마 주말 아침에 먼저 일어났는데'; }, /16자 이하/],
     [p => { p.cover.emphasis = '없는말'; }, /cover\.emphasis/],
     [p => { p.cover.title = p.topic.slice(0, 9); p.topic = p.cover.title; delete p.cover.emphasis; }, /주제명을 그대로/],
     [p => { p.cover.style = 'neon'; }, /cover\.style/],
     [p => { delete p.situation; }, /situation/],
   ];
-  for (const [f, re] of cases) { const p = example('story.post.json'); f(p); const r = run(ws(p), 'node', ['render.js']); expect(r.code !== 0 && re.test(r.out), `${re}: ${r.out}`); }
+  for (const [f, re] of cases) { const p = example('kimchi.post.json'); f(p); const r = run(ws(p), 'node', ['render.js']); expect(r.code !== 0 && re.test(r.out), `${re}: ${r.out}`); }
   return `${cases.length}가지 위반 모두 거부`;
 });
-t('첫 장면: 0초에 첫 문장 완성, 둘째 문장 2.2초 안에 등장', () => {
+t('첫 장면: 0초에 첫 문장 완성, 둘째 문장 2.5초 안에 등장', () => {
   const out = [];
-  for (const k of ['story', 'focus']) {
+  for (const k of ['coffee', 'kimchi']) {
     const d = drafts[k]; expect(d, `${k} 렌더 실패로 생략`);
     const c = report(d).checks.find(x => x.id === '첫 프레임 (시작 상태)');
     const m = JSON.parse(fs.readFileSync(path.join(d, 'out/render.json'), 'utf8'));
     const s0 = m.reel.states[0];
     expect(c.status === '통과' && s0.hook && s0.item === 1, c.detail);
-    expect(m.reel.states[1].scene === 1 && s0.dur <= 2.2, `둘째 문장 ${s0.dur}초 뒤`);
+    expect(m.reel.states[1].scene === 1 && s0.dur <= 2.5, `둘째 문장 ${s0.dur}초 뒤`);
     out.push(`${k}: 둘째 문장 ${s0.dur}초`);
   }
   return out.join(', ');
 });
-t('릴스 모드: summary 는 1~7 필수, focus 는 한 상황 집중', () => {
+t('엄마 카톡 형식: focus·엄마/아빠·썸네일·요약→마무리 질문', () => {
   const lib = require(path.join(SRC, 'lib/post'));
-  const f = example('focus.post.json');
-  expect(lib.validate(f).errors.length === 0, 'focus 예시 실패');
-  const s = example('focus.post.json'); s.reel.mode = 'summary';
-  expect(lib.validate(s).errors.some(x => /카드 내용을 다루지 않음/.test(x)), 'summary 인데 카드 누락 통과');
-  const old = example('practical.post.json'); delete old.reel.mode;
-  expect(lib.validate(old).errors.length === 0, 'mode 없는 기존 형식(=summary) 실패');
-  const bad = example('focus.post.json'); bad.reel.mode = 'random';
-  expect(lib.validate(bad).errors.some(x => /reel\.mode/.test(x)), '잘못된 mode 통과');
-  return 'focus 통과, focus→summary 시 카드 누락 거부, mode 생략=summary 호환, 잘못된 mode 거부';
+  expect(lib.validate(example('kimchi.post.json')).errors.length === 0, '예시 실패');
+  const cases = [
+    [p => { p.reel.mode = 'summary'; }, /focus" 여야/],
+    [p => { delete p.reel.mode; }, /focus" 여야/],
+    [p => { p.reel.chatName = '너'; }, /엄마 \/ 아빠/],
+    [p => { p.reel.scenes[0].items[0].text = '김치찌개 어떻게 끓여?'; }, /첫 메시지는 내가 "엄마 ~"/],
+    [p => { delete p.reel.cover; }, /reel\.cover 누락/],
+    [p => { p.reel.scenes.pop(); }, /마무리 질문/],
+    [p => { p.reel.scenes.splice(-2, 1); }, /요약\(summary: true\)/],
+    [p => { p.caption = p.caption.replace('엄마한테 물어본 꿀팁 ', ''); }, /소개 문구/],
+    [p => { p.category = '다정하게 말하기'; }, /category/],
+  ];
+  for (const [f, re] of cases) { const p = example('kimchi.post.json'); f(p); const e = lib.validate(p).errors; expect(e.some(x => re.test(x)), `${re}: ${e.join(' / ')}`); }
+  return `${cases.length}가지 위반 거부`;
 });
 t('typing·big·정지 상한 규칙', () => {
   const lib = require(path.join(SRC, 'lib/post'));
   const cases = [
-    [p => { p.reel.scenes[3].items[0].typing = true; }, /typing: 말풍선/],
+    [p => { p.reel.scenes[p.reel.scenes.length - 2].items[0].typing = true; }, /typing: 말풍선/],
     [p => { p.reel.scenes[1].items[0].big = true; }, /big: 가운데 문장/],
     [p => { p.reel.scenes[0].items[1].typing = true; }, /첫 장면은 0초부터/],
     [p => { p.reel.scenes[4].dur += 2; }, /화면이 멈춰 보임/],
     [p => { p.reel.scenes[1].dur -= 0.6; }, /읽기에 짧음/], // typing 0.8초도 필요 시간에 포함
   ];
-  for (const [f, re] of cases) { const p = example('focus.post.json'); f(p); const e = lib.validate(p).errors; expect(e.some(x => re.test(x)), `${re}: ${e.join(' / ')}`); }
+  for (const [f, re] of cases) { const p = example('kimchi.post.json'); f(p); const e = lib.validate(p).errors; expect(e.some(x => re.test(x)), `${re}: ${e.join(' / ')}`); }
   return `${cases.length}가지 위반 거부`;
 });
 t('입력 중… 상태와 전개 속도 검사', () => {
-  const d = drafts.focus; expect(d, '렌더 실패로 생략');
+  const d = drafts.kimchi; expect(d, '렌더 실패로 생략');
   const m = JSON.parse(fs.readFileSync(path.join(d, 'out/render.json'), 'utf8'));
   const typing = m.reel.states.filter(s => s.typing);
   expect(typing.length === 3 && typing.every(s => s.dur === 0.8), `typing 상태 ${typing.length}개`);

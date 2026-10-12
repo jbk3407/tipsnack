@@ -1,16 +1,15 @@
 // post.json -> out/01..09.png (캐러셀 4:5) + out/reel/*.png (릴스 장면 상태 9:16) + out/render.json (매니페스트)
-// v2: 사랑 콘텐츠 + 릴스 전용 대본(reel.scenes). v1(과거 꿀팁) 은 TIPSNACK_ALLOW_LEGACY=1 일 때만 렌더.
+// v2: 엄마 카톡 살림 꿀팁 + 릴스 전용 대본(reel.scenes). v1(과거 꿀팁) 은 TIPSNACK_ALLOW_LEGACY=1 일 때만 렌더.
 // 글자 넘침은 Chrome 에서 실제 레이아웃을 재서(data-fit) 매니페스트에 기록하고, check.js 가 판정한다.
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { execFileSync } = require('child_process');
-const { validate, contentHash, FADE, TYPING, loadHistory, compareHistory } = require('./lib/post');
+const { validate, contentHash, BRAND, FADE, TYPING, loadHistory, compareHistory } = require('./lib/post');
 
 const CHROME = process.env.CHROME || (process.platform === 'win32'
   ? 'C:/Program Files/Google/Chrome/Application/chrome.exe' : 'chromium');
 const HANDLE = '@tip.snack';
-const BRAND = '매일 한 입, 다정한 사랑 @tip.snack';
 const root = __dirname;
 const out = path.join(root, 'out');
 const post = JSON.parse(fs.readFileSync(path.join(root, 'post.json'), 'utf8'));
@@ -85,7 +84,7 @@ const manifest = {
   carousel: [], fit: { carousel: [], reel: [] }, reel: null,
 };
 
-// ───────── v2 캐러셀 (크림·갈색, 주제 라벨 배지, '익숙해져도, 다정하게' 마무리)
+// ───────── v2 캐러셀 (크림·갈색, 주제 라벨 배지, '역시 엄마' 마무리)
 const FONTS = `@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Gowun+Batang:wght@400;700&display=block');`;
 const CSS2 = `${FONTS}
 *{margin:0;box-sizing:border-box}
@@ -240,9 +239,35 @@ const CSS_R = `${CSS2}
 .cyou .kb{background:#fff;border-top-left-radius:8px}
 .tm{font-size:26px;line-height:34px;color:#4E5968;white-space:nowrap}
 .dots{display:inline-flex;gap:12px;align-items:center;height:62px}.dots i{width:16px;height:16px;border-radius:50%;background:#9AA5B1;display:block}.dots i:nth-child(2){opacity:.7}.dots i:nth-child(3){opacity:.45}
+.sum-t{font-size:66px;line-height:88px;font-weight:900;letter-spacing:-0.02em;color:#2B1D15;margin-bottom:12px}
+.pt{display:flex;align-items:center;gap:26px;font-size:50px;line-height:70px;font-weight:700;color:#3E2C22;background:#FFFDF9;border-radius:28px;padding:22px 32px}
+.pt b{flex:none;width:66px;height:66px;border-radius:50%;background:#C2714F;color:#fff;display:flex;align-items:center;justify-content:center;font-size:36px}
 .line.big{font-family:'Noto Sans KR',sans-serif;font-size:84px;line-height:114px;font-weight:900;letter-spacing:-0.03em;color:#C2582F}`;
 
 // 메신저 대화방 화면 (말풍선만 있는 장면). history = 바로 앞의 연속된 대화 장면들 → 위에 남고 새 메시지가 아래에 쌓임
+// 릴스 전용 커버: 대화방 배경 위에 아주 큰 궁금증 문구(강조어는 노란 형광펜) + 큼직한 말풍선 1~3개(엄마 답장은 '입력 중…'으로 가릴 수 있음)
+function reelCoverChat(p) {
+  const c = p.reel.cover, name = p.reel.chatName || '너';
+  const lines = c.title.split('\n');
+  const size = Math.min(150, Math.floor(940 / (Math.max(...lines.map(emw)) * 0.97)));
+  const mark = s => (c.emphasis && s.includes(c.emphasis))
+    ? esc(s).replace(esc(c.emphasis), `<span style="background:linear-gradient(transparent 55%, #FEE500 55%)">${esc(c.emphasis)}</span>`) : esc(s);
+  const bubbles = c.chat.map((m, i) => {
+    const body = m.dots ? '<span class="dots" style="height:74px"><i style="width:20px;height:20px"></i><i style="width:20px;height:20px"></i><i style="width:20px;height:20px"></i></span>' : esc(m.text);
+    const kb = `<div class="kb" ${m.dots ? '' : 'data-fit="2"'} style="font-size:54px;line-height:74px;padding:24px 38px;max-width:760px">${body}</div>`;
+    if (m.who === 'me') return `<div class="row cme">${kb}</div>`;
+    const first = i === 0 || c.chat[i - 1].who !== 'you';
+    return `<div class="row cyou">${first ? `<div class="av" style="width:104px;height:104px;font-size:46px">${esc([...name][0])}</div>` : '<div class="avsp" style="width:104px"></div>'}
+      <div class="col">${first ? `<div class="nm" style="font-size:34px">${esc(name)}</div>` : ''}${kb}</div></div>`;
+  }).join('');
+  return `<div class="chat"><div class="chead"><span class="back">‹</span><span>${esc(name)}</span></div></div>
+    <div style="position:absolute;left:70px;right:70px;top:330px">
+      <div data-fit="${lines.length}" style="font-size:${size}px;line-height:${Math.round(size * 1.18)}px;font-weight:900;letter-spacing:-0.03em;color:#141414">${lines.map(mark).join('<br>')}</div>
+    </div>
+    <div style="position:absolute;left:70px;right:70px;top:${330 + Math.round(size * 1.18) * lines.length + 90}px;display:flex;flex-direction:column;gap:26px">${bubbles}</div>
+    <div style="position:absolute;left:0;right:0;top:1560px;text-align:center;font-size:32px;font-weight:700;color:#4E5968">${esc(BRAND)}</div>`;
+}
+
 // typingAt: 이 장면의 typingAt 번째 메시지 자리에 '입력 중…' 말풍선을 대신 보여 줌 (답장 직전 긴장감)
 function chatBody(history, s, si, shown, last, name, typingAt = -1) {
   const msgs = [];
@@ -275,6 +300,13 @@ function chatBody(history, s, si, shown, last, name, typingAt = -1) {
 const hookMark = t => { const em = post.cover && post.cover.emphasis; return em && t.includes(em) ? esc(t).replace(esc(em), `<span style="color:#C2582F">${esc(em)}</span>`) : esc(t); };
 // hook=true: 첫 장면(1번 카드). 영상 첫 프레임이자 기본 커버가 되므로 크고 굵게
 function sceneBody(s, shown, last, hook) {
+  // 요약 장면: 제목 + 번호 체크 목록이 한 줄씩 등장
+  if (s.summary) {
+    const pts = s.items.map((it, j) => `<div class="pt${j < shown ? '' : ' hide'}" data-fit="1"><b>${j + 1}</b><span>${esc(it.text)}</span></div>`).join('');
+    return `<div class="dot" style="width:520px;height:520px;right:-200px;top:-160px"></div>
+      <div class="box" style="gap:22px">${last ? `<div class="brand" data-fit="1">${esc(BRAND)}</div>` : ''}
+      <div class="sum-t" data-fit="2">${esc(s.label || '한 번에 정리')}</div>${pts}</div>`;
+  }
   // 아직 등장하지 않은 문장도 자리는 차지(visibility:hidden) → 새 문장이 나올 때 기존 문장이 움직이지 않음
   const items = s.items.map((it, j) => {
     const cls = j < shown ? '' : ' hide';
@@ -297,7 +329,7 @@ if (isV2) {
     const last = si === post.reel.scenes.length - 1;
     const start = t;
     const chat = isChat(s);
-    if (!chat) history = [];
+    // 그림·문장 장면이 끼어도 대화방은 이어진다 (앞 메시지가 위에 남아 있음)
     const body = (k, typingAt) => chat ? chatBody(history, s, si, k, last, chatName, typingAt) : sceneBody(s, k, last, si === 0);
     // 문장 k 는 (등장 + 읽기) 시간만큼 머문다. 남는 시간은 마지막 문장에 붙여 여운으로 쓴다.
     const base = s.items.map((it, k) => (si === 0 && k === 0 ? 0 : FADE) + readT(it.text));
@@ -325,9 +357,12 @@ if (isV2) {
   });
   manifest.reel = { mode: 'scenes', transition: 'fade', fade: FADE, states, scenes, total: +t.toFixed(3) };
   // 릴스 커버 이미지 (publish 가 cover_url 로 지정). 프로필 그리드는 가운데 4:5 로 잘리므로 제목은 가운데 영역에
-  const coverIssues = page(path.join(out, 'reel-cover.png'), 1080, 1920, CSS2, coverBody(post, 1920,
-    k => `<div style="position:absolute;left:0;right:0;top:1560px;text-align:center;font-size:32px;font-weight:700;color:${k.kicker}">${esc(BRAND)}</div>`),
-    [90, 300, 990, 1560], true);
+  // reel.cover 가 있으면 '대화 캡처' 커버(큰 궁금증 문구 + 말풍선), 없으면 캐러셀 표지와 같은 디자인
+  const coverIssues = post.reel.cover
+    ? page(path.join(out, 'reel-cover.png'), 1080, 1920, CSS_R, reelCoverChat(post), [60, 300, 1020, 1560], true)
+    : page(path.join(out, 'reel-cover.png'), 1080, 1920, CSS2, coverBody(post, 1920,
+      k => `<div style="position:absolute;left:0;right:0;top:1560px;text-align:center;font-size:32px;font-weight:700;color:${k.kicker}">${esc(BRAND)}</div>`),
+      [90, 300, 990, 1560], true);
   manifest.reelCover = 'reel-cover.png';
   manifest.fit.reel.push({ file: 'reel-cover.png', issues: coverIssues });
   fs.writeFileSync(path.join(out, 'reel-caption.txt'), post.reel.caption);
