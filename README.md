@@ -14,6 +14,7 @@ Instagram @tip.snack 자동 게시. 콘셉트: **익숙해져도 다정하게 �
 ## 파일
 - `lib/post.js` — post.json(v2) 스키마 검증, 카테고리 목록, 읽기 시간 규칙, 내용 해시
 - `render.js` — 캐러셀 9장(`out/01..09.png`) + 릴스 장면 상태(`out/reel/s<장면>-<문장>.png`) + `out/render.json`. Chrome 으로 실제 레이아웃을 재서 글자 넘침을 기록
+- `render.js` 릴스: 말풍선만 있는 장면은 메신저 대화방 화면(연속 장면은 메시지가 쌓임), 나머지는 크림색 카드 화면
 - `reel.js` — 장면 상태를 xfade 로 이어 `out/reel.mp4` (1080x1920, 30fps, H.264, 무음 AAC). 문장이 실제로 페이드인되며 등장
 - `check.js` — 최종 MP4 검수: 디코딩, 길이=시간표, 규격, 오디오, 장면 프레임=입력, 빈/중복 장면, 움직임(전·중·후 프레임), 글자 넘침. `out/check/report.{json,md}`, `scene-N.png`, `motion-*.png`, `reel-sheet.png`
 - `publish.js` — 게이트(보고서 통과·해시 일치·육안 검수 renderId) + Instagram Graph API 게시. 캐러셀=`caption.txt`, 릴스=`reel-caption.txt`. 부분 성공도 즉시 기록

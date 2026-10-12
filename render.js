@@ -167,7 +167,50 @@ const CSS_R = `${CSS2}
 .b{max-width:700px;font-size:48px;line-height:68px;font-weight:500;padding:26px 40px;border-radius:44px}
 .me{align-self:flex-end;background:#C2714F;color:#fff;border-bottom-right-radius:12px}
 .you{align-self:flex-start;background:#FFFDF9;color:#3E2C22;border:3px solid #EADBC9;border-bottom-left-radius:12px}
-.hide{visibility:hidden}`;
+.hide{visibility:hidden}
+.chat{position:absolute;inset:0;background:#BACEE0}
+.chead{position:absolute;left:0;right:0;top:150px;height:100px;display:flex;align-items:center;gap:26px;padding:0 60px;font-size:40px;font-weight:700;color:#1E1E1E}
+.chead .back{font-size:60px;font-weight:400;line-height:60px}
+.cbody{position:absolute;left:60px;right:150px;top:280px;bottom:540px;display:flex;flex-direction:column;justify-content:flex-end;gap:18px;overflow:hidden}
+.cinput{position:absolute;left:60px;right:150px;top:1396px;height:84px;background:#fff;border-radius:42px;display:flex;align-items:center;padding:0 38px;font-size:32px;color:#A9A9A9}
+.sys{align-self:center;background:rgba(0,0,0,.16);color:#fff;font-size:30px;line-height:44px;padding:6px 28px;border-radius:999px;margin:8px 0;white-space:nowrap}
+.row{display:flex;align-items:flex-end;gap:12px}
+.row.cme{justify-content:flex-end}
+.av{width:92px;height:92px;border-radius:36px;background:#F1E3D3;flex:none;display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:700;color:#C2714F;align-self:flex-start}
+.avsp{width:92px;flex:none}
+.col{display:flex;flex-direction:column;gap:8px}
+.nm{font-size:30px;line-height:40px;color:#3A3A3A}
+.kb{max-width:600px;font-size:44px;line-height:62px;font-weight:500;padding:20px 30px;border-radius:30px;color:#1E1E1E}
+.cme .kb{background:#FEE500;border-top-right-radius:8px}
+.cyou .kb{background:#fff;border-top-left-radius:8px}
+.tm{font-size:26px;line-height:34px;color:#4E5968;white-space:nowrap}`;
+
+// 메신저 대화방 화면 (말풍선만 있는 장면). history = 바로 앞의 연속된 대화 장면들 → 위에 남고 새 메시지가 아래에 쌓임
+function chatBody(history, s, si, shown, last, name) {
+  const msgs = [];
+  const pushScene = (sc, idx, visibleN, current) => {
+    if (sc.label) msgs.push({ sys: sc.label, current });
+    sc.items.forEach((it, j) => msgs.push({ ...it, time: `오후 9:${String(12 + idx).padStart(2, '0')}`, hide: j >= visibleN, current }));
+  };
+  history.forEach(h => pushScene(h.s, h.si, h.s.items.length, false));
+  if (last) msgs.push({ sys: BRAND, current: true });
+  pushScene(s, si, shown, true);
+  const html = msgs.map((m, i) => {
+    const fit = m.current ? ' data-fit="1"' : '';
+    if (m.sys) return `<div class="sys"${fit}>${esc(m.sys)}</div>`;
+    const prev = msgs[i - 1], next = msgs[i + 1];
+    const first = !prev || prev.sys || prev.who !== m.who;          // 같은 사람 연속 메시지의 첫 번째
+    const tail = !next || next.sys || next.who !== m.who;           // 마지막에만 시간 표시
+    const bf = m.current ? ' data-fit="2"' : '';
+    const tm = tail ? `<span class="tm">${m.time}</span>` : '';
+    const cls = m.hide ? ' hide' : '';
+    if (m.who === 'me') return `<div class="row cme${cls}">${tm}<div class="kb"${bf}>${esc(m.text)}</div></div>`;
+    return `<div class="row cyou${cls}">${first ? `<div class="av">${esc([...name][0])}</div>` : '<div class="avsp"></div>'}
+      <div class="col">${first ? `<div class="nm">${esc(name)}</div>` : ''}<div class="row"><div class="kb"${bf}>${esc(m.text)}</div>${tm}</div></div></div>`;
+  }).join('');
+  return `<div class="chat"><div class="chead"><span class="back">‹</span><span>${esc(name)}</span></div>
+    <div class="cbody">${html}</div><div class="cinput">메시지 입력</div></div>`;
+}
 
 function sceneBody(s, shown, last) {
   // 아직 등장하지 않은 문장도 자리는 차지(visibility:hidden) → 새 문장이 나올 때 기존 문장이 움직이지 않음
@@ -185,22 +228,28 @@ function sceneBody(s, shown, last) {
 const readT = require('./lib/post').readTime;
 if (isV2) {
   const states = [], scenes = [];
-  let t = 0;
+  const chatName = post.reel.chatName || '너';
+  const isChat = s => s.items.every(it => it.who);
+  let t = 0, history = [];
   post.reel.scenes.forEach((s, si) => {
     const last = si === post.reel.scenes.length - 1;
     const start = t;
+    const chat = isChat(s);
+    if (!chat) history = [];
+    const body = k => chat ? chatBody(history, s, si, k, last, chatName) : sceneBody(s, k, last);
     // 문장 k 는 (등장 + 읽기) 시간만큼 머문다. 남는 시간은 마지막 문장에 붙여 여운으로 쓴다.
     const base = s.items.map(it => FADE + readT(it.text));
     const extra = s.dur - base.reduce((a, b) => a + b, 0);
     s.items.forEach((_, k) => {
       const file = `reel/s${si + 1}-${k + 1}.png`;
       const full = k === s.items.length - 1;
-      const issues = page(path.join(out, file), 1080, 1920, CSS_R, sceneBody(s, k + 1, last), SAFE_R, full);
+      const issues = page(path.join(out, file), 1080, 1920, CSS_R, body(k + 1), SAFE_R, full);
       if (issues) manifest.fit.reel.push({ file, issues });
       const dur = base[k] + (full ? extra : 0);
-      states.push({ file, dur: +dur.toFixed(3), scene: si + 1, item: k + 1 });
+      states.push({ file, dur: +dur.toFixed(3), scene: si + 1, item: k + 1, style: chat ? 'chat' : 'card' });
       t += dur;
     });
+    if (chat) history.push({ s, si });
     scenes.push({ index: si + 1, start: +start.toFixed(3), end: +t.toFixed(3), last: states[states.length - 1].file });
   });
   manifest.reel = { mode: 'scenes', transition: 'fade', fade: FADE, states, scenes, total: +t.toFixed(3) };
