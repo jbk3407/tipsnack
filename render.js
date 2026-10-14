@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { execFileSync } = require('child_process');
+const { photoSvg } = require('./lib/photo');
 const { validate, contentHash, BRAND, FADE, TYPING, loadHistory, compareHistory } = require('./lib/post');
 
 const CHROME = process.env.CHROME || (process.platform === 'win32'
@@ -236,6 +237,7 @@ const CSS_R = `${CSS2}
 .nm{font-size:30px;line-height:40px;color:#3A3A3A}
 .kb{max-width:600px;font-size:44px;line-height:62px;font-weight:500;padding:20px 30px;border-radius:30px;color:#1E1E1E}
 .cme .kb{background:#FEE500;border-top-right-radius:8px}
+.kb.pic{padding:0;background:none!important;border-radius:26px;overflow:hidden;line-height:0}.kb.pic img{display:block;width:470px;height:470px}
 .cyou .kb{background:#fff;border-top-left-radius:8px}
 .tm{font-size:26px;line-height:34px;color:#4E5968;white-space:nowrap}
 .dots{display:inline-flex;gap:12px;align-items:center;height:62px}.dots i{width:16px;height:16px;border-radius:50%;background:#9AA5B1;display:block}.dots i:nth-child(2){opacity:.7}.dots i:nth-child(3){opacity:.45}
@@ -268,6 +270,12 @@ function reelCoverChat(p) {
     <div style="position:absolute;left:0;right:0;top:1560px;text-align:center;font-size:32px;font-weight:700;color:#4E5968">${esc(BRAND)}</div>`;
 }
 
+// 사진 메시지(item.image): images/<이름> 파일을 카톡으로 보낸 사진처럼 말풍선 대신 둥근 사진으로
+// 사진: 문자열 = SVG 본문(직접 그림), { prompt } = photos.js 가 만든 실사 out/photo-<이름>.jpg
+const imgData = n => typeof post.reel.photos[n] === 'string'
+  ? `data:image/svg+xml;base64,${Buffer.from(photoSvg(post.reel.photos[n])).toString('base64')}`
+  : `data:image/jpeg;base64,${fs.readFileSync(path.join(out, `photo-${n}.jpg`)).toString('base64')}`;
+
 // typingAt: 이 장면의 typingAt 번째 메시지 자리에 '입력 중…' 말풍선을 대신 보여 줌 (답장 직전 긴장감)
 function chatBody(history, s, si, shown, last, name, typingAt = -1) {
   const msgs = [];
@@ -284,13 +292,14 @@ function chatBody(history, s, si, shown, last, name, typingAt = -1) {
     const prev = msgs[i - 1], next = msgs[i + 1];
     const first = !prev || prev.sys || prev.who !== m.who;          // 같은 사람 연속 메시지의 첫 번째
     const tail = !next || next.sys || next.who !== m.who;           // 마지막에만 시간 표시
-    const bf = m.current && !m.dots ? ' data-fit="2"' : '';
-    const body = m.dots ? '<span class="dots"><i></i><i></i><i></i></span>' : esc(m.text);
+    const bf = m.current && !m.dots && !m.image ? ' data-fit="2"' : '';
+    const kc = m.image ? 'kb pic' : 'kb';
+    const body = m.dots ? '<span class="dots"><i></i><i></i><i></i></span>' : m.image ? `<img src="${imgData(m.image)}">` : esc(m.text);
     const tm = tail && !m.dots ? `<span class="tm">${m.time}</span>` : '';
     const cls = m.hide ? ' hide' : '';
-    if (m.who === 'me') return `<div class="row cme${cls}">${tm}<div class="kb"${bf}>${body}</div></div>`;
+    if (m.who === 'me') return `<div class="row cme${cls}">${tm}<div class="${kc}"${bf}>${body}</div></div>`;
     return `<div class="row cyou${cls}">${first ? `<div class="av">${esc([...name][0])}</div>` : '<div class="avsp"></div>'}
-      <div class="col">${first ? `<div class="nm">${esc(name)}</div>` : ''}<div class="row"><div class="kb"${bf}>${body}</div>${tm}</div></div></div>`;
+      <div class="col">${first ? `<div class="nm">${esc(name)}</div>` : ''}<div class="row"><div class="${kc}"${bf}>${body}</div>${tm}</div></div></div>`;
   }).join('');
   return `<div class="chat"><div class="chead"><span class="back">‹</span><span>${esc(name)}</span></div>
     <div class="cbody">${html}</div><div class="cinput">메시지 입력</div></div>`;
@@ -356,6 +365,8 @@ if (isV2) {
     scenes.push({ index: si + 1, start: +start.toFixed(3), end: +t.toFixed(3), last: states[states.length - 1].file });
   });
   manifest.reel = { mode: 'scenes', transition: 'fade', fade: FADE, states, scenes, total: +t.toFixed(3) };
+  // 육안 검수용: 카톡 사진 원본 크기 (out/photo-<이름>.png). out/check 는 check.js 가 새로 만든다
+  for (const k of Object.keys(post.reel.photos || {}).filter(k => typeof post.reel.photos[k] === 'string')) page(path.join(out, `photo-${k}.png`), 900, 900, 'body{margin:0}', `<img src="${imgData(k)}" style="display:block">`, [0, 0, 900, 900], false);
   // 릴스 커버 이미지 (publish 가 cover_url 로 지정). 프로필 그리드는 가운데 4:5 로 잘리므로 제목은 가운데 영역에
   // reel.cover 가 있으면 '대화 캡처' 커버(큰 궁금증 문구 + 말풍선), 없으면 캐러셀 표지와 같은 디자인
   const coverIssues = post.reel.cover

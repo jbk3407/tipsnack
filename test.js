@@ -8,7 +8,7 @@ const { spawnSync } = require('child_process');
 
 const SRC = __dirname;
 const FFMPEG = process.env.FFMPEG || require('ffmpeg-static');
-const CODE = ['lib', 'render.js', 'reel.js', 'check.js', 'publish.js', 'history.js', 'run.sh'];
+const CODE = ['lib', 'photos.js', 'render.js', 'reel.js', 'check.js', 'publish.js', 'history.js', 'run.sh'];
 const example = name => JSON.parse(fs.readFileSync(path.join(SRC, 'examples', name), 'utf8'));
 const results = [];
 
@@ -26,8 +26,8 @@ const run = (d, cmd, args, env = {}) => {
   return { code: r.status, out: (r.stdout || '') + (r.stderr || '') };
 };
 const pipeline = (d, env) => {
-  for (const s of ['render.js', 'reel.js', 'check.js']) {
-    const r = run(d, 'node', [s], env);
+  for (const s of ['photos.js', 'render.js', 'reel.js', 'check.js']) {
+    const r = run(d, 'node', [s], { PHOTO_MOCK: '1', ...env });
     if (r.code !== 0) return { ...r, step: s };
   }
   return { code: 0, out: '', step: 'done' };
@@ -316,6 +316,27 @@ t('기존 v2(새 필드 없음) 호환 렌더 + 게시 거부', () => {
   expect(g.code !== 0 && /호환 렌더/.test(g.out), g.out);
   expect(run(ws(posted('2026-10-12-extra2')), 'node', ['render.js']).code !== 0, '예약 경로에서 새 필드 없는 v2 가 렌더됨');
   return '호환 렌더 OK, 게이트·예약 경로 거부';
+});
+
+t('카톡 사진: 직접 그림(SVG)·실사 생성(prompt) 렌더, 위험 입력 거부', () => {
+  const p = example('coffee.post.json');
+  p.reel.photos = { stain: "<rect width='900' height='900' fill='#eee'/><circle cx='450' cy='450' r='120' fill='#8B5A3C' filter='url(#bleed)'/>",
+    towel: { prompt: 'a damp white bath towel crumpled on a bathroom tile floor, close-up' } };
+  p.reel.scenes[0].items[1] = { who: 'me', text: '사진', image: 'stain' };
+  p.reel.scenes[1].items[0] = { who: 'me', text: '사진', image: 'towel' };
+  const lib = require(path.join(SRC, 'lib/post'));
+  p.reel.scenes.forEach(s => { s.dur = Math.max(2.5, Math.ceil((lib.sceneMinDur(s.items) + 0.05) * 10) / 10); });
+  expect(lib.validate(p).errors.length === 0, lib.validate(p).errors.join(' / '));
+  const d = ws(p); const r = pipeline(d);
+  expect(r.code === 0, `${r.step}: ${r.out}`);
+  expect(fs.existsSync(path.join(d, 'out/photo-stain.png')) && fs.existsSync(path.join(d, 'out/photo-towel.jpg')), '사진 파일 없음');
+  const bad = [["<script>x</script>", /script/], ["<rect fill='url(http://x)'/>", /외부 참조/], ["<text>a</text>", /글자/], [{ prompt: 'short' }, /prompt/]];
+  for (const [b, re] of bad) { const q = example('coffee.post.json'); q.reel.photos = { x: b }; q.reel.scenes[1].items.unshift({ who: 'me', text: '사진', image: 'x' }); expect(lib.validate(q).errors.some(e => re.test(e)), `${re}`); }
+  const q = example('coffee.post.json'); q.reel.scenes[0].items.push({ who: 'me', text: '사진', image: 'nope' });
+  expect(lib.validate(q).errors.some(e => /image/.test(e)), '없는 사진 참조 통과');
+  const d2 = ws(p); const r2 = run(d2, 'node', ['photos.js'], { CF_ACCOUNT_ID: '', CF_API_TOKEN: '' });
+  expect(r2.code !== 0 && /PHOTO_ERROR/.test(r2.out), '키 없을 때 PHOTO_ERROR 아님: ' + r2.out);
+  return 'SVG·실사 사진 렌더 OK, 위험 입력 4종·없는 참조 거부, 키 없으면 PHOTO_ERROR';
 });
 
 // 시안 보관 (개발 출력 경로)

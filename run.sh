@@ -24,6 +24,7 @@ case "${1:-}" in
     echo "$n" > ".state/render-$D"
     echo "렌더 시도 $n/3 ($D)"
     rm -rf out
+    node photos.js
     node render.js
     node reel.js
     node check.js
