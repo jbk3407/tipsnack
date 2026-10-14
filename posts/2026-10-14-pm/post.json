@@ -1,0 +1,167 @@
+{
+  "version": 2,
+  "topic": "줄어든 니트 린스로 살리기",
+  "category": "세탁·얼룩",
+  "format": "story",
+  "emotion": "안심·위로",
+  "situation": "아끼던 울 니트를 건조기에 돌렸다가 줄어들어 엄마에게 카톡한 주말",
+  "summary": "미지근한 물에 헤어 린스 풀어 30분 담그고, 수건으로 물기 빼 살살 늘려 눕혀 말리기",
+  "insight": {
+    "myth": "한 번 줄어든 니트는 못 살리고 버려야 한다",
+    "tip": "미지근한 물에 헤어 린스를 풀어 30분 담근다",
+    "why": "린스가 뻣뻣해진 털을 부드럽게 해 늘어난다"
+  },
+  "cover": {
+    "style": "bubble",
+    "kicker": "세탁 꿀팁",
+    "title": "엄마 니트가\n줄어들었어ㅠ",
+    "emphasis": "니트",
+    "sub": "엄마의 첫 질문: 린스 있니?"
+  },
+  "cards": [
+    {
+      "label": "그날",
+      "title": "건조기에 니트를",
+      "desc": "아끼던 울 니트가\n꺼내 보니 한 치수 작게",
+      "example": "“엄마 니트가 줄어들었어ㅠ”",
+      "bridge": "버리기 전에 엄마는"
+    },
+    {
+      "label": "엄마의 한 수",
+      "title": "린스 있니?",
+      "desc": "머리 감을 때 쓰는\n헤어 린스면 돼요.",
+      "example": "린스가 뻣뻣해진 털을\n부드럽게 풀어 줘요",
+      "bridge": "먼저 물을 준비해요"
+    },
+    {
+      "label": "1단계",
+      "title": "미지근한 물에 풀기",
+      "desc": "30도 안팎 미지근한 물\n한 대야에 린스 1~2스푼",
+      "example": "뜨거운 물은 더 줄어요",
+      "bridge": "니트를 넣고"
+    },
+    {
+      "label": "2단계",
+      "title": "30분 담가 두기",
+      "desc": "니트를 푹 담그고\n30분 정도 기다려요.",
+      "example": "주무르거나 비비지 않기",
+      "bridge": "건질 때는"
+    },
+    {
+      "label": "3단계",
+      "title": "비틀지 말고 꾹",
+      "desc": "헹구지 말고 수건에 말아\n꾹 눌러 물기를 빼요.",
+      "example": "비틀어 짜면\n모양이 망가져요",
+      "bridge": "이제 모양을 잡아요"
+    },
+    {
+      "label": "4단계",
+      "title": "늘려서 눕혀 말리기",
+      "desc": "살살 당겨 모양을 잡고\n평평하게 눕혀 말려요.",
+      "example": "옷걸이에 걸면\n어깨가 늘어나요",
+      "bridge": "이건 꼭 알아 둬요"
+    },
+    {
+      "label": "주의",
+      "title": "다 돌아오진 않아요",
+      "desc": "대부분 어느 정도 돌아와요.\n세탁 표시 먼저 확인.",
+      "example": "드라이 전용 고급 니트는\n세탁소에 맡기기"
+    }
+  ],
+  "outro": {
+    "title": "역시 엄마",
+    "sub": "엄마한테 물어볼\n다음 꿀팁은?"
+  },
+  "caption": "“엄마 니트가 줄어들었어ㅠ”\n“건조기 돌렸지?”\n“응ㅠ 버려야 돼?”\n“린스 있니?”\n\n① 미지근한 물 한 대야에 헤어 린스 1~2스푼\n② 니트를 넣고 30분 담가 두기\n③ 헹구지 말고 수건에 말아 꾹 눌러 물기 빼기\n④ 살살 늘려 모양 잡고 평평하게 눕혀 말리기\n\n완전히 원래대로는 안 될 수 있어요. 세탁 표시 먼저 확인하고, 드라이 전용 니트는 세탁소에.\n비틀어 짜거나 다시 건조기에 넣지 않기.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#니트세탁 #세탁꿀팁 #살림꿀팁 #엄마꿀팁",
+  "reel": {
+    "mode": "focus",
+    "chatName": "엄마",
+    "caption": "버리려던 니트, 엄마가 린스 있냐고 물어봤어요.\n\n건조기에 줄어든 울 니트, 미지근한 물에 린스 풀어 담가 보세요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#니트세탁 #세탁꿀팁",
+    "cover": {
+      "title": "줄어든 니트\n린스로 살리기",
+      "emphasis": "줄어든 니트",
+      "chat": [
+        { "who": "me", "text": "엄마 니트가 줄어들었어ㅠ" },
+        { "who": "you", "dots": true }
+      ]
+    },
+    "photos": {
+      "result": { "prompt": "a beige wool knit sweater neatly stretched back into shape, drying flat on a white towel on a laundry drying rack, top-down view, soft daylight" }
+    },
+    "scenes": [
+      {
+        "card": 1,
+        "label": "건조기 돌린 주말",
+        "items": [
+          { "who": "me", "text": "엄마 니트가 줄어들었어ㅠ" },
+          { "who": "you", "text": "울 니트니?" }
+        ],
+        "dur": 4.9
+      },
+      {
+        "items": [
+          { "who": "me", "text": "작아져서 못 입겠어ㅠ" },
+          { "who": "you", "text": "건조기 돌렸지?" }
+        ],
+        "dur": 5.0
+      },
+      {
+        "card": 2,
+        "items": [
+          { "who": "me", "text": "응ㅠ 버려야 돼?" },
+          { "who": "you", "text": "린스 있니?", "typing": true }
+        ],
+        "dur": 5.5
+      },
+      {
+        "card": 3,
+        "items": [
+          { "who": "me", "text": "있어" },
+          { "who": "you", "text": "미지근한 물에 린스 한 스푼." },
+          { "who": "you", "text": "30분 담가 둬." }
+        ],
+        "dur": 7.2
+      },
+      {
+        "card": 5,
+        "items": [
+          { "who": "you", "text": "수건에 말아서 꾹 눌러." },
+          { "who": "you", "text": "살살 늘려서 눕혀 말려." }
+        ],
+        "dur": 5.7
+      },
+      {
+        "card": 7,
+        "items": [
+          { "who": "me", "text": "사진", "image": "result" },
+          { "who": "me", "text": "거의 돌아왔어!! 엄마 최고🥹" },
+          { "who": "you", "text": "다음부턴 울코스로 해." }
+        ],
+        "dur": 7.2
+      },
+      {
+        "summary": true,
+        "label": "엄마표 줄어든 니트 살리기",
+        "items": [
+          { "text": "미지근한 물+린스 30분" },
+          { "text": "헹구지 말고 꾹 눌러 짜기" },
+          { "text": "살살 늘려 눕혀 말리기" }
+        ],
+        "dur": 8.0
+      },
+      {
+        "items": [
+          { "text": "다음엔 엄마한테" },
+          { "text": "뭘 물어볼까요?", "big": true }
+        ],
+        "dur": 4.5
+      }
+    ]
+  },
+  "visualReview": {
+    "renderId": "306b821f6b7a",
+    "carousel": "통과",
+    "reel": "통과",
+    "notes": "covers·01·05·09·photo-result·timeline·reel-sheet·report 확인: 표지 주제 선명, 글자 깨짐·겹침 없음, 사진은 니트가 수건 위 건조대에 눕혀 말리는 장면으로 대화와 일치, 엄마 말투·안전 원칙 준수"
+  }
+}
