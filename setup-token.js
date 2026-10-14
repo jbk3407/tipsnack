@@ -24,7 +24,9 @@ const get = async url => {
   if (!page) throw new Error('Instagram 이 연결된 페이지가 없습니다');
 
   const ig = page.instagram_business_account;
-  const out = { APP_SECRET: env.APP_SECRET, IG_USER_ID: ig.id, IG_TOKEN: page.access_token };
+  // 다른 키(CF_ACCOUNT_ID 등)는 그대로 두고 SHORT_TOKEN 만 지운다
+  const out = { ...env, APP_SECRET: env.APP_SECRET, IG_USER_ID: ig.id, IG_TOKEN: page.access_token };
+  delete out.SHORT_TOKEN;
   fs.writeFileSync(envPath, Object.entries(out).map(([k, v]) => `${k}=${v}`).join('\n') + '\n');
 
   const dbg = await get(`${G}/debug_token?input_token=${page.access_token}&access_token=${APP_ID}|${env.APP_SECRET}`);
