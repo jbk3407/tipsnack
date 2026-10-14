@@ -280,6 +280,7 @@ t('엄마 카톡 형식: focus·엄마/아빠·썸네일·요약→마무리 질
     [p => { p.reel.scenes.splice(-2, 1); }, /요약\(summary: true\)/],
     [p => { p.caption = p.caption.replace('엄마한테 물어본 꿀팁 ', ''); }, /소개 문구/],
     [p => { p.category = '다정하게 말하기'; }, /category/],
+    [p => { delete p.insight; }, /insight 누락/],
   ];
   for (const [f, re] of cases) { const p = example('kimchi.post.json'); f(p); const e = lib.validate(p).errors; expect(e.some(x => re.test(x)), `${re}: ${e.join(' / ')}`); }
   return `${cases.length}가지 위반 거부`;
