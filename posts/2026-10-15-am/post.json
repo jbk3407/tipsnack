@@ -1,0 +1,171 @@
+{
+  "version": 2,
+  "visualReview": {
+    "renderId": "a949f1adfeb2",
+    "carousel": "통과",
+    "reel": "통과",
+    "notes": "covers·01·05·09·photo-micro·photo-steamer·timeline·reel-sheet·report 확인: 주제 선명, 깨짐·겹침 없음, 사진 상황 일치, 요약=대화"
+  },
+  "topic": "엄마표 달달 고구마 찌기",
+  "category": "요리",
+  "format": "practical",
+  "emotion": "장난·웃음",
+  "situation": "고구마를 전자레인지에 돌렸더니 밍밍해서 엄마에게 카톡한 저녁",
+  "summary": "전자레인지 대신 찜기에 중약불 40분 천천히, 젓가락 쑥 들어가면 끝, 생고구마는 냉장 금지",
+  "insight": {
+    "myth": "전자레인지·센 불로 빨리 익혀도 맛은 같다",
+    "tip": "중약불로 40분 천천히 찌면 더 달아진다",
+    "why": "천천히 데워질수록 전분이 단맛으로 바뀐다"
+  },
+  "share": {
+    "to": "애인",
+    "line": "고구마만 보면 웃는 애인 이번엔 달게 쪄 주기"
+  },
+  "cover": {
+    "style": "bubble",
+    "kicker": "엄마 레시피",
+    "title": "엄마 고구마가\n안 달아ㅠ",
+    "emphasis": "고구마",
+    "sub": "엄마 말: 불 줄이고 40분"
+  },
+  "cards": [
+    {
+      "label": "그날",
+      "title": "고구마가 밍밍해",
+      "desc": "전자레인지 5분,\n퍽퍽하고 안 달아요",
+      "example": "“엄마 고구마가 안 달아ㅠ”",
+      "bridge": "엄마의 첫마디는"
+    },
+    {
+      "label": "엄마의 첫마디",
+      "title": "천천히 익혀야 달아",
+      "desc": "고구마는 천천히 데울수록\n단맛이 많이 생겨요.",
+      "example": "전자레인지·센 불은\n빨리 익어서 덜 달아요",
+      "bridge": "그럼 어떻게 찌냐면"
+    },
+    {
+      "label": "1단계",
+      "title": "껍질째 찜기에",
+      "desc": "씻은 고구마를\n껍질째 찜기에 올려요.",
+      "example": "크기가 비슷한 걸로\n같이 찌면 고르게 익어요",
+      "bridge": "불은 이렇게"
+    },
+    {
+      "label": "2단계",
+      "title": "중약불로 40분",
+      "desc": "불을 중약불로 줄이고\n40분쯤 천천히 쪄요.",
+      "example": "굵으면 10분 더,\n물이 졸지 않게 확인",
+      "bridge": "다 익었는지는"
+    },
+    {
+      "label": "3단계",
+      "title": "젓가락 쑥 확인",
+      "desc": "가운데를 찔러서\n쑥 들어가면 다 익었어요.",
+      "example": "뚜껑 열 때\n뜨거운 김 조심",
+      "bridge": "남은 생고구마는"
+    },
+    {
+      "label": "주의",
+      "title": "냉장고는 금지",
+      "desc": "생고구마는 찬 데 두면\n속이 쉽게 상해요.",
+      "example": "신문지에 싸서\n서늘한 실온에 두기",
+      "bridge": "마지막으로"
+    },
+    {
+      "label": "마무리",
+      "title": "달달 고구마 완성",
+      "desc": "천천히 찐 고구마는\n더 달고 촉촉해요.",
+      "example": "“거봐, 천천히 하랬지.”"
+    }
+  ],
+  "outro": {
+    "title": "역시 엄마",
+    "sub": "엄마한테 물어볼\n다음 꿀팁은?"
+  },
+  "caption": "고구마만 보면 웃는 애인 있으면 보내 주세요 🍠\n\n“엄마 고구마가 안 달아ㅠ”\n“어떻게 쪘니?”\n“전자레인지 5분”\n“그러니까 안 달지.”\n\n① 씻은 고구마를 껍질째 찜기에\n② 중약불로 40분쯤 천천히 (굵으면 10분 더)\n③ 젓가락이 쑥 들어가면 완성\n\n천천히 데워질수록 단맛이 더 생겨요.\n뚜껑 열 때 뜨거운 김 조심, 남은 생고구마는 냉장고 말고 서늘한 실온에.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#고구마 #고구마찌기 #엄마레시피 #자취요리",
+  "reel": {
+    "mode": "focus",
+    "chatName": "엄마",
+    "caption": "전자레인지 5분 돌렸다니까 엄마가 그러니까 안 달지래요 ㅋㅋ\n\n고구마는 천천히 쪄야 달아져요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#고구마 #엄마레시피",
+    "cover": {
+      "title": "더 달게 찌는\n엄마 고구마",
+      "emphasis": "고구마",
+      "chat": [
+        { "who": "me", "text": "엄마 고구마가 안 달아ㅠ" },
+        { "who": "you", "dots": true }
+      ]
+    },
+    "photos": {
+      "micro": { "prompt": "a microwaved sweet potato cut in half on a white plate, pale dry yellow flesh, on a kitchen counter, close-up" },
+      "steamer": { "prompt": "several whole purple-skinned sweet potatoes in a stainless steel steamer basket inside a pot, light steam rising, top-down view" }
+    },
+    "scenes": [
+      {
+        "card": 1,
+        "label": "가을 첫 고구마",
+        "items": [
+          { "who": "me", "text": "엄마 고구마가 안 달아ㅠ" },
+          { "who": "you", "text": "어떻게 쪘니?" }
+        ],
+        "dur": 4.9
+      },
+      {
+        "items": [
+          { "who": "me", "text": "사진", "image": "micro" },
+          { "who": "me", "text": "전자레인지 5분" },
+          { "who": "you", "text": "그러니까 안 달지." }
+        ],
+        "dur": 6.3
+      },
+      {
+        "card": 4,
+        "items": [
+          { "who": "you", "text": "찜기에 넣고 중약불로 40분.", "typing": true },
+          { "who": "me", "text": "왜?? 오래 걸리잖아" }
+        ],
+        "dur": 6.6
+      },
+      {
+        "card": 2,
+        "items": [
+          { "who": "you", "text": "천천히 익어야 달아져.", "typing": true },
+          { "who": "me", "text": "사진", "image": "steamer" },
+          { "who": "me", "text": "이렇게?" }
+        ],
+        "dur": 6.9
+      },
+      {
+        "card": 5,
+        "items": [
+          { "who": "you", "text": "젓가락 쑥 들어가면 끝." },
+          { "who": "me", "text": "꿀 나왔어!! 엄마 최고🥹" }
+        ],
+        "dur": 5.9
+      },
+      {
+        "card": 6,
+        "items": [
+          { "who": "you", "text": "생고구마는 냉장고 넣지 마.", "typing": true }
+        ],
+        "dur": 3.8
+      },
+      {
+        "summary": true,
+        "label": "엄마표 달달 고구마",
+        "items": [
+          { "text": "중약불로 40분 천천히" },
+          { "text": "젓가락 쑥 들어가면 끝" },
+          { "text": "생고구마는 냉장 금지" }
+        ],
+        "dur": 7.8
+      },
+      {
+        "items": [
+          { "text": "고구마만 보면 웃는 애인" },
+          { "text": "이번엔 달게 쪄 주기", "big": true }
+        ],
+        "dur": 5.4
+      }
+    ]
+  }
+}
