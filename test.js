@@ -45,7 +45,10 @@ const expect = (c, m) => { if (!c) throw new Error(m); };
 const drafts = {};
 for (const [key, file] of [['coffee', 'coffee.post.json'], ['kimchi', 'kimchi.post.json']]) {
   t(`새 형식 렌더·검수 (${key})`, () => {
-    const d = ws(example(file), { posts: true }); // 실제 이력과 비교
+    // 실제 이력과 비교. 예시 카테고리가 마지막 실제 게시물과 같으면(직전 카테고리 규칙) 다른 카테고리로 바꿔 렌더
+    const lib = require(path.join(SRC, 'lib/post')), ex = example(file), last = lib.loadHistory(SRC).items.filter(h => h.post.version === 2).pop();
+    if (last && last.post.category === ex.category) ex.category = lib.CATEGORIES.find(c => c !== ex.category);
+    const d = ws(ex, { posts: true });
     const r = pipeline(d);
     expect(r.code === 0, `${r.step} 실패: ${r.out}`);
     const rep = report(d);
@@ -267,7 +270,7 @@ t('첫 장면: 0초에 첫 문장 완성, 둘째 문장 2.5초 안에 등장', (
   }
   return out.join(', ');
 });
-t('엄마 카톡 형식: focus·엄마/아빠·썸네일·요약→마무리 질문', () => {
+t('엄마 카톡 형식: focus·엄마/아빠·썸네일·요약→공유 한 줄', () => {
   const lib = require(path.join(SRC, 'lib/post'));
   expect(lib.validate(example('kimchi.post.json')).errors.length === 0, '예시 실패');
   const cases = [
@@ -276,11 +279,15 @@ t('엄마 카톡 형식: focus·엄마/아빠·썸네일·요약→마무리 질
     [p => { p.reel.chatName = '너'; }, /엄마 \/ 아빠/],
     [p => { p.reel.scenes[0].items[0].text = '김치찌개 어떻게 끓여?'; }, /첫 메시지는 내가 "엄마 ~"/],
     [p => { delete p.reel.cover; }, /reel\.cover 누락/],
-    [p => { p.reel.scenes.pop(); }, /마무리 질문/],
+    [p => { p.reel.scenes.pop(); }, /마무리 한 줄/],
     [p => { p.reel.scenes.splice(-2, 1); }, /요약\(summary: true\)/],
     [p => { p.caption = p.caption.replace('엄마한테 물어본 꿀팁 ', ''); }, /소개 문구/],
     [p => { p.category = '다정하게 말하기'; }, /category/],
     [p => { delete p.insight; }, /insight 누락/],
+    [p => { delete p.share; }, /share 누락/],
+    [p => { p.share.to = '엄마'; }, /share.to/],
+    [p => { p.share.line = '다른 문구 한 줄'; }, /이어 붙인 것과 같아야/],
+    [p => { p.share.line = '공유해 주세요'; p.reel.scenes[p.reel.scenes.length - 1].items = [{ text: '공유해 주세요' }]; }, /직접 요구 금지/],
   ];
   for (const [f, re] of cases) { const p = example('kimchi.post.json'); f(p); const e = lib.validate(p).errors; expect(e.some(x => re.test(x)), `${re}: ${e.join(' / ')}`); }
   return `${cases.length}가지 위반 거부`;
