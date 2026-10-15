@@ -1,169 +1,173 @@
 {
   "version": 2,
-  "topic": "니트 어깨 뿔 안 나게 걸기",
-  "category": "정리수납",
-  "format": "story",
-  "emotion": "편안함",
-  "situation": "옷장에서 꺼낸 니트 어깨에 뿔이 나 있어 엄마에게 카톡한 저녁",
-  "summary": "니트는 세로로 반 접어 겨드랑이에 고리 걸고 몸판·소매를 넘겨 걸기, 무거운 건 개기",
+  "visualReview": {
+    "renderId": "df54db9278ad",
+    "carousel": "통과",
+    "reel": "통과",
+    "notes": "covers·01·05·09·photo-closet·photo-balcony·timeline·reel-sheet·report 확인: 주제·강조어 선명, 글자 깨짐·잘림 없음, 사진에 사람·글자 없음, 요약이 대화와 일치"
+  },
+  "topic": "꿉꿉한 겨울 이불 냄새 빼기",
+  "category": "계절 살림",
+  "format": "practical",
+  "emotion": "고마움",
+  "situation": "첫 추위에 장롱에서 꺼낸 이불에서 꿉꿉한 냄새가 나 카톡한 밤",
+  "summary": "향 뿌리지 말고 볕에 2~3시간 널고, 두드리지 말고 흔들어 털기, 넣을 땐 바싹 말려서",
   "insight": {
-    "myth": "니트도 셔츠처럼 옷걸이에 그냥 걸면 된다",
-    "tip": "세로로 반 접어 겨드랑이에 고리, 몸판·소매를 넘겨 건다",
-    "why": "무게가 어깨 한 점에 안 쏠려서 늘어나지 않는다"
+    "myth": "꿉꿉한 이불은 향수 뿌리고 막대로 두드린다",
+    "tip": "두드리지 말고 볕에 널었다가 흔들어 턴다",
+    "why": "두드리면 속 솜이 끊겨 뭉친다"
   },
   "share": {
     "to": "애인",
-    "line": "니트마다 어깨 뿔 난 애인 이거 보면 알걸요"
+    "line": "작년 이불 그대로 덮는 애인 오늘 볕 좋대요"
   },
   "cover": {
     "style": "dark",
-    "kicker": "옷장 꿀팁",
-    "title": "엄마 니트 어깨에\n뿔 났어ㅠ",
-    "emphasis": "니트",
-    "sub": "엄마의 첫마디: 반 접어서 걸어"
+    "kicker": "계절 살림",
+    "title": "엄마 이불에서\n냄새나ㅠ",
+    "emphasis": "이불",
+    "sub": "엄마의 첫마디: 향 뿌리지 마!"
   },
   "cards": [
     {
       "label": "그날",
-      "title": "니트 어깨에 뿔",
-      "desc": "옷장에서 꺼낸 니트,\n어깨가 뾰족 솟았어요",
-      "example": "“엄마 니트 어깨 뿔 났어ㅠ”",
+      "title": "이불에서 꿉꿉한 냄새",
+      "desc": "첫 추위에 꺼낸 이불,\n덮자마자 장롱 냄새",
+      "example": "“엄마 이불에서 냄새나ㅠ”",
       "bridge": "엄마의 첫마디는"
     },
     {
-      "label": "엄마의 첫마디",
-      "title": "반 접어서 걸어",
-      "desc": "그냥 걸면 무게가\n어깨 한 점에 쏠려요",
-      "example": "그래서 뿔처럼 늘어나요",
-      "bridge": "접는 법은"
+      "label": "첫마디",
+      "title": "향 뿌리지 마!",
+      "desc": "섬유향수를 뿌리면\n냄새가 섞여 남아요.",
+      "example": "냄새는 덮지 말고\n날려 보내기",
+      "bridge": "대신 이렇게 해요"
     },
     {
       "label": "1단계",
-      "title": "세로로 반 접기",
-      "desc": "니트를 펼쳐 놓고\n소매끼리 맞춰 반 접어요",
-      "example": "몸판이 길쭉해지게",
-      "bridge": "그다음 옷걸이를"
+      "title": "볕에 2~3시간",
+      "desc": "맑은 날 베란다 건조대에\n넓게 펴서 널어요.",
+      "example": "중간에 한 번 뒤집기",
+      "bridge": "널어 두고 나서"
     },
     {
       "label": "2단계",
-      "title": "겨드랑이에 고리",
-      "desc": "옷걸이 고리를\n겨드랑이 쪽에 둬요",
-      "example": "옷걸이는 세모 모양으로",
-      "bridge": "이제 넘기기만"
+      "title": "두드리지 마세요",
+      "desc": "막대로 팡팡 치면\n속 솜이 끊겨 뭉쳐요.",
+      "example": "그래서 엄마는 안 두드려",
+      "bridge": "대신 엄마는"
     },
     {
       "label": "3단계",
-      "title": "몸판·소매 넘기기",
-      "desc": "몸판과 소매를\n옷걸이 양쪽에 넘겨요",
-      "example": "어깨에 닿는 데가 없어요",
-      "bridge": "무거운 니트라면"
+      "title": "흔들어서 털기",
+      "desc": "양쪽 끝을 잡고\n위아래로 흔들어요.",
+      "example": "둘이 잡으면 더 쉬워요",
+      "bridge": "이건 꼭 확인해요"
     },
     {
       "label": "주의",
-      "title": "무거운 건 개어 두기",
-      "desc": "두꺼운 니트는 걸지 말고\n개어서 서랍에 둬요",
-      "example": "세탁 표시 먼저 확인",
-      "bridge": "이미 뿔이 났다면"
+      "title": "이불마다 달라요",
+      "desc": "오리털·구스는 그늘에서,\n세탁 표시 먼저 확인.",
+      "example": "비 오면 건조기 저온,\n가능한 이불만",
+      "bridge": "다음에 넣을 땐"
     },
     {
       "label": "마무리",
-      "title": "물 뿌려 펴 말리기",
-      "desc": "분무기로 살짝 적시고\n손으로 펴서 눕혀 말려요",
-      "example": "건조대에 평평하게 눕히기"
+      "title": "바싹 말려서 넣기",
+      "desc": "빨거나 볕에 말린 뒤\n습기 없이 넣어요.",
+      "example": "“넣을 땐 바싹 말려.”"
     }
   ],
   "outro": {
     "title": "역시 엄마",
     "sub": "엄마한테 물어볼\n다음 꿀팁은?"
   },
-  "caption": "니트마다 어깨에 뿔 난 애인 있으면 보내 주세요 🧶\n\n“엄마 니트 어깨 뿔 났어ㅠ”\n“걸어 놨니?”\n“옷걸이에 걸어 놨지”\n“반 접어서 걸어.”\n\n① 니트를 세로로 반 접기\n② 옷걸이 고리를 겨드랑이 쪽에\n③ 몸판·소매를 옷걸이 양쪽에 넘겨 걸기\n\n두꺼운 니트는 걸지 말고 개어서 서랍에.\n이미 뿔이 났으면 분무기로 살짝 적셔 손으로 펴고 눕혀 말려요. 세탁 표시 먼저 확인.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#니트보관 #옷장정리 #살림꿀팁 #엄마꿀팁",
+  "caption": "작년 이불 그대로 꺼내 덮는 애인 있으면 보내 주세요 🛏️\n\n“엄마 이불에서 냄새나ㅠ”\n“방금 꺼냈니?”\n“응… 섬유향수 뿌릴까?”\n“뿌리지 마. 냄새 섞여.”\n\n① 맑은 날 볕에 2~3시간 널기, 중간에 한 번 뒤집기\n② 막대로 두드리지 말기 (속 솜이 끊겨 뭉쳐요)\n③ 양쪽 끝 잡고 흔들어서 털기\n④ 다음에 넣을 땐 빨거나 말려서 바싹\n\n오리털·구스 이불은 그늘에서 바람만, 세탁 표시 먼저 확인.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#이불관리 #겨울살림 #살림꿀팁 #엄마꿀팁",
   "reel": {
     "mode": "focus",
     "chatName": "엄마",
-    "caption": "옷걸이에 걸었다니까 엄마가 그러니까 그렇지 래요 ㅋㅋ\n\n니트는 반 접어서 걸면 어깨 뿔이 안 나요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#니트보관 #옷장정리",
+    "caption": "팡팡 두드리려다 엄마한테 혼났어요 😅\n\n꿉꿉한 겨울 이불, 두드리지 말고 볕이랑 흔들기.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#이불관리 #겨울살림",
     "cover": {
-      "title": "어깨 뿔 안 나는\n니트 거는 법",
-      "emphasis": "니트",
+      "title": "꿉꿉한 겨울 이불\n엄마는 이렇게 털어",
+      "emphasis": "겨울 이불",
       "chat": [
-        { "who": "me", "text": "엄마 니트 어깨 뿔 났어ㅠ" },
+        { "who": "me", "text": "엄마 이불에서 냄새나ㅠ" },
         { "who": "you", "dots": true }
       ]
     },
     "photos": {
-      "bump": { "prompt": "a gray knit wool sweater hanging on a thin wire hanger in a closet, with pointed stretched bumps sticking up on both shoulders, close-up" }
+      "closet": { "prompt": "a thick folded white winter comforter sitting on a dim wooden wardrobe shelf, slightly flattened and creased from long storage, close-up" },
+      "balcony": { "prompt": "the same thick white winter comforter spread over a metal drying rack on an apartment balcony in bright morning sunlight, wide shot" }
     },
     "scenes": [
       {
         "card": 1,
-        "label": "환절기 옷장 정리",
+        "label": "첫 추위가 온 밤",
         "items": [
-          { "who": "me", "text": "엄마 니트 어깨 뿔 났어ㅠ" },
-          { "who": "you", "text": "걸어 놨니?" }
+          { "who": "me", "text": "엄마 이불에서 냄새나ㅠ" },
+          { "who": "you", "text": "방금 꺼냈니?" }
         ],
-        "dur": 4.9
+        "dur": 4.8
       },
       {
         "items": [
-          { "who": "me", "text": "사진", "image": "bump" },
-          { "who": "me", "text": "옷걸이에 걸어 놨지" }
+          { "who": "me", "text": "응 이거ㅠ" },
+          { "who": "me", "text": "사진", "image": "closet" },
+          { "who": "you", "text": "빨고 넣었니?" }
         ],
-        "dur": 4.2
+        "dur": 5.6
       },
       {
         "card": 2,
         "items": [
-          { "who": "you", "text": "그러니까 그렇지.", "typing": true },
-          { "who": "you", "text": "반 접어서 걸어." }
+          { "who": "me", "text": "아니 섬유향수 뿌릴까?" },
+          { "who": "you", "text": "뿌리지 마. 냄새 섞여.", "typing": true }
         ],
-        "dur": 5.5
+        "dur": 6.4
       },
       {
         "card": 3,
         "items": [
-          { "who": "me", "text": "어떻게 접어?" },
-          { "who": "you", "text": "세로로 접고 겨드랑이에 고리.", "typing": true }
+          { "who": "you", "text": "볕에 2~3시간 널어." },
+          { "who": "me", "text": "사진", "image": "balcony" },
+          { "who": "me", "text": "이렇게? 팡팡 두드려?" }
         ],
-        "dur": 6.2
+        "dur": 6.9
       },
       {
-        "card": 5,
+        "card": 4,
         "items": [
-          { "who": "you", "text": "몸판이랑 소매를 넘겨 걸어." },
-          { "who": "me", "text": "오 어깨에 아무것도 안 닿네" }
+          { "who": "you", "text": "두드리지 마.", "typing": true },
+          { "who": "you", "text": "솜이 끊겨서 뭉쳐." },
+          { "who": "you", "text": "흔들어서 털어." }
         ],
-        "dur": 6.0
+        "dur": 7.6
       },
       {
         "card": 7,
         "items": [
-          { "who": "me", "text": "됐다!! 엄마 최고🥹" },
-          { "who": "you", "text": "뿔 난 건 물 뿌려 펴 말려.", "typing": true }
+          { "who": "me", "text": "거의 안 나🥹 고마워" },
+          { "who": "you", "text": "넣을 땐 바싹 말려." }
         ],
-        "dur": 6.6
+        "dur": 5.2
       },
       {
         "summary": true,
-        "label": "엄마표 니트 거는 법",
+        "label": "엄마표 이불 냄새 빼기",
         "items": [
-          { "text": "반 접어 겨드랑이에 고리" },
-          { "text": "몸판·소매 넘겨 걸기" },
-          { "text": "뿔은 물 뿌려 펴 말리기" }
+          { "text": "볕에 2~3시간 널기" },
+          { "text": "두드리지 말고 흔들기" },
+          { "text": "넣을 땐 바싹 말려서" }
         ],
-        "dur": 8.2
+        "dur": 7.6
       },
       {
         "items": [
-          { "text": "니트마다 어깨 뿔 난 애인" },
-          { "text": "이거 보면 알걸요", "big": true }
+          { "text": "작년 이불 그대로 덮는 애인" },
+          { "text": "오늘 볕 좋대요", "big": true }
         ],
-        "dur": 5.5
+        "dur": 5.3
       }
     ]
-  },
-  "visualReview": {
-    "renderId": "4a95096471db",
-    "carousel": "통과",
-    "reel": "통과",
-    "notes": "covers·01·05·09·photo-bump·timeline·reel-sheet·report 확인: 글자 깨짐·겹침 없음, 표지·썸네일에 니트 주제 먼저 보임, 사진은 옷걸이에 건 회색 니트로 대화와 일치(글자·사람 없음), 접는 법 사진은 일반 걸기로 나와 3차에서 제외"
   }
 }
