@@ -1,171 +1,169 @@
 {
   "version": 2,
-  "visualReview": {
-    "renderId": "a949f1adfeb2",
-    "carousel": "통과",
-    "reel": "통과",
-    "notes": "covers·01·05·09·photo-micro·photo-steamer·timeline·reel-sheet·report 확인: 주제 선명, 깨짐·겹침 없음, 사진 상황 일치, 요약=대화"
-  },
-  "topic": "엄마표 달달 고구마 찌기",
-  "category": "요리",
-  "format": "practical",
-  "emotion": "장난·웃음",
-  "situation": "고구마를 전자레인지에 돌렸더니 밍밍해서 엄마에게 카톡한 저녁",
-  "summary": "전자레인지 대신 찜기에 중약불 40분 천천히, 젓가락 쑥 들어가면 끝, 생고구마는 냉장 금지",
+  "topic": "니트 어깨 뿔 안 나게 걸기",
+  "category": "정리수납",
+  "format": "story",
+  "emotion": "편안함",
+  "situation": "옷장에서 꺼낸 니트 어깨에 뿔이 나 있어 엄마에게 카톡한 저녁",
+  "summary": "니트는 세로로 반 접어 겨드랑이에 고리 걸고 몸판·소매를 넘겨 걸기, 무거운 건 개기",
   "insight": {
-    "myth": "전자레인지·센 불로 빨리 익혀도 맛은 같다",
-    "tip": "중약불로 40분 천천히 찌면 더 달아진다",
-    "why": "천천히 데워질수록 전분이 단맛으로 바뀐다"
+    "myth": "니트도 셔츠처럼 옷걸이에 그냥 걸면 된다",
+    "tip": "세로로 반 접어 겨드랑이에 고리, 몸판·소매를 넘겨 건다",
+    "why": "무게가 어깨 한 점에 안 쏠려서 늘어나지 않는다"
   },
   "share": {
     "to": "애인",
-    "line": "고구마만 보면 웃는 애인 이번엔 달게 쪄 주기"
+    "line": "니트마다 어깨 뿔 난 애인 이거 보면 알걸요"
   },
   "cover": {
-    "style": "bubble",
-    "kicker": "엄마 레시피",
-    "title": "엄마 고구마가\n안 달아ㅠ",
-    "emphasis": "고구마",
-    "sub": "엄마 말: 불 줄이고 40분"
+    "style": "dark",
+    "kicker": "옷장 꿀팁",
+    "title": "엄마 니트 어깨에\n뿔 났어ㅠ",
+    "emphasis": "니트",
+    "sub": "엄마의 첫마디: 반 접어서 걸어"
   },
   "cards": [
     {
       "label": "그날",
-      "title": "고구마가 밍밍해",
-      "desc": "전자레인지 5분,\n퍽퍽하고 안 달아요",
-      "example": "“엄마 고구마가 안 달아ㅠ”",
+      "title": "니트 어깨에 뿔",
+      "desc": "옷장에서 꺼낸 니트,\n어깨가 뾰족 솟았어요",
+      "example": "“엄마 니트 어깨 뿔 났어ㅠ”",
       "bridge": "엄마의 첫마디는"
     },
     {
       "label": "엄마의 첫마디",
-      "title": "천천히 익혀야 달아",
-      "desc": "고구마는 천천히 데울수록\n단맛이 많이 생겨요.",
-      "example": "전자레인지·센 불은\n빨리 익어서 덜 달아요",
-      "bridge": "그럼 어떻게 찌냐면"
+      "title": "반 접어서 걸어",
+      "desc": "그냥 걸면 무게가\n어깨 한 점에 쏠려요",
+      "example": "그래서 뿔처럼 늘어나요",
+      "bridge": "접는 법은"
     },
     {
       "label": "1단계",
-      "title": "껍질째 찜기에",
-      "desc": "씻은 고구마를\n껍질째 찜기에 올려요.",
-      "example": "크기가 비슷한 걸로\n같이 찌면 고르게 익어요",
-      "bridge": "불은 이렇게"
+      "title": "세로로 반 접기",
+      "desc": "니트를 펼쳐 놓고\n소매끼리 맞춰 반 접어요",
+      "example": "몸판이 길쭉해지게",
+      "bridge": "그다음 옷걸이를"
     },
     {
       "label": "2단계",
-      "title": "중약불로 40분",
-      "desc": "불을 중약불로 줄이고\n40분쯤 천천히 쪄요.",
-      "example": "굵으면 10분 더,\n물이 졸지 않게 확인",
-      "bridge": "다 익었는지는"
+      "title": "겨드랑이에 고리",
+      "desc": "옷걸이 고리를\n겨드랑이 쪽에 둬요",
+      "example": "옷걸이는 세모 모양으로",
+      "bridge": "이제 넘기기만"
     },
     {
       "label": "3단계",
-      "title": "젓가락 쑥 확인",
-      "desc": "가운데를 찔러서\n쑥 들어가면 다 익었어요.",
-      "example": "뚜껑 열 때\n뜨거운 김 조심",
-      "bridge": "남은 생고구마는"
+      "title": "몸판·소매 넘기기",
+      "desc": "몸판과 소매를\n옷걸이 양쪽에 넘겨요",
+      "example": "어깨에 닿는 데가 없어요",
+      "bridge": "무거운 니트라면"
     },
     {
       "label": "주의",
-      "title": "냉장고는 금지",
-      "desc": "생고구마는 찬 데 두면\n속이 쉽게 상해요.",
-      "example": "신문지에 싸서\n서늘한 실온에 두기",
-      "bridge": "마지막으로"
+      "title": "무거운 건 개어 두기",
+      "desc": "두꺼운 니트는 걸지 말고\n개어서 서랍에 둬요",
+      "example": "세탁 표시 먼저 확인",
+      "bridge": "이미 뿔이 났다면"
     },
     {
       "label": "마무리",
-      "title": "달달 고구마 완성",
-      "desc": "천천히 찐 고구마는\n더 달고 촉촉해요.",
-      "example": "“거봐, 천천히 하랬지.”"
+      "title": "물 뿌려 펴 말리기",
+      "desc": "분무기로 살짝 적시고\n손으로 펴서 눕혀 말려요",
+      "example": "건조대에 평평하게 눕히기"
     }
   ],
   "outro": {
     "title": "역시 엄마",
     "sub": "엄마한테 물어볼\n다음 꿀팁은?"
   },
-  "caption": "고구마만 보면 웃는 애인 있으면 보내 주세요 🍠\n\n“엄마 고구마가 안 달아ㅠ”\n“어떻게 쪘니?”\n“전자레인지 5분”\n“그러니까 안 달지.”\n\n① 씻은 고구마를 껍질째 찜기에\n② 중약불로 40분쯤 천천히 (굵으면 10분 더)\n③ 젓가락이 쑥 들어가면 완성\n\n천천히 데워질수록 단맛이 더 생겨요.\n뚜껑 열 때 뜨거운 김 조심, 남은 생고구마는 냉장고 말고 서늘한 실온에.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#고구마 #고구마찌기 #엄마레시피 #자취요리",
+  "caption": "니트마다 어깨에 뿔 난 애인 있으면 보내 주세요 🧶\n\n“엄마 니트 어깨 뿔 났어ㅠ”\n“걸어 놨니?”\n“옷걸이에 걸어 놨지”\n“반 접어서 걸어.”\n\n① 니트를 세로로 반 접기\n② 옷걸이 고리를 겨드랑이 쪽에\n③ 몸판·소매를 옷걸이 양쪽에 넘겨 걸기\n\n두꺼운 니트는 걸지 말고 개어서 서랍에.\n이미 뿔이 났으면 분무기로 살짝 적셔 손으로 펴고 눕혀 말려요. 세탁 표시 먼저 확인.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#니트보관 #옷장정리 #살림꿀팁 #엄마꿀팁",
   "reel": {
     "mode": "focus",
     "chatName": "엄마",
-    "caption": "전자레인지 5분 돌렸다니까 엄마가 그러니까 안 달지래요 ㅋㅋ\n\n고구마는 천천히 쪄야 달아져요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#고구마 #엄마레시피",
+    "caption": "옷걸이에 걸었다니까 엄마가 그러니까 그렇지 래요 ㅋㅋ\n\n니트는 반 접어서 걸면 어깨 뿔이 안 나요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#니트보관 #옷장정리",
     "cover": {
-      "title": "더 달게 찌는\n엄마 고구마",
-      "emphasis": "고구마",
+      "title": "어깨 뿔 안 나는\n니트 거는 법",
+      "emphasis": "니트",
       "chat": [
-        { "who": "me", "text": "엄마 고구마가 안 달아ㅠ" },
+        { "who": "me", "text": "엄마 니트 어깨 뿔 났어ㅠ" },
         { "who": "you", "dots": true }
       ]
     },
     "photos": {
-      "micro": { "prompt": "a microwaved sweet potato cut in half on a white plate, pale dry yellow flesh, on a kitchen counter, close-up" },
-      "steamer": { "prompt": "several whole purple-skinned sweet potatoes in a stainless steel steamer basket inside a pot, light steam rising, top-down view" }
+      "bump": { "prompt": "a gray knit wool sweater hanging on a thin wire hanger in a closet, with pointed stretched bumps sticking up on both shoulders, close-up" }
     },
     "scenes": [
       {
         "card": 1,
-        "label": "가을 첫 고구마",
+        "label": "환절기 옷장 정리",
         "items": [
-          { "who": "me", "text": "엄마 고구마가 안 달아ㅠ" },
-          { "who": "you", "text": "어떻게 쪘니?" }
+          { "who": "me", "text": "엄마 니트 어깨 뿔 났어ㅠ" },
+          { "who": "you", "text": "걸어 놨니?" }
         ],
         "dur": 4.9
       },
       {
         "items": [
-          { "who": "me", "text": "사진", "image": "micro" },
-          { "who": "me", "text": "전자레인지 5분" },
-          { "who": "you", "text": "그러니까 안 달지." }
+          { "who": "me", "text": "사진", "image": "bump" },
+          { "who": "me", "text": "옷걸이에 걸어 놨지" }
         ],
-        "dur": 6.3
-      },
-      {
-        "card": 4,
-        "items": [
-          { "who": "you", "text": "찜기에 넣고 중약불로 40분.", "typing": true },
-          { "who": "me", "text": "왜?? 오래 걸리잖아" }
-        ],
-        "dur": 6.6
+        "dur": 4.2
       },
       {
         "card": 2,
         "items": [
-          { "who": "you", "text": "천천히 익어야 달아져.", "typing": true },
-          { "who": "me", "text": "사진", "image": "steamer" },
-          { "who": "me", "text": "이렇게?" }
+          { "who": "you", "text": "그러니까 그렇지.", "typing": true },
+          { "who": "you", "text": "반 접어서 걸어." }
         ],
-        "dur": 6.9
+        "dur": 5.5
+      },
+      {
+        "card": 3,
+        "items": [
+          { "who": "me", "text": "어떻게 접어?" },
+          { "who": "you", "text": "세로로 접고 겨드랑이에 고리.", "typing": true }
+        ],
+        "dur": 6.2
       },
       {
         "card": 5,
         "items": [
-          { "who": "you", "text": "젓가락 쑥 들어가면 끝." },
-          { "who": "me", "text": "꿀 나왔어!! 엄마 최고🥹" }
+          { "who": "you", "text": "몸판이랑 소매를 넘겨 걸어." },
+          { "who": "me", "text": "오 어깨에 아무것도 안 닿네" }
         ],
-        "dur": 5.9
+        "dur": 6.0
       },
       {
-        "card": 6,
+        "card": 7,
         "items": [
-          { "who": "you", "text": "생고구마는 냉장고 넣지 마.", "typing": true }
+          { "who": "me", "text": "됐다!! 엄마 최고🥹" },
+          { "who": "you", "text": "뿔 난 건 물 뿌려 펴 말려.", "typing": true }
         ],
-        "dur": 3.8
+        "dur": 6.6
       },
       {
         "summary": true,
-        "label": "엄마표 달달 고구마",
+        "label": "엄마표 니트 거는 법",
         "items": [
-          { "text": "중약불로 40분 천천히" },
-          { "text": "젓가락 쑥 들어가면 끝" },
-          { "text": "생고구마는 냉장 금지" }
+          { "text": "반 접어 겨드랑이에 고리" },
+          { "text": "몸판·소매 넘겨 걸기" },
+          { "text": "뿔은 물 뿌려 펴 말리기" }
         ],
-        "dur": 7.8
+        "dur": 8.2
       },
       {
         "items": [
-          { "text": "고구마만 보면 웃는 애인" },
-          { "text": "이번엔 달게 쪄 주기", "big": true }
+          { "text": "니트마다 어깨 뿔 난 애인" },
+          { "text": "이거 보면 알걸요", "big": true }
         ],
-        "dur": 5.4
+        "dur": 5.5
       }
     ]
+  },
+  "visualReview": {
+    "renderId": "4a95096471db",
+    "carousel": "통과",
+    "reel": "통과",
+    "notes": "covers·01·05·09·photo-bump·timeline·reel-sheet·report 확인: 글자 깨짐·겹침 없음, 표지·썸네일에 니트 주제 먼저 보임, 사진은 옷걸이에 건 회색 니트로 대화와 일치(글자·사람 없음), 접는 법 사진은 일반 걸기로 나와 3차에서 제외"
   }
 }
