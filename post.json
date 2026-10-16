@@ -1,171 +1,161 @@
 {
   "version": 2,
-  "topic": "베개 코피 얼룩 빼기",
-  "category": "세탁·얼룩",
-  "format": "story",
-  "emotion": "안심·위로",
-  "situation": "건조한 겨울밤 코피가 나 흰 베개에 묻어 엄마에게 급히 카톡",
-  "summary": "피 얼룩은 뜨거운 물 금지, 찬물에 30분 담갔다가 빨랫비누로 조물조물, 말리기 전 확인",
+  "topic": "달걀 보관 위치",
+  "category": "식재료",
+  "format": "practical",
+  "emotion": "장난·웃음",
+  "situation": "냉장고 문 칸에 달걀을 넣어 뒀다가 엄마에게 카톡한 저녁",
+  "summary": "달걀은 문 칸 말고 안쪽 선반에, 뾰족한 쪽을 아래로, 씻지 말고 먹기 직전에 씻기",
   "insight": {
-    "myth": "얼룩은 뜨거운 물로 빨아야 잘 빠진다",
-    "tip": "피 얼룩은 무조건 찬물에 먼저 담가 둔다",
-    "why": "피는 뜨거우면 익어서 섬유에 굳어 버린다"
+    "myth": "달걀은 냉장고 문 칸에 두면 편하다",
+    "tip": "달걀은 문 칸 말고 안쪽 선반에 둔다",
+    "why": "문 여닫을 때마다 온도가 오르내려서"
   },
   "share": {
     "to": "애인",
-    "line": "흰 이불 고집하는 애인 이건 알아야 해"
+    "line": "달걀 문 칸에 넣는 애인한테 이건 꼭"
   },
   "cover": {
     "style": "dark",
-    "kicker": "세탁 꿀팁",
-    "title": "엄마 베개에\n코피 묻었어ㅠ",
-    "emphasis": "코피",
-    "sub": "엄마의 첫마디: 뜨거운 물 안 돼"
+    "kicker": "달걀 꿀팁",
+    "title": "엄마 달걀\n어디에 둬?",
+    "emphasis": "달걀",
+    "sub": "문 칸은 온도가 자주 바뀌어요"
   },
   "cards": [
     {
-      "label": "그날 밤",
-      "title": "흰 베개에 코피",
-      "desc": "건조한 겨울밤,\n베개에 빨간 자국이",
-      "example": "“엄마 베개에 코피ㅠ”",
-      "bridge": "엄마의 첫마디는"
+      "label": "그날",
+      "title": "달걀 어디 둬?",
+      "desc": "냉장고 문 칸에 쭉 넣어 두다\n어느 날 엄마에게 물어봤어요.",
+      "example": "“엄마 달걀 어디에 둬?”",
+      "bridge": "엄마의 첫 번째 답은"
     },
     {
-      "label": "절대 금지",
-      "title": "뜨거운 물 안 돼",
-      "desc": "피는 뜨거우면 익어서\n섬유에 굳어 버려요.",
-      "example": "따뜻한 물도 처음엔 피하기",
-      "bridge": "그럼 어떻게 하냐면"
+      "label": "엄마의 한마디",
+      "title": "문 칸은 안 돼",
+      "desc": "문 열 때마다 온도가\n오르내려서 달걀에 안 좋아요.",
+      "example": "“거기 말고 안쪽 선반에 둬”",
+      "bridge": "안쪽 선반에는 어떻게?"
     },
     {
       "label": "1단계",
-      "title": "찬물에 30분",
-      "desc": "얼룩 부분을 찬물에\n30분쯤 담가 둬요.",
-      "example": "마른 얼룩도 일단 불리기",
-      "bridge": "옅어졌다면"
+      "title": "안쪽 선반에 두기",
+      "desc": "냉장고 안쪽 평평한 선반에\n올려서 보관해요.",
+      "example": "온도가 제일 일정한 곳",
+      "bridge": "방향도 중요해요"
     },
     {
       "label": "2단계",
-      "title": "빨랫비누 조물조물",
-      "desc": "빨랫비누를 칠하고\n손으로 조물조물.",
-      "example": "박박 문지르면 번져요",
-      "bridge": "다 됐으면"
+      "title": "뾰족한 쪽 아래로",
+      "desc": "달걀을 뾰족한 쪽이\n아래로 가게 두세요.",
+      "example": "달걀판째 넣으면 편해요",
+      "bridge": "씻는 것도 주의해요"
     },
     {
       "label": "3단계",
-      "title": "찬물로 헹구기",
-      "desc": "끝까지 찬물로\n비누를 헹궈 내요.",
-      "example": "그다음 평소처럼 세탁",
-      "bridge": "그래도 남았다면"
+      "title": "씻지 말고 넣기",
+      "desc": "껍데기 막이 벗겨지니\n먹기 직전에 씻어요.",
+      "example": "젖은 채로 넣으면 상하기 쉬워요",
+      "bridge": "마지막으로"
     },
     {
-      "label": "대안·주의",
-      "title": "흰 면만 표백제",
-      "desc": "흰 면이면 산소계 표백제,\n제품 표시대로 써요.",
-      "example": "울·실크 금지, 세탁 표시 확인\n다른 세제랑 섞지 않기",
-      "bridge": "마지막으로 꼭"
+      "label": "주의",
+      "title": "이상하면 버리기",
+      "desc": "냄새나 색이 이상하면\n먹지 않는 게 안전해요.",
+      "example": "깨진 달걀은 빨리 쓰기",
+      "bridge": "그럼 지금 확인해 볼까요?"
     },
     {
       "label": "마무리",
-      "title": "말리기 전에 확인",
-      "desc": "자국이 남은 채로\n건조기에 넣지 마세요.",
-      "example": "열을 받으면 그대로 남아요"
+      "title": "문 칸 확인하기",
+      "desc": "지금 냉장고 문 칸에\n달걀이 있는지 보세요.",
+      "example": "있다면 안쪽 선반으로 옮기기"
     }
   ],
   "outro": {
     "title": "역시 엄마",
     "sub": "엄마한테 물어볼\n다음 꿀팁은?"
   },
-  "caption": "흰 이불만 고집하는 애인 있으면 보내 주세요 🛏️\n\n“엄마 베개에 코피ㅠ”\n“뜨거운 물 안 돼.”\n“왜?”\n“피는 뜨거우면 익어서 굳어.”\n\n① 뜨거운 물은 금지, 찬물에 30분 담그기\n② 빨랫비누 칠해서 조물조물 (박박 문지르지 않기)\n③ 찬물로 헹군 뒤 평소처럼 세탁\n④ 남으면 흰 면만 산소계 표백제, 제품 표시대로\n\n울·실크는 표백제 금지, 세탁 표시 먼저 확인.\n다른 세제랑 섞지 말고, 자국이 남았으면 건조기는 나중에.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#얼룩제거 #피얼룩 #세탁꿀팁 #살림꿀팁 #엄마꿀팁",
+  "caption": "달걀 문 칸에 넣는 애인 있으면 보내 주세요 🥚\n\n“엄마 달걀 어디에 둬?”\n“문 칸에 넣었니?”\n“응 맨날 거기 넣는데”\n“거기 말고 안쪽 선반에 둬.”\n\n① 냉장고 안쪽 평평한 선반에 두기\n② 뾰족한 쪽을 아래로\n③ 씻지 말고 먹기 직전에 씻기\n\n상한 달걀은 냄새·색이 이상하면 먹지 않기.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#달걀보관 #살림꿀팁 #냉장고정리 #엄마꿀팁",
   "reel": {
     "mode": "focus",
     "chatName": "엄마",
-    "caption": "뜨거운 물로 빨려다가 엄마한테 혼났어요.\n\n피 얼룩은 찬물이 먼저래요. 이유 듣고 바로 납득.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#피얼룩 #세탁꿀팁 #엄마꿀팁",
+    "caption": "엄마한테 달걀 어디 두냐고 물었더니 문 칸 말고 안쪽이래요 🥚\n\n엄마한테 물어본 꿀팁 @tip.snack\n#달걀보관 #살림꿀팁",
     "cover": {
-      "title": "베개 코피 얼룩\n엄마는 찬물로",
-      "emphasis": "코피 얼룩",
+      "title": "달걀은 냉장고\n어디에 둬?",
+      "emphasis": "달걀",
       "chat": [
-        { "who": "me", "text": "엄마 베개에 코피ㅠ" },
+        { "who": "me", "text": "엄마 달걀 어디에 둬?" },
         { "who": "you", "dots": true }
       ]
     },
     "photos": {
-      "stain": { "prompt": "a flat white cotton pillowcase with a faded reddish-brown stain soaked into the fabric, the size of a coin, warm bedside lamp light, top-down close-up of the fabric" },
-      "clean": { "prompt": "the same flat white cotton pillowcase, slightly damp and completely clean with no stain, warm bedside lamp light, top-down close-up of the fabric" }
+      "door": { "prompt": "a carton of brown eggs on the door shelf of an open home refrigerator, close-up, natural kitchen light" },
+      "inner": { "prompt": "a carton of brown eggs on a flat inner shelf of an open home refrigerator, close-up, natural kitchen light" }
     },
     "scenes": [
       {
         "card": 1,
-        "label": "건조한 겨울밤",
+        "label": "자취 3년 차의 저녁",
         "items": [
-          { "who": "me", "text": "엄마 베개에 코피ㅠ" },
-          { "who": "you", "text": "뜨거운 물 안 돼." }
+          { "who": "me", "text": "엄마 달걀 어디에 둬?" },
+          { "who": "you", "text": "문 칸에 넣었니?" }
         ],
         "dur": 4.9
       },
       {
+        "card": 2,
         "items": [
-          { "who": "me", "text": "이거 봐ㅠ" },
-          { "who": "me", "text": "사진", "image": "stain" }
+          { "who": "me", "text": "응 맨날 거기 넣는데" },
+          { "who": "me", "text": "사진", "image": "door" },
+          { "who": "you", "text": "거기 말고 안쪽 선반.", "typing": true }
         ],
-        "dur": 3.8
+        "dur": 7.5
       },
       {
         "card": 3,
         "items": [
-          { "who": "you", "text": "찬물에 30분 담가 놔.", "typing": true },
-          { "who": "me", "text": "왜 찬물이야?" }
+          { "who": "me", "text": "문이 편하잖아" },
+          { "who": "you", "text": "문 열 때마다 온도가 올라가." },
+          { "who": "you", "text": "안쪽이 제일 일정해." }
         ],
-        "dur": 6.0
-      },
-      {
-        "card": 2,
-        "items": [
-          { "who": "you", "text": "피는 뜨거우면 익어서 굳어.", "typing": true }
-        ],
-        "dur": 4.2
+        "dur": 7.5
       },
       {
         "card": 4,
         "items": [
-          { "who": "me", "text": "좀 옅어졌는데 남았어" },
-          { "who": "you", "text": "빨랫비누 칠해서 조물조물.", "typing": true }
+          { "who": "me", "text": "사진", "image": "inner" },
+          { "who": "me", "text": "이렇게 넣어?" },
+          { "who": "you", "text": "응. 달걀판째 넣어." }
+        ],
+        "dur": 6.2
+      },
+      {
+        "card": 5,
+        "items": [
+          { "who": "me", "text": "씻어서 넣을까?" },
+          { "who": "you", "text": "씻지 마. 막이 벗겨져.", "typing": true }
         ],
         "dur": 6.5
       },
       {
-        "card": 7,
-        "items": [
-          { "who": "me", "text": "사진", "image": "clean" },
-          { "who": "me", "text": "없어졌어!! 엄마 최고🥹" },
-          { "who": "you", "text": "말리기 전에 꼭 봐." }
-        ],
-        "dur": 7.2
-      },
-      {
         "summary": true,
-        "label": "엄마표 코피 얼룩 빼기",
+        "label": "엄마표 달걀 보관법",
         "items": [
-          { "text": "뜨거운 물은 금지" },
-          { "text": "찬물에 30분 담그기" },
-          { "text": "빨랫비누로 조물조물" },
-          { "text": "말리기 전에 확인" }
+          { "text": "문 칸 말고 안쪽 선반" },
+          { "text": "뾰족한 쪽 아래로 두기" },
+          { "text": "씻지 말고 먹기 직전에" }
         ],
-        "dur": 9.8
+        "dur": 7.5
       },
       {
         "items": [
-          { "text": "흰 이불 고집하는 애인" },
-          { "text": "이건 알아야 해", "big": true }
+          { "text": "달걀 문 칸에 넣는 애인한테" },
+          { "text": "이건 꼭", "big": true }
         ],
-        "dur": 5.2
+        "dur": 4.6
       }
     ]
   },
-  "visualReview": {
-    "renderId": "bb3a6dc2a7bd",
-    "carousel": "통과",
-    "reel": "통과",
-    "notes": "covers·01·05·09·photo-stain/clean·timeline·reel-sheet·report 확인: 주제 '코피' 강조 선명, 깨짐·잘림 없음, 얼룩 사진은 다소 선명한 붉은색이나 상황과 일치, 결과 사진은 깨끗한 침구로 자연스러움, 요약이 대화와 일치"
-  }
+  "visualReview": { "renderId": "a4e0798c16c2", "carousel": "통과", "reel": "통과", "notes": "표지·장면·사진 2장 검수, 글자 잘림 없고 이력과 겹침 없음" }
 }
