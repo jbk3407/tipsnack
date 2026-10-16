@@ -1,0 +1,171 @@
+{
+  "version": 2,
+  "topic": "베개 코피 얼룩 빼기",
+  "category": "세탁·얼룩",
+  "format": "story",
+  "emotion": "안심·위로",
+  "situation": "건조한 겨울밤 코피가 나 흰 베개에 묻어 엄마에게 급히 카톡",
+  "summary": "피 얼룩은 뜨거운 물 금지, 찬물에 30분 담갔다가 빨랫비누로 조물조물, 말리기 전 확인",
+  "insight": {
+    "myth": "얼룩은 뜨거운 물로 빨아야 잘 빠진다",
+    "tip": "피 얼룩은 무조건 찬물에 먼저 담가 둔다",
+    "why": "피는 뜨거우면 익어서 섬유에 굳어 버린다"
+  },
+  "share": {
+    "to": "애인",
+    "line": "흰 이불 고집하는 애인 이건 알아야 해"
+  },
+  "cover": {
+    "style": "dark",
+    "kicker": "세탁 꿀팁",
+    "title": "엄마 베개에\n코피 묻었어ㅠ",
+    "emphasis": "코피",
+    "sub": "엄마의 첫마디: 뜨거운 물 안 돼"
+  },
+  "cards": [
+    {
+      "label": "그날 밤",
+      "title": "흰 베개에 코피",
+      "desc": "건조한 겨울밤,\n베개에 빨간 자국이",
+      "example": "“엄마 베개에 코피ㅠ”",
+      "bridge": "엄마의 첫마디는"
+    },
+    {
+      "label": "절대 금지",
+      "title": "뜨거운 물 안 돼",
+      "desc": "피는 뜨거우면 익어서\n섬유에 굳어 버려요.",
+      "example": "따뜻한 물도 처음엔 피하기",
+      "bridge": "그럼 어떻게 하냐면"
+    },
+    {
+      "label": "1단계",
+      "title": "찬물에 30분",
+      "desc": "얼룩 부분을 찬물에\n30분쯤 담가 둬요.",
+      "example": "마른 얼룩도 일단 불리기",
+      "bridge": "옅어졌다면"
+    },
+    {
+      "label": "2단계",
+      "title": "빨랫비누 조물조물",
+      "desc": "빨랫비누를 칠하고\n손으로 조물조물.",
+      "example": "박박 문지르면 번져요",
+      "bridge": "다 됐으면"
+    },
+    {
+      "label": "3단계",
+      "title": "찬물로 헹구기",
+      "desc": "끝까지 찬물로\n비누를 헹궈 내요.",
+      "example": "그다음 평소처럼 세탁",
+      "bridge": "그래도 남았다면"
+    },
+    {
+      "label": "대안·주의",
+      "title": "흰 면만 표백제",
+      "desc": "흰 면이면 산소계 표백제,\n제품 표시대로 써요.",
+      "example": "울·실크 금지, 세탁 표시 확인\n다른 세제랑 섞지 않기",
+      "bridge": "마지막으로 꼭"
+    },
+    {
+      "label": "마무리",
+      "title": "말리기 전에 확인",
+      "desc": "자국이 남은 채로\n건조기에 넣지 마세요.",
+      "example": "열을 받으면 그대로 남아요"
+    }
+  ],
+  "outro": {
+    "title": "역시 엄마",
+    "sub": "엄마한테 물어볼\n다음 꿀팁은?"
+  },
+  "caption": "흰 이불만 고집하는 애인 있으면 보내 주세요 🛏️\n\n“엄마 베개에 코피ㅠ”\n“뜨거운 물 안 돼.”\n“왜?”\n“피는 뜨거우면 익어서 굳어.”\n\n① 뜨거운 물은 금지, 찬물에 30분 담그기\n② 빨랫비누 칠해서 조물조물 (박박 문지르지 않기)\n③ 찬물로 헹군 뒤 평소처럼 세탁\n④ 남으면 흰 면만 산소계 표백제, 제품 표시대로\n\n울·실크는 표백제 금지, 세탁 표시 먼저 확인.\n다른 세제랑 섞지 말고, 자국이 남았으면 건조기는 나중에.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#얼룩제거 #피얼룩 #세탁꿀팁 #살림꿀팁 #엄마꿀팁",
+  "reel": {
+    "mode": "focus",
+    "chatName": "엄마",
+    "caption": "뜨거운 물로 빨려다가 엄마한테 혼났어요.\n\n피 얼룩은 찬물이 먼저래요. 이유 듣고 바로 납득.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#피얼룩 #세탁꿀팁 #엄마꿀팁",
+    "cover": {
+      "title": "베개 코피 얼룩\n엄마는 찬물로",
+      "emphasis": "코피 얼룩",
+      "chat": [
+        { "who": "me", "text": "엄마 베개에 코피ㅠ" },
+        { "who": "you", "dots": true }
+      ]
+    },
+    "photos": {
+      "stain": { "prompt": "a flat white cotton pillowcase with a faded reddish-brown stain soaked into the fabric, the size of a coin, warm bedside lamp light, top-down close-up of the fabric" },
+      "clean": { "prompt": "the same flat white cotton pillowcase, slightly damp and completely clean with no stain, warm bedside lamp light, top-down close-up of the fabric" }
+    },
+    "scenes": [
+      {
+        "card": 1,
+        "label": "건조한 겨울밤",
+        "items": [
+          { "who": "me", "text": "엄마 베개에 코피ㅠ" },
+          { "who": "you", "text": "뜨거운 물 안 돼." }
+        ],
+        "dur": 4.9
+      },
+      {
+        "items": [
+          { "who": "me", "text": "이거 봐ㅠ" },
+          { "who": "me", "text": "사진", "image": "stain" }
+        ],
+        "dur": 3.8
+      },
+      {
+        "card": 3,
+        "items": [
+          { "who": "you", "text": "찬물에 30분 담가 놔.", "typing": true },
+          { "who": "me", "text": "왜 찬물이야?" }
+        ],
+        "dur": 6.0
+      },
+      {
+        "card": 2,
+        "items": [
+          { "who": "you", "text": "피는 뜨거우면 익어서 굳어.", "typing": true }
+        ],
+        "dur": 4.2
+      },
+      {
+        "card": 4,
+        "items": [
+          { "who": "me", "text": "좀 옅어졌는데 남았어" },
+          { "who": "you", "text": "빨랫비누 칠해서 조물조물.", "typing": true }
+        ],
+        "dur": 6.5
+      },
+      {
+        "card": 7,
+        "items": [
+          { "who": "me", "text": "사진", "image": "clean" },
+          { "who": "me", "text": "없어졌어!! 엄마 최고🥹" },
+          { "who": "you", "text": "말리기 전에 꼭 봐." }
+        ],
+        "dur": 7.2
+      },
+      {
+        "summary": true,
+        "label": "엄마표 코피 얼룩 빼기",
+        "items": [
+          { "text": "뜨거운 물은 금지" },
+          { "text": "찬물에 30분 담그기" },
+          { "text": "빨랫비누로 조물조물" },
+          { "text": "말리기 전에 확인" }
+        ],
+        "dur": 9.8
+      },
+      {
+        "items": [
+          { "text": "흰 이불 고집하는 애인" },
+          { "text": "이건 알아야 해", "big": true }
+        ],
+        "dur": 5.2
+      }
+    ]
+  },
+  "visualReview": {
+    "renderId": "bb3a6dc2a7bd",
+    "carousel": "통과",
+    "reel": "통과",
+    "notes": "covers·01·05·09·photo-stain/clean·timeline·reel-sheet·report 확인: 주제 '코피' 강조 선명, 깨짐·잘림 없음, 얼룩 사진은 다소 선명한 붉은색이나 상황과 일치, 결과 사진은 깨끗한 침구로 자연스러움, 요약이 대화와 일치"
+  }
+}
