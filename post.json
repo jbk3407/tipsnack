@@ -1,161 +1,197 @@
 {
   "version": 2,
-  "topic": "달걀 보관 위치",
-  "category": "식재료",
-  "format": "practical",
-  "emotion": "장난·웃음",
-  "situation": "냉장고 문 칸에 달걀을 넣어 뒀다가 엄마에게 카톡한 저녁",
-  "summary": "달걀은 문 칸 말고 안쪽 선반에, 뾰족한 쪽을 아래로, 씻지 말고 먹기 직전에 씻기",
+  "visualReview": {
+    "renderId": "cd42cbc359aa",
+    "carousel": "통과",
+    "reel": "통과",
+    "notes": "표지 제목 '빨래'가 가장 먼저 보이고 줄바꿈 자연스러움. 장면 흐름 정상, 엄마 말투 OK. 팬 사진에 손과 휴대폰이 보이나 얼굴·글자 없고 상황과 맞아 통과 (3회차라 재렌더 안 함)."
+  },
+  "topic": "실내에서 빨래 안 마를 때",
+  "category": "계절 살림",
+  "format": "story",
+  "emotion": "편안함",
+  "situation": "비 오는 날 방 안에 빨래를 널고 저녁에 만져 보니 축축해서 카톡한 밤",
+  "summary": "방 안 빨래는 공기가 고여 안 마름. 문틈 열고 선풍기 약풍을 빨래 쪽으로, 옷 간격 벌리기",
   "insight": {
-    "myth": "달걀은 냉장고 문 칸에 두면 편하다",
-    "tip": "달걀은 문 칸 말고 안쪽 선반에 둔다",
-    "why": "문 여닫을 때마다 온도가 오르내려서"
+    "myth": "빨래는 방 안에 널어 두면 저절로 마른다",
+    "tip": "선풍기 약풍을 빨래 쪽으로 틀고 문틈을 연다",
+    "why": "습한 공기가 고여 있으면 물이 날아가질 못해"
   },
   "share": {
-    "to": "애인",
-    "line": "달걀 문 칸에 넣는 애인한테 이건 꼭"
+    "to": "같이 사는 사람",
+    "line": "빨래 널어 두고 잊는 룸메이트 한 명씩 있잖아요"
   },
   "cover": {
     "style": "dark",
-    "kicker": "달걀 꿀팁",
-    "title": "엄마 달걀\n어디에 둬?",
-    "emphasis": "달걀",
-    "sub": "문 칸은 온도가 자주 바뀌어요"
+    "kicker": "계절 살림",
+    "title": "엄마 빨래가\n방에서 안 말라ㅠ",
+    "emphasis": "빨래",
+    "sub": "엄마의 첫마디: 문 열고 선풍기!"
   },
   "cards": [
     {
       "label": "그날",
-      "title": "달걀 어디 둬?",
-      "desc": "냉장고 문 칸에 쭉 넣어 두다\n어느 날 엄마에게 물어봤어요.",
-      "example": "“엄마 달걀 어디에 둬?”",
-      "bridge": "엄마의 첫 번째 답은"
+      "title": "방 안 빨래의 밤",
+      "desc": "비 오는 날 방에 널고\n저녁에 만져 보니 축축",
+      "example": "“엄마 빨래가 안 말라ㅠ”",
+      "bridge": "엄마의 첫마디는"
     },
     {
-      "label": "엄마의 한마디",
-      "title": "문 칸은 안 돼",
-      "desc": "문 열 때마다 온도가\n오르내려서 달걀에 안 좋아요.",
-      "example": "“거기 말고 안쪽 선반에 둬”",
-      "bridge": "안쪽 선반에는 어떻게?"
+      "label": "엄마의 첫마디",
+      "title": "문 열고 선풍기!",
+      "desc": "방문을 열어 공기가\n지나가게 하래요.",
+      "example": "“고인 습기는 안 날아가”",
+      "bridge": "옷 간격도 중요해요"
     },
     {
       "label": "1단계",
-      "title": "안쪽 선반에 두기",
-      "desc": "냉장고 안쪽 평평한 선반에\n올려서 보관해요.",
-      "example": "온도가 제일 일정한 곳",
-      "bridge": "방향도 중요해요"
+      "title": "옷 간격 벌리기",
+      "desc": "옷끼리 붙이지 말고\n한 장씩 떨어뜨려 걸어요.",
+      "example": "두꺼운 옷은 아래쪽으로",
+      "bridge": "그다음 바람을"
     },
     {
       "label": "2단계",
-      "title": "뾰족한 쪽 아래로",
-      "desc": "달걀을 뾰족한 쪽이\n아래로 가게 두세요.",
-      "example": "달걀판째 넣으면 편해요",
-      "bridge": "씻는 것도 주의해요"
+      "title": "선풍기 약풍",
+      "desc": "빨래 쪽으로 약풍을\n틀어 두면 공기가 돌아요.",
+      "example": "세기는 약하게, 오래 틀기",
+      "bridge": "방문도 조금"
     },
     {
       "label": "3단계",
-      "title": "씻지 말고 넣기",
-      "desc": "껍데기 막이 벗겨지니\n먹기 직전에 씻어요.",
-      "example": "젖은 채로 넣으면 상하기 쉬워요",
-      "bridge": "마지막으로"
+      "title": "방문 조금 열기",
+      "desc": "문틈을 살짝 열어\n공기길을 만들어요.",
+      "example": "창문이 있으면 같이 열기",
+      "bridge": "이건 꼭 확인해요"
     },
     {
       "label": "주의",
-      "title": "이상하면 버리기",
-      "desc": "냄새나 색이 이상하면\n먹지 않는 게 안전해요.",
-      "example": "깨진 달걀은 빨리 쓰기",
-      "bridge": "그럼 지금 확인해 볼까요?"
+      "title": "두꺼운 옷은 따로",
+      "desc": "후드·청바지처럼 두꺼운 옷은\n마르는 데 오래 걸려요.",
+      "example": "얇은 옷부터 먼저 걷기",
+      "bridge": "마지막으로"
     },
     {
       "label": "마무리",
-      "title": "문 칸 확인하기",
-      "desc": "지금 냉장고 문 칸에\n달걀이 있는지 보세요.",
-      "example": "있다면 안쪽 선반으로 옮기기"
+      "title": "솔기부터 확인",
+      "desc": "겉만 말랐는지 솔기를\n만져 보고 옷장에 넣어요.",
+      "example": "덜 말랐으면 꿉꿉한 냄새가 나요"
     }
   ],
   "outro": {
     "title": "역시 엄마",
     "sub": "엄마한테 물어볼\n다음 꿀팁은?"
   },
-  "caption": "달걀 문 칸에 넣는 애인 있으면 보내 주세요 🥚\n\n“엄마 달걀 어디에 둬?”\n“문 칸에 넣었니?”\n“응 맨날 거기 넣는데”\n“거기 말고 안쪽 선반에 둬.”\n\n① 냉장고 안쪽 평평한 선반에 두기\n② 뾰족한 쪽을 아래로\n③ 씻지 말고 먹기 직전에 씻기\n\n상한 달걀은 냄새·색이 이상하면 먹지 않기.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#달걀보관 #살림꿀팁 #냉장고정리 #엄마꿀팁",
+  "caption": "빨래 방 안에 널어 두고 잊는 룸메이트 한 명씩 있잖아요 🧺\n\n“엄마 빨래가 안 말라ㅠ”\n“문 열고 선풍기!”\n\n① 옷 사이 간격 벌려 걸기\n② 선풍기 약풍을 빨래 쪽으로\n③ 문틈 열어 공기길 만들기\n④ 두꺼운 옷은 따로, 솔기까지 확인\n\n고인 습기는 잘 안 날아가요. 덜 말랐으면 옷장에 넣기 전에 한 번 더 말려 주세요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#빨래꿀팁 #실내건조 #살림꿀팁 #엄마꿀팁",
   "reel": {
     "mode": "focus",
     "chatName": "엄마",
-    "caption": "엄마한테 달걀 어디 두냐고 물었더니 문 칸 말고 안쪽이래요 🥚\n\n엄마한테 물어본 꿀팁 @tip.snack\n#달걀보관 #살림꿀팁",
+    "caption": "엄마한테 빨래 안 마른다고 했더니 문부터 열래요 ㅋㅋ\n\n실내 빨래, 문 열고 선풍기 약풍이면 돼요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#빨래꿀팁 #실내건조",
     "cover": {
-      "title": "달걀은 냉장고\n어디에 둬?",
-      "emphasis": "달걀",
+      "title": "실내 빨래가\n안 마를 때",
+      "emphasis": "빨래",
       "chat": [
-        { "who": "me", "text": "엄마 달걀 어디에 둬?" },
-        { "who": "you", "dots": true }
+        {
+          "who": "me",
+          "text": "엄마 빨래가 안 말라ㅠ"
+        },
+        {
+          "who": "you",
+          "dots": true
+        }
       ]
     },
     "photos": {
-      "door": { "prompt": "a carton of brown eggs on the door shelf of an open home refrigerator, close-up, natural kitchen light" },
-      "inner": { "prompt": "a carton of brown eggs on a flat inner shelf of an open home refrigerator, close-up, natural kitchen light" }
+      "rack": {
+        "prompt": "several damp white cotton t-shirts hung close together on a clothes drying rack in a small room beside a rainy window, close-up, realistic phone photo, no people"
+      },
+      "fan": {
+        "prompt": "a small white desk fan standing on a plain wooden floor in an empty room, blowing toward a clothes drying rack with white shirts hanging, daytime light, empty scene, no people, no hands, no phone, no screen, realistic photo"
+      }
     },
     "scenes": [
       {
         "card": 1,
-        "label": "자취 3년 차의 저녁",
+        "label": "비 오는 날 저녁",
         "items": [
-          { "who": "me", "text": "엄마 달걀 어디에 둬?" },
-          { "who": "you", "text": "문 칸에 넣었니?" }
+          {
+            "who": "me",
+            "text": "엄마 빨래가 안 말라ㅠ"
+          },
+          {
+            "who": "you",
+            "text": "방문 닫았니?"
+          }
         ],
-        "dur": 4.9
+        "dur": 4.8
       },
       {
         "card": 2,
         "items": [
-          { "who": "me", "text": "응 맨날 거기 넣는데" },
-          { "who": "me", "text": "사진", "image": "door" },
-          { "who": "you", "text": "거기 말고 안쪽 선반.", "typing": true }
-        ],
-        "dur": 7.5
-      },
-      {
-        "card": 3,
-        "items": [
-          { "who": "me", "text": "문이 편하잖아" },
-          { "who": "you", "text": "문 열 때마다 온도가 올라가." },
-          { "who": "you", "text": "안쪽이 제일 일정해." }
-        ],
-        "dur": 7.5
-      },
-      {
-        "card": 4,
-        "items": [
-          { "who": "me", "text": "사진", "image": "inner" },
-          { "who": "me", "text": "이렇게 넣어?" },
-          { "who": "you", "text": "응. 달걀판째 넣어." }
-        ],
-        "dur": 6.2
-      },
-      {
-        "card": 5,
-        "items": [
-          { "who": "me", "text": "씻어서 넣을까?" },
-          { "who": "you", "text": "씻지 마. 막이 벗겨져.", "typing": true }
+          {
+            "who": "me",
+            "text": "응 방에 널었어"
+          },
+          {
+            "who": "me",
+            "text": "사진",
+            "image": "rack"
+          },
+          {
+            "who": "you",
+            "text": "문 열고 선풍기 틀어."
+          }
         ],
         "dur": 6.5
       },
       {
-        "summary": true,
-        "label": "엄마표 달걀 보관법",
+        "card": 3,
         "items": [
-          { "text": "문 칸 말고 안쪽 선반" },
-          { "text": "뾰족한 쪽 아래로 두기" },
-          { "text": "씻지 말고 먹기 직전에" }
+          {
+            "who": "me",
+            "text": "사진",
+            "image": "fan"
+          },
+          {
+            "who": "me",
+            "text": "이렇게?"
+          },
+          {
+            "who": "you",
+            "text": "선풍기는 약풍으로 빨래 쪽에.",
+            "typing": true
+          }
+        ],
+        "dur": 7.1
+      },
+      {
+        "summary": true,
+        "label": "엄마표 실내 빨래",
+        "items": [
+          {
+            "text": "옷 사이 간격 벌리기"
+          },
+          {
+            "text": "선풍기 약풍, 빨래 쪽으로"
+          },
+          {
+            "text": "방문 조금 열어 두기"
+          }
         ],
         "dur": 7.5
       },
       {
         "items": [
-          { "text": "달걀 문 칸에 넣는 애인한테" },
-          { "text": "이건 꼭", "big": true }
+          {
+            "text": "빨래 널어 두고 잊는 룸메이트"
+          },
+          {
+            "text": "한 명씩 있잖아요",
+            "big": true
+          }
         ],
-        "dur": 4.6
+        "dur": 6
       }
     ]
-  },
-  "visualReview": { "renderId": "a4e0798c16c2", "carousel": "통과", "reel": "통과", "notes": "표지·장면·사진 2장 검수, 글자 잘림 없고 이력과 겹침 없음" }
+  }
 }

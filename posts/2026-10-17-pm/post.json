@@ -1,0 +1,197 @@
+{
+  "version": 2,
+  "visualReview": {
+    "renderId": "cd42cbc359aa",
+    "carousel": "통과",
+    "reel": "통과",
+    "notes": "표지 제목 '빨래'가 가장 먼저 보이고 줄바꿈 자연스러움. 장면 흐름 정상, 엄마 말투 OK. 팬 사진에 손과 휴대폰이 보이나 얼굴·글자 없고 상황과 맞아 통과 (3회차라 재렌더 안 함)."
+  },
+  "topic": "실내에서 빨래 안 마를 때",
+  "category": "계절 살림",
+  "format": "story",
+  "emotion": "편안함",
+  "situation": "비 오는 날 방 안에 빨래를 널고 저녁에 만져 보니 축축해서 카톡한 밤",
+  "summary": "방 안 빨래는 공기가 고여 안 마름. 문틈 열고 선풍기 약풍을 빨래 쪽으로, 옷 간격 벌리기",
+  "insight": {
+    "myth": "빨래는 방 안에 널어 두면 저절로 마른다",
+    "tip": "선풍기 약풍을 빨래 쪽으로 틀고 문틈을 연다",
+    "why": "습한 공기가 고여 있으면 물이 날아가질 못해"
+  },
+  "share": {
+    "to": "같이 사는 사람",
+    "line": "빨래 널어 두고 잊는 룸메이트 한 명씩 있잖아요"
+  },
+  "cover": {
+    "style": "dark",
+    "kicker": "계절 살림",
+    "title": "엄마 빨래가\n방에서 안 말라ㅠ",
+    "emphasis": "빨래",
+    "sub": "엄마의 첫마디: 문 열고 선풍기!"
+  },
+  "cards": [
+    {
+      "label": "그날",
+      "title": "방 안 빨래의 밤",
+      "desc": "비 오는 날 방에 널고\n저녁에 만져 보니 축축",
+      "example": "“엄마 빨래가 안 말라ㅠ”",
+      "bridge": "엄마의 첫마디는"
+    },
+    {
+      "label": "엄마의 첫마디",
+      "title": "문 열고 선풍기!",
+      "desc": "방문을 열어 공기가\n지나가게 하래요.",
+      "example": "“고인 습기는 안 날아가”",
+      "bridge": "옷 간격도 중요해요"
+    },
+    {
+      "label": "1단계",
+      "title": "옷 간격 벌리기",
+      "desc": "옷끼리 붙이지 말고\n한 장씩 떨어뜨려 걸어요.",
+      "example": "두꺼운 옷은 아래쪽으로",
+      "bridge": "그다음 바람을"
+    },
+    {
+      "label": "2단계",
+      "title": "선풍기 약풍",
+      "desc": "빨래 쪽으로 약풍을\n틀어 두면 공기가 돌아요.",
+      "example": "세기는 약하게, 오래 틀기",
+      "bridge": "방문도 조금"
+    },
+    {
+      "label": "3단계",
+      "title": "방문 조금 열기",
+      "desc": "문틈을 살짝 열어\n공기길을 만들어요.",
+      "example": "창문이 있으면 같이 열기",
+      "bridge": "이건 꼭 확인해요"
+    },
+    {
+      "label": "주의",
+      "title": "두꺼운 옷은 따로",
+      "desc": "후드·청바지처럼 두꺼운 옷은\n마르는 데 오래 걸려요.",
+      "example": "얇은 옷부터 먼저 걷기",
+      "bridge": "마지막으로"
+    },
+    {
+      "label": "마무리",
+      "title": "솔기부터 확인",
+      "desc": "겉만 말랐는지 솔기를\n만져 보고 옷장에 넣어요.",
+      "example": "덜 말랐으면 꿉꿉한 냄새가 나요"
+    }
+  ],
+  "outro": {
+    "title": "역시 엄마",
+    "sub": "엄마한테 물어볼\n다음 꿀팁은?"
+  },
+  "caption": "빨래 방 안에 널어 두고 잊는 룸메이트 한 명씩 있잖아요 🧺\n\n“엄마 빨래가 안 말라ㅠ”\n“문 열고 선풍기!”\n\n① 옷 사이 간격 벌려 걸기\n② 선풍기 약풍을 빨래 쪽으로\n③ 문틈 열어 공기길 만들기\n④ 두꺼운 옷은 따로, 솔기까지 확인\n\n고인 습기는 잘 안 날아가요. 덜 말랐으면 옷장에 넣기 전에 한 번 더 말려 주세요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#빨래꿀팁 #실내건조 #살림꿀팁 #엄마꿀팁",
+  "reel": {
+    "mode": "focus",
+    "chatName": "엄마",
+    "caption": "엄마한테 빨래 안 마른다고 했더니 문부터 열래요 ㅋㅋ\n\n실내 빨래, 문 열고 선풍기 약풍이면 돼요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#빨래꿀팁 #실내건조",
+    "cover": {
+      "title": "실내 빨래가\n안 마를 때",
+      "emphasis": "빨래",
+      "chat": [
+        {
+          "who": "me",
+          "text": "엄마 빨래가 안 말라ㅠ"
+        },
+        {
+          "who": "you",
+          "dots": true
+        }
+      ]
+    },
+    "photos": {
+      "rack": {
+        "prompt": "several damp white cotton t-shirts hung close together on a clothes drying rack in a small room beside a rainy window, close-up, realistic phone photo, no people"
+      },
+      "fan": {
+        "prompt": "a small white desk fan standing on a plain wooden floor in an empty room, blowing toward a clothes drying rack with white shirts hanging, daytime light, empty scene, no people, no hands, no phone, no screen, realistic photo"
+      }
+    },
+    "scenes": [
+      {
+        "card": 1,
+        "label": "비 오는 날 저녁",
+        "items": [
+          {
+            "who": "me",
+            "text": "엄마 빨래가 안 말라ㅠ"
+          },
+          {
+            "who": "you",
+            "text": "방문 닫았니?"
+          }
+        ],
+        "dur": 4.8
+      },
+      {
+        "card": 2,
+        "items": [
+          {
+            "who": "me",
+            "text": "응 방에 널었어"
+          },
+          {
+            "who": "me",
+            "text": "사진",
+            "image": "rack"
+          },
+          {
+            "who": "you",
+            "text": "문 열고 선풍기 틀어."
+          }
+        ],
+        "dur": 6.5
+      },
+      {
+        "card": 3,
+        "items": [
+          {
+            "who": "me",
+            "text": "사진",
+            "image": "fan"
+          },
+          {
+            "who": "me",
+            "text": "이렇게?"
+          },
+          {
+            "who": "you",
+            "text": "선풍기는 약풍으로 빨래 쪽에.",
+            "typing": true
+          }
+        ],
+        "dur": 7.1
+      },
+      {
+        "summary": true,
+        "label": "엄마표 실내 빨래",
+        "items": [
+          {
+            "text": "옷 사이 간격 벌리기"
+          },
+          {
+            "text": "선풍기 약풍, 빨래 쪽으로"
+          },
+          {
+            "text": "방문 조금 열어 두기"
+          }
+        ],
+        "dur": 7.5
+      },
+      {
+        "items": [
+          {
+            "text": "빨래 널어 두고 잊는 룸메이트"
+          },
+          {
+            "text": "한 명씩 있잖아요",
+            "big": true
+          }
+        ],
+        "dur": 6
+      }
+    ]
+  }
+}
