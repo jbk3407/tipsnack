@@ -1,159 +1,151 @@
 {
   "version": 2,
-  "topic": "젖은 행주 냄새 잡기",
-  "category": "청소",
-  "format": "practical",
-  "emotion": "고마움",
-  "situation": "설거지하고 닦은 행주에서 계속 냄새가 나 엄마에게 카톡한 저녁",
-  "summary": "젖은 행주는 뭉치지 말고, 세제는 조금만 헹굼 두 번, 펼쳐서 바싹 말리기",
+  "topic": "옷에 묻은 볼펜 자국 빼기",
+  "category": "세탁·얼룩",
+  "format": "story",
+  "emotion": "안심·위로",
+  "situation": "회의 중 셔츠 소매에 볼펜이 묻어 물로 닦다 번져서 엄마에게 카톡한 오후",
+  "summary": "볼펜 자국은 물로 문지르면 번짐. 휴지 대고 손소독제로 톡톡, 안 보이는 데 먼저 확인",
   "insight": {
-    "myth": "세제를 듬뿍 넣고 오래 담가 두면 깨끗해진다",
-    "tip": "젖은 행주는 뭉치지 말고 펼쳐서 말린다",
-    "why": "뭉쳐 두면 습기가 갇혀 냄새가 올라와요"
+    "myth": "볼펜 자국도 물 묻혀 문지르면 빠진다",
+    "tip": "물 말고 손소독제를 묻혀 톡톡 두드린다",
+    "why": "볼펜 잉크는 물에 잘 안 녹고 알코올에 녹아"
   },
   "share": {
-    "to": "같이 사는 사람",
-    "line": "행주 뭉쳐 두는 룸메이트한테 이건 꼭"
+    "to": "애인",
+    "line": "볼펜 꽂고 다니는 애인 꼭 한 번은 묻혀요"
   },
   "cover": {
-    "style": "bubble",
-    "kicker": "청소 꿀팁",
-    "title": "엄마 행주에서\n냄새나ㅠ",
-    "emphasis": "행주",
-    "sub": "엄마의 첫마디: 뭉쳐 두지 마!"
+    "style": "dark",
+    "kicker": "세탁 꿀팁",
+    "title": "엄마 소매에\n볼펜 묻었어ㅠ",
+    "emphasis": "볼펜",
+    "sub": "엄마의 첫마디: 물로 닦았니?"
   },
   "cards": [
     {
       "label": "그날",
-      "title": "행주가 쿰쿰해",
-      "desc": "설거지하고 닦은 행주\n빨아도 냄새가 나요",
-      "example": "“빨았는데 왜 이래?”",
-      "bridge": "엄마의 첫마디는"
+      "title": "소매에 볼펜 자국",
+      "desc": "회의 중에 끄적이다\n소매에 쓱 묻은 날",
+      "example": "“엄마 소매에 볼펜 묻었어ㅠ”",
+      "bridge": "엄마가 먼저 물은 건"
     },
     {
-      "label": "엄마의 첫마디",
-      "title": "뭉쳐 두지 마",
-      "desc": "젖은 행주를 뭉쳐 두면\n습기가 갇혀 냄새가 나요.",
-      "example": "“펼쳐서 말려야 해”",
-      "bridge": "그래서 순서가 있어요"
+      "label": "흔한 실수",
+      "title": "물로 문지르기",
+      "desc": "볼펜 잉크는 물에\n잘 안 녹아서 번져요.",
+      "example": "박박 문지를수록\n자국이 넓어져요",
+      "bridge": "대신 꺼낼 건"
     },
     {
       "label": "1단계",
-      "title": "세제는 조금만",
-      "desc": "세제를 듬뿍 넣으면\n찌꺼기가 행주에 남아요.",
-      "example": "헹굼은 두 번이면 충분",
-      "bridge": "헹군 다음은"
+      "title": "휴지 깔기",
+      "desc": "자국 밑에 휴지를\n두세 겹 깔아요.",
+      "example": "녹은 잉크가\n휴지로 빠져나가요",
+      "bridge": "그 위에"
     },
     {
       "label": "2단계",
-      "title": "뜨거운 물에 한 번",
-      "desc": "뜨거운 물로 한 번 헹구면\n기름 냄새가 덜 나요.",
-      "example": "뜨거우니 고무장갑 끼기",
-      "bridge": "마지막이 제일 중요해요"
+      "title": "손소독제 톡톡",
+      "desc": "알코올 손소독제를\n면봉에 묻혀 두드려요.",
+      "example": "문지르지 말고\n톡톡 두드리기만",
+      "bridge": "잉크가 휴지로 옮으면"
     },
     {
       "label": "3단계",
-      "title": "펼쳐서 말리기",
-      "desc": "물기를 짜서 펼쳐\n바싹 말려 주세요.",
-      "example": "통풍 잘 되는 곳에 걸기",
-      "bridge": "그리고 이것도 기억하세요"
+      "title": "바로 세탁",
+      "desc": "휴지를 바꿔 가며 반복,\n흐려지면 바로 빨아요.",
+      "example": "평소처럼\n세탁하면 돼요",
+      "bridge": "이건 꼭 확인해요"
     },
     {
       "label": "주의",
-      "title": "락스랑 섞지 않기",
-      "desc": "락스·산성 세제와 섞으면\n유독가스가 나요.",
-      "example": "행주는 세제 따로 빨기",
+      "title": "먼저 테스트",
+      "desc": "안 보이는 안쪽에\n먼저 해 보세요.",
+      "example": "색 빠짐 확인, 실크·\n아세테이트는 세탁소로",
       "bridge": "마지막으로"
     },
     {
       "label": "마무리",
-      "title": "냄새 없는 행주",
-      "desc": "행주는 자주 바꾸고\n펼쳐서 말리기.",
-      "example": "“이제 냄새 안 나지?”"
+      "title": "불 가까이 금지",
+      "desc": "알코올이라 불 근처에선\n쓰지 않아요.",
+      "example": "다른 세제랑\n섞지 않기"
     }
   ],
   "outro": {
     "title": "역시 엄마",
     "sub": "엄마한테 물어볼\n다음 꿀팁은?"
   },
-  "caption": "행주에서 쿰쿰한 냄새 나는 집, 같이 사는 사람한테 보내 주세요 🧽\n\n“엄마 행주에서 냄새나ㅠ”\n“매일 빨아 쓰니?”\n“젖은 채로 뭉쳐 뒀니?”\n“펼쳐서 말려. 뭉쳐 두지 말고.”\n\n젖은 행주는 뭉치지 말고 펼쳐서 바싹 말리기.\n세제는 조금만, 헹굼은 두 번.\n뜨거운 물로 한 번 헹구면 기름 냄새가 덜 나요.\n락스·산성 세제와는 섞지 말고, 뜨거운 물은 고무장갑 끼고.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#청소꿀팁 #행주 #살림꿀팁 #엄마레시피",
+  "caption": "셔츠 주머니에 볼펜 꽂고 다니는 애인 있으면 보내 주세요 🖊️\n\n“엄마 소매에 볼펜 묻었어ㅠ”\n“물로 닦았니?”\n“응 더 번졌어ㅠ”\n\n① 물로 문지르지 않기\n② 자국 밑에 휴지 두세 겹 깔기\n③ 알코올 손소독제를 면봉에 묻혀 톡톡\n④ 흐려지면 바로 세탁\n\n안 보이는 안쪽에 먼저 해 보고, 실크·아세테이트는 세탁소로.\n알코올이라 불 근처 금지, 다른 세제랑 섞지 않기.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#볼펜자국 #얼룩제거 #세탁꿀팁 #엄마꿀팁",
   "reel": {
     "mode": "focus",
     "chatName": "엄마",
-    "caption": "행주에서 쿰쿰한 냄새 나면 엄마한테 먼저 물어보세요 ㅋㅋ\n\n뭉쳐 두지 말고 펼쳐서 말리기.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#청소꿀팁 #행주",
+    "caption": "물로 닦을수록 번지던 볼펜 자국, 엄마는 손소독제부터 찾았어요.\n\n안 보이는 안쪽에 먼저 해 보고, 실크는 세탁소로.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#볼펜자국 #세탁꿀팁 #엄마꿀팁",
     "cover": {
-      "title": "행주 냄새 안 나게\n엄마가 하는 법",
-      "emphasis": "행주",
+      "title": "소매 볼펜 자국\n손소독제면 돼",
+      "emphasis": "볼펜 자국",
       "chat": [
-        { "who": "me", "text": "엄마 행주에서 냄새나ㅠ" },
+        { "who": "me", "text": "엄마 소매에 볼펜 묻었어ㅠ" },
         { "who": "you", "dots": true }
       ]
     },
+    "hook": {
+      "title": "볼펜 자국\n물로 닦지 마세요",
+      "emphasis": "물로 닦지",
+      "photo": "pen"
+    },
     "photos": {
-      "rag-wet": { "prompt": "a damp white kitchen dish towel balled up and left on a stainless steel sink edge, close-up, soft kitchen light" },
-      "rag-dry": { "prompt": "a clean white kitchen dish towel spread flat and hung open on a drying rack by a window, daylight, close-up" }
+      "pen": {
+        "prompt": "realistic close-up photo of the cuff of a white cotton dress shirt with a scribbled blue ballpoint pen ink line, slightly smudged and damp around it, the sleeve laid flat on a plain light wooden table, nothing else in the frame, natural daylight"
+      }
     },
     "scenes": [
       {
         "card": 1,
-        "label": "설거지 끝난 저녁",
+        "label": "회의 끝난 오후",
         "items": [
-          { "who": "me", "text": "엄마 행주에서 냄새나ㅠ" },
-          { "who": "you", "text": "매일 빨아 쓰니?" }
+          { "who": "me", "text": "엄마 소매에 볼펜 묻었어ㅠ" },
+          { "who": "you", "text": "물로 닦았니?" }
         ],
         "dur": 5.0
       },
       {
         "items": [
-          { "who": "me", "text": "사진", "image": "rag-wet" },
-          { "who": "me", "text": "이렇게 뭉쳐 놨는데" },
-          { "who": "you", "text": "젖은 채로 뭉쳐 뒀니?", "typing": true }
+          { "who": "me", "text": "응 더 번졌어ㅠ" },
+          { "who": "me", "text": "사진", "image": "pen" }
         ],
-        "dur": 7.5
+        "dur": 4.2
       },
       {
         "items": [
-          { "who": "me", "text": "아 그랬구나ㅠ" },
-          { "who": "you", "text": "펼쳐서 바싹 말려.", "typing": true }
+          { "who": "you", "text": "손소독제 있니?" },
+          { "who": "you", "text": "휴지 대고 톡톡 해." },
+          { "who": "me", "text": "빠진다!! 엄마 최고🥹" }
         ],
-        "dur": 5.2
-      },
-      {
-        "card": 4,
-        "items": [
-          { "who": "me", "text": "사진", "image": "rag-dry" },
-          { "who": "me", "text": "이렇게?" },
-          { "who": "you", "text": "세제는 조금만. 헹굼 두 번.", "typing": true }
-        ],
-        "dur": 7.5
-      },
-      {
-        "card": 5,
-        "items": [
-          { "who": "me", "text": "그럼 냄새 다 빠져?" },
-          { "who": "you", "text": "대부분 빠져. 뜨겁게 헹궈." }
-        ],
-        "dur": 5.0
+        "dur": 7.3
       },
       {
         "summary": true,
-        "label": "엄마표 행주 관리",
+        "label": "엄마표 볼펜 자국 빼기",
         "items": [
-          { "text": "젖은 행주 뭉치지 않기" },
-          { "text": "세제는 조금, 헹굼은 두 번" },
-          { "text": "뜨거운 물로 한 번 헹구기" },
-          { "text": "펼쳐서 바싹 말리기" }
+          { "text": "물 말고 손소독제로 톡톡" },
+          { "text": "안 보이는 데 먼저 해 보기" }
         ],
-        "dur": 9.6
+        "dur": 5.3
       },
       {
         "items": [
-          { "text": "행주 뭉쳐 두는 룸메이트한테" },
-          { "text": "이건 꼭", "big": true }
+          { "text": "볼펜 꽂고 다니는 애인" },
+          { "text": "꼭 한 번은 묻혀요", "big": true }
         ],
-        "dur": 4.4
+        "dur": 5.0
       }
     ]
   },
-  "visualReview": { "renderId": "2a05d3795180", "carousel": "통과", "reel": "통과", "notes": "표지·캐러셀·사진(뭉친 행주·말리는 행주)·타임라인 모두 깨짐·잘림 없이 주제가 먼저 보임. 엄마 말투·안전 문구(락스 금지) 이상 없음" }
+  "visualReview": {
+    "renderId": "4fe1a92d9a87",
+    "carousel": "통과",
+    "reel": "통과",
+    "notes": "s0-hook·covers·photo-pen·timeline·reel-sheet·report 확인: 소매 볼펜 자국 사진 자연스럽고 글자·로고·사람 없음, 글자 잘림 없음, 요약이 대화와 일치"
+  }
 }
