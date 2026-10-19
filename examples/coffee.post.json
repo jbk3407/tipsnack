@@ -98,75 +98,36 @@
         "dur": 4.6
       },
       {
-        "card": 2,
         "items": [
           {
             "who": "me",
-            "text": "이미 좀 문질렀는데…"
+            "text": "사진",
+            "image": "stain"
           },
           {
             "who": "you",
-            "text": "휴지로 꾹꾹 눌러서 닦아."
-          },
+            "text": "휴지로 꾹꾹 눌러.",
+            "typing": true
+          }
+        ],
+        "dur": 4.6
+      },
+      {
+        "items": [
           {
             "who": "you",
             "text": "뒤집어서 찬물에 헹궈."
-          }
-        ],
-        "dur": 7.3
-      },
-      {
-        "card": 4,
-        "items": [
-          {
-            "who": "me",
-            "text": "아직 누래ㅠ"
           },
           {
             "who": "you",
-            "text": "주방세제 묻혀서 칫솔로 톡톡.",
-            "typing": true
+            "text": "남으면 세제로 톡톡."
           }
         ],
-        "dur": 5.5
-      },
-      {
-        "card": 5,
-        "items": [
-          {
-            "who": "me",
-            "text": "그래도 좀 남았어"
-          },
-          {
-            "who": "you",
-            "text": "과탄산 풀어서 30분 담가.",
-            "typing": true
-          },
-          {
-            "who": "you",
-            "text": "흰옷이니까 되는 거야."
-          }
-        ],
-        "dur": 8
-      },
-      {
-        "card": 7,
-        "items": [
-          {
-            "who": "me",
-            "text": "지워졌어!! 엄마 최고🥹"
-          },
-          {
-            "who": "you",
-            "text": "건조기는 다 지운 다음에.",
-            "typing": true
-          }
-        ],
-        "dur": 5.9
+        "dur": 4.8
       },
       {
         "summary": true,
-        "label": "엄마의 커피 얼룩 4단계",
+        "label": "엄마의 커피 얼룩 3단계",
         "items": [
           {
             "text": "휴지로 꾹꾹 눌러 흡수"
@@ -175,13 +136,10 @@
             "text": "뒤집어서 찬물에 헹구기"
           },
           {
-            "text": "주방세제로 톡톡"
-          },
-          {
-            "text": "흰옷은 과탄산 30분"
+            "text": "남으면 주방세제로 톡톡"
           }
         ],
-        "dur": 9.2
+        "dur": 7.2
       },
       {
         "items": [
@@ -209,6 +167,16 @@
           "dots": true
         }
       ]
+    },
+    "hook": {
+      "title": "커피 얼룩\n문지르지 마세요",
+      "emphasis": "문지르지",
+      "photo": "stain"
+    },
+    "photos": {
+      "stain": {
+        "prompt": "a white dress shirt with a fresh brown coffee stain on the chest, laid flat on a bed, close-up"
+      }
     }
   }
 }

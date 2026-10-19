@@ -11,6 +11,8 @@ const { contentHash } = require('./lib/post');
 const G = 'https://graph.facebook.com/v26.0';
 const BASE = process.env.PUBLIC_BASE || 'https://jbk3407.github.io/tipsnack';
 const DRY = process.env.IG_DRY_RUN === '1';
+// 기본은 릴스만 게시 (캐러셀은 팔로워 밖 도달이 거의 0이라 2026-10-19 중단). TIPSNACK_CAROUSEL=1 이면 캐러셀도 게시
+const CAROUSEL = process.env.TIPSNACK_CAROUSEL === '1';
 const sha = f => crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
 const fail = msg => { console.error('실패:', msg); process.exit(1); };
 
@@ -88,20 +90,20 @@ const publish = async id => {
 (async () => {
   const imgs = fs.readdirSync(dir).filter(f => /^\d+\.png$/.test(f)).sort();
   if (DRY) {
-    if (!rec.carousel) { rec.carousel = 'DRY-RUN'; console.log(`[DRY] CAROUSEL ${imgs.length}장, caption.txt:\n${caption}\n`); save(); }
+    if (CAROUSEL && !rec.carousel) { rec.carousel = 'DRY-RUN'; console.log(`[DRY] CAROUSEL ${imgs.length}장, caption.txt:\n${caption}\n`); save(); }
     if (!rec.reel) { rec.reel = 'DRY-RUN'; console.log(`[DRY] REELS reel.mp4, cover=${fs.existsSync(path.join(dir, 'reel-cover.png')) ? 'reel-cover.png' : '첫 프레임'}, reel-caption.txt:\n${reelCaption}`); save(); }
     return;
   }
   // 방금 push 한 경우 GitHub Pages 배포를 기다림 (최대 10분)
   const hasCover = fs.existsSync(path.join(dir, 'reel-cover.png'));
-  const files = [...imgs, 'reel.mp4', ...(hasCover ? ['reel-cover.png'] : [])];
+  const files = [...(CAROUSEL ? imgs : []), 'reel.mp4', ...(hasCover ? ['reel-cover.png'] : [])];
   for (let i = 0; ; i++) {
     const codes = await Promise.all(files.map(f => fetch(url(f), { method: 'HEAD' }).then(r => r.status)));
     if (codes.every(c => c === 200)) break;
     if (i >= 60) throw new Error('공개 URL 이 열리지 않음: ' + url(files[0]));
     await sleep(10000);
   }
-  if (!rec.carousel) {
+  if (CAROUSEL && !rec.carousel) {
     const children = [];
     for (const f of imgs) children.push((await api('POST', `${IG_USER_ID}/media`, { image_url: url(f), is_carousel_item: 'true' })).id);
     for (const c of children) await ready(c);

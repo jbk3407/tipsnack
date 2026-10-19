@@ -6,7 +6,7 @@ const path = require('path');
 const crypto = require('crypto');
 const { execFileSync } = require('child_process');
 const { photoSvg } = require('./lib/photo');
-const { validate, contentHash, BRAND, FADE, TYPING, loadHistory, compareHistory } = require('./lib/post');
+const { validate, contentHash, BRAND, FADE, TYPING, HOOK, loadHistory, compareHistory } = require('./lib/post');
 
 const CHROME = process.env.CHROME || (process.platform === 'win32'
   ? 'C:/Program Files/Google/Chrome/Application/chrome.exe' : 'chromium');
@@ -248,6 +248,20 @@ const CSS_R = `${CSS2}
 
 // 메신저 대화방 화면 (말풍선만 있는 장면). history = 바로 앞의 연속된 대화 장면들 → 위에 남고 새 메시지가 아래에 쌓임
 // 릴스 전용 커버: 대화방 배경 위에 아주 큰 궁금증 문구(강조어는 노란 형광펜) + 큼직한 말풍선 1~3개(엄마 답장은 '입력 중…'으로 가릴 수 있음)
+// 릴스 맨 앞 후킹 화면(0~1.5초): 문제 사진을 화면 가득 + 아래쪽에 아주 큰 흰 제목(강조어는 노랑). 사진이 없으면 진한 바탕
+function hookBody(h) {
+  const lines = h.title.split('\n');
+  const size = Math.min(140, Math.floor(830 / (Math.max(...lines.map(emw)) * 0.97)));
+  const mark = s => (h.emphasis && s.includes(h.emphasis)) ? esc(s).replace(esc(h.emphasis), `<span style="color:#FEE500">${esc(h.emphasis)}</span>`) : esc(s);
+  const bg = h.photo
+    ? `<img src="${imgData(h.photo)}" style="position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover">
+       <div style="position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.25) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,.55) 58%, rgba(0,0,0,.85) 100%)"></div>`
+    : '<div style="position:absolute;inset:0;background:#2B1D15"></div>';
+  return `${bg}<div style="position:absolute;left:96px;right:154px;top:${1450 - Math.round(size * 1.18) * lines.length}px">
+      <div data-fit="${lines.length}" style="font-size:${size}px;line-height:${Math.round(size * 1.18)}px;font-weight:900;letter-spacing:-0.03em;color:#fff;text-shadow:0 4px 28px rgba(0,0,0,.55)">${lines.map(mark).join('<br>')}</div></div>
+    <div style="position:absolute;left:0;right:0;top:1560px;text-align:center;font-size:32px;font-weight:700;color:rgba(255,255,255,.85)">${esc(BRAND)}</div>`;
+}
+
 function reelCoverChat(p) {
   const c = p.reel.cover, name = p.reel.chatName || '너';
   const lines = c.title.split('\n');
@@ -334,6 +348,15 @@ if (isV2) {
   const chatName = post.reel.chatName || '너';
   const isChat = s => s.items.every(it => it.who);
   let t = 0, history = [];
+  // 후킹 화면 (pop: 효과음 종류, reel.js 가 소리를 만든다)
+  if (post.reel.hook) {
+    const file = 'reel/s0-hook.png';
+    fs.mkdirSync(path.join(out, 'reel'), { recursive: true });
+    const issues = page(path.join(out, file), 1080, 1920, CSS_R, hookBody(post.reel.hook), SAFE_R, true);
+    if (issues) manifest.fit.reel.push({ file, issues });
+    states.push({ file, dur: HOOK, scene: 0, item: 0, style: 'hook', hook: true, pop: 'hook' });
+    t = HOOK;
+  }
   post.reel.scenes.forEach((s, si) => {
     const last = si === post.reel.scenes.length - 1;
     const start = t;
@@ -341,7 +364,7 @@ if (isV2) {
     // 그림·문장 장면이 끼어도 대화방은 이어진다 (앞 메시지가 위에 남아 있음)
     const body = (k, typingAt) => chat ? chatBody(history, s, si, k, last, chatName, typingAt) : sceneBody(s, k, last, si === 0);
     // 문장 k 는 (등장 + 읽기) 시간만큼 머문다. 남는 시간은 마지막 문장에 붙여 여운으로 쓴다.
-    const base = s.items.map((it, k) => (si === 0 && k === 0 ? 0 : FADE) + readT(it.text));
+    const base = s.items.map((it, k) => (si === 0 && k === 0 && !post.reel.hook ? 0 : FADE) + readT(it.text));
     const extra = s.dur - base.reduce((a, b) => a + b, 0) - (chat ? s.items.filter(it => it.typing).length * TYPING : 0);
     // 첫 장면(후킹): 첫 문장은 0초에 이미 완성 상태(페이드 없음 → 읽기 시간만 머묾), 둘째 문장(답장·반전)은 곧바로 이어 등장.
     // 커버는 reel-cover.png(cover_url)가 맡으므로 첫 프레임을 '완성 장면'으로 고정할 필요 없이 초반 리듬을 우선한다
@@ -358,7 +381,7 @@ if (isV2) {
       const issues = page(path.join(out, file), 1080, 1920, CSS_R, body(k + 1), SAFE_R, full);
       if (issues) manifest.fit.reel.push({ file, issues });
       const dur = base[k] + (full ? extra : 0);
-      states.push({ file, dur: +dur.toFixed(3), scene: si + 1, item: k + 1, style: chat ? 'chat' : 'card', ...(si === 0 ? { hook: true } : {}) });
+      states.push({ file, dur: +dur.toFixed(3), scene: si + 1, item: k + 1, style: chat ? 'chat' : 'card', pop: chat ? it.who : 'line', ...(si === 0 && !post.reel.hook ? { hook: true } : {}) });
       t += dur;
     });
     if (chat) history.push({ s, si });

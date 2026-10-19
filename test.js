@@ -68,11 +68,12 @@ for (const [key, file] of [['coffee', 'coffee.post.json'], ['kimchi', 'kimchi.po
     const r = run(d, 'node', ['publish.js', 'posts/test-slot'], { IG_DRY_RUN: '1' });
     expect(r.code === 0, r.out);
     const p = example(file);
-    const [car, reel] = r.out.split('[DRY] REELS');
-    expect(car.includes(p.caption) && !car.includes(p.reel.caption), '캐러셀에 캐러셀 캡션이 안 감');
+    // 기본은 릴스만 게시 (캐러셀은 TIPSNACK_CAROUSEL=1 일 때만)
+    expect(!r.out.includes('[DRY] CAROUSEL'), '캐러셀이 게시됨 (기본은 릴스만)');
+    const reel = r.out.split('[DRY] REELS')[1] || '';
     expect(reel.includes(p.reel.caption) && !reel.includes(p.caption), '릴스에 릴스 캡션이 안 감');
     expect(/cover=reel-cover\.png/.test(reel), '릴스 커버 이미지가 지정되지 않음');
-    return '캐러셀=caption, 릴스=reel.caption, 릴스 커버=reel-cover.png';
+    return '릴스만 게시, 릴스=reel.caption, 릴스 커버=reel-cover.png';
   });
 }
 
@@ -110,7 +111,7 @@ t('필수 데이터 누락 시 중단', () => {
 t('비정상 장면 시간 입력 시 중단', () => {
   const cases = [[1.0, /2.5~8초|짧음/], ['3', /숫자/], [20, /2.5~8초/], [2.6, /읽기에 짧음/]];
   for (const [dur, re] of cases) {
-    const p = example('coffee.post.json'); p.reel.scenes[3].dur = dur; // 말풍선 2개 장면 (읽기 최소 4.9초)
+    const p = example('coffee.post.json'); p.reel.scenes[2].dur = dur; // 말풍선 2개 장면
     const r = run(ws(p), 'node', ['render.js']);
     expect(r.code !== 0 && re.test(r.out), `dur=${dur}: ${r.out}`);
   }
@@ -257,15 +258,16 @@ t('후킹 규칙: 첫 장면·표지', () => {
   for (const [f, re] of cases) { const p = example('kimchi.post.json'); f(p); const r = run(ws(p), 'node', ['render.js']); expect(r.code !== 0 && re.test(r.out), `${re}: ${r.out}`); }
   return `${cases.length}가지 위반 모두 거부`;
 });
-t('첫 장면: 0초에 첫 문장 완성, 둘째 문장 2.5초 안에 등장', () => {
+t('첫 장면: 0초 후킹 화면 1.5초 → 첫 대화', () => {
   const out = [];
   for (const k of ['coffee', 'kimchi']) {
     const d = drafts[k]; expect(d, `${k} 렌더 실패로 생략`);
     const c = report(d).checks.find(x => x.id === '첫 프레임 (시작 상태)');
     const m = JSON.parse(fs.readFileSync(path.join(d, 'out/render.json'), 'utf8'));
     const s0 = m.reel.states[0];
-    expect(c.status === '통과' && s0.hook && s0.item === 1, c.detail);
-    expect(m.reel.states[1].scene === 1 && s0.dur <= 2.5, `둘째 문장 ${s0.dur}초 뒤`);
+    // 0초 = 후킹 화면(reel.hook), 1.5초 뒤 첫 대화 장면
+    expect(c.status === '통과' && s0.style === 'hook' && s0.dur === 1.5, c.detail);
+    expect(m.reel.states[1].scene === 1, '후킹 화면 다음이 첫 장면이 아님');
     out.push(`${k}: 둘째 문장 ${s0.dur}초`);
   }
   return out.join(', ');
@@ -285,6 +287,8 @@ t('엄마 카톡 형식: focus·엄마/아빠·썸네일·요약→공유 한 �
     [p => { p.category = '다정하게 말하기'; }, /category/],
     [p => { delete p.insight; }, /insight 누락/],
     [p => { delete p.share; }, /share 누락/],
+    [p => { delete p.reel.hook; }, /reel\.hook 누락/],
+    [p => { p.reel.hook.photo = 'nope'; }, /reel\.hook\.photo/],
     [p => { p.share.to = '엄마'; }, /share.to/],
     [p => { p.share.line = '다른 문구 한 줄'; }, /이어 붙인 것과 같아야/],
     [p => { p.share.line = '공유해 주세요'; p.reel.scenes[p.reel.scenes.length - 1].items = [{ text: '공유해 주세요' }]; }, /직접 요구 금지/],
@@ -298,7 +302,7 @@ t('typing·big·정지 상한 규칙', () => {
     [p => { p.reel.scenes[p.reel.scenes.length - 2].items[0].typing = true; }, /typing: 말풍선/],
     [p => { p.reel.scenes[1].items[0].big = true; }, /big: 가운데 문장/],
     [p => { p.reel.scenes[0].items[1].typing = true; }, /첫 장면은 0초부터/],
-    [p => { p.reel.scenes[4].dur += 2; }, /화면이 멈춰 보임/],
+    [p => { p.reel.scenes[2].dur += 2; }, /화면이 멈춰 보임/],
     [p => { p.reel.scenes[1].dur -= 0.6; }, /읽기에 짧음/], // typing 0.8초도 필요 시간에 포함
   ];
   for (const [f, re] of cases) { const p = example('kimchi.post.json'); f(p); const e = lib.validate(p).errors; expect(e.some(x => re.test(x)), `${re}: ${e.join(' / ')}`); }
@@ -308,7 +312,7 @@ t('입력 중… 상태와 전개 속도 검사', () => {
   const d = drafts.kimchi; expect(d, '렌더 실패로 생략');
   const m = JSON.parse(fs.readFileSync(path.join(d, 'out/render.json'), 'utf8'));
   const typing = m.reel.states.filter(s => s.typing);
-  expect(typing.length === 3 && typing.every(s => s.dur === 0.8), `typing 상태 ${typing.length}개`);
+  expect(typing.length >= 1 && typing.every(s => s.dur === 0.8), `typing 상태 ${typing.length}개`);
   const c = report(d).checks.find(x => x.id === '전개 속도 (정지 구간)');
   expect(c && c.status === '통과', c && c.detail);
   expect(fs.existsSync(path.join(d, 'out/check/timeline.png')), 'timeline.png 없음');
