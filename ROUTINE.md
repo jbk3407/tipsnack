@@ -143,8 +143,7 @@
     "chatName": "엄마 (또는 아빠)",
     "caption": "릴스 전용 캡션. 캐러셀 캡션과 달라야 함. 번호 목록 요약 금지. 소개 문구 포함, 해시태그 4개 이하",
     "cover": { "title": "주제가 보이는\n두 줄 10자", "emphasis": "주제 단어", "chat": [ { "who": "me", "text": "엄마 ~ (16자)" }, { "who": "you", "dots": true } ] },
-    "hook": { "title": "핵심 한 수
-두 줄 10자", "emphasis": "강조어", "photo": "stain" },
+    "hook": { "title": "핵심 한 수\n두 줄 10자", "emphasis": "강조어", "photo": "stain" },
     "photos": { "stain": { "prompt": "영어 장면 묘사 (4-1절)" } },
     "scenes": [
       { "card": 1, "label": "회색 알림 (예: 자취 3년 차의 저녁)", "items": [ { "who": "me", "text": "엄마 김치찌개 어떻게 끓여?" }, { "who": "you", "text": "고기 있니?" } ], "dur": 4.9 },
