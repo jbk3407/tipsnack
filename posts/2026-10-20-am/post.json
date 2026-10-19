@@ -1,0 +1,150 @@
+{
+  "version": 2,
+  "visualReview": {
+    "renderId": "fa31ba49340c",
+    "carousel": "통과",
+    "reel": "통과",
+    "notes": "s0-hook·covers·photo-drawer·timeline·reel-sheet·report 확인: 후킹 사진이 반쯤 걸린 나무 서랍을 보여 주고 큰 글씨 선명, 썸네일 주제(나무 서랍) 우선, 깨짐·잘림 없음, 요약이 대화와 일치, 이력과 겹침 없음"
+  },
+  "topic": "뻑뻑한 나무 서랍 양초로 풀기",
+  "category": "생활 수리",
+  "format": "practical",
+  "emotion": "장난·웃음",
+  "situation": "이사 온 집 나무 서랍이 뻑뻑해 안 열려 엄마에게 카톡한 밤",
+  "summary": "뻑뻑한 나무 서랍은 힘으로 당기지 말고 레일·닿는 면에 양초를 문질러 여닫기, 기름은 금지",
+  "insight": {
+    "myth": "뻑뻑한 서랍은 힘으로 당기거나 식용유를 바른다",
+    "tip": "서랍 레일·닿는 면에 양초를 쓱쓱 문질러 준다",
+    "why": "초가 얇게 막을 만들어 미끄럽고, 기름은 먼지가 붙는다"
+  },
+  "share": {
+    "to": "같이 사는 사람",
+    "line": "서랍 낑낑 여는 룸메이트 조용히 보내 주기"
+  },
+  "cover": {
+    "style": "dark",
+    "kicker": "생활 수리",
+    "title": "엄마 서랍이\n안 열려ㅠ",
+    "emphasis": "서랍",
+    "sub": "엄마의 첫마디: 당기지 마!"
+  },
+  "cards": [
+    {
+      "label": "그날",
+      "title": "꽉 낀 나무 서랍",
+      "desc": "이사 온 집 서랍장,\n당겨도 안 나와요",
+      "example": "“엄마 서랍이 뻑뻑해ㅠ”",
+      "bridge": "엄마의 첫마디는"
+    },
+    {
+      "label": "절대 금지",
+      "title": "힘으로 당기지 마!",
+      "desc": "세게 당기면 손잡이나\n레일이 망가져요.",
+      "example": "살살 넣었다 빼며\n빠지는 만큼만",
+      "bridge": "대신 필요한 건"
+    },
+    {
+      "label": "준비물",
+      "title": "양초 한 자루",
+      "desc": "불 안 붙인 양초면 돼요.\n생일초도 OK.",
+      "example": "없으면 마른 비누로 대신",
+      "bridge": "어디에 바르냐면"
+    },
+    {
+      "label": "1단계",
+      "title": "닿는 면 찾기",
+      "desc": "서랍 밑 레일과\n옆면 반들한 곳을 봐요.",
+      "example": "먼지는 마른 천으로\n먼저 털기",
+      "bridge": "찾았으면"
+    },
+    {
+      "label": "2단계",
+      "title": "양초로 쓱쓱",
+      "desc": "닿는 면에 양초를\n여러 번 문질러요.",
+      "example": "서랍 쪽, 몸통 쪽\n둘 다 문지르기",
+      "bridge": "마지막으로"
+    },
+    {
+      "label": "3단계",
+      "title": "여러 번 여닫기",
+      "desc": "열었다 닫았다 하면\n초가 고르게 퍼져요.",
+      "example": "그래도 뻑뻑하면\n한 번 더 문지르기",
+      "bridge": "이건 꼭 지켜요"
+    },
+    {
+      "label": "주의",
+      "title": "기름은 바르지 마",
+      "desc": "식용유는 먼지가 붙어\n더 끈적해져요.",
+      "example": "철제 볼 레일은 다른 방식,\n불은 켜지 않기"
+    }
+  ],
+  "outro": {
+    "title": "역시 엄마",
+    "sub": "엄마한테 물어볼\n다음 꿀팁은?"
+  },
+  "caption": "서랍 열 때마다 낑낑대는 룸메이트 있으면 보내 주세요 🕯️\n\n“엄마 서랍이 뻑뻑해ㅠ”\n“당기지 마.”\n“양초 있니?”\n\n① 힘으로 당기지 말고 살살 빼기\n② 서랍 밑 레일·닿는 면에 양초 쓱쓱\n③ 여러 번 여닫아서 고르게\n\n식용유는 먼지가 붙어 금지, 양초는 불 붙이지 않고 그대로.\n철제 볼 레일 서랍은 방식이 달라요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#서랍 #생활꿀팁 #살림꿀팁 #엄마꿀팁",
+  "reel": {
+    "mode": "focus",
+    "chatName": "엄마",
+    "caption": "엄마의 첫마디: 당기지 마. 그다음은 양초 있니?\n\n뻑뻑한 나무 서랍, 양초 한 자루면 스르륵.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#생활꿀팁 #서랍",
+    "cover": {
+      "title": "뻑뻑한 나무 서랍\n엄마는 양초로",
+      "emphasis": "나무 서랍",
+      "chat": [
+        { "who": "me", "text": "엄마 서랍이 뻑뻑해ㅠ" },
+        { "who": "you", "dots": true }
+      ]
+    },
+    "hook": {
+      "title": "뻑뻑한 서랍\n양초 문질러요",
+      "emphasis": "양초",
+      "photo": "drawer"
+    },
+    "photos": {
+      "drawer": {
+        "prompt": "an old wooden dresser with one drawer stuck half-open and crooked, in a cozy bedroom, close-up at drawer height"
+      }
+    },
+    "scenes": [
+      {
+        "card": 1,
+        "label": "이사 온 집 첫날 밤",
+        "items": [
+          { "who": "me", "text": "엄마 서랍이 뻑뻑해ㅠ" },
+          { "who": "you", "text": "당기지 마." }
+        ],
+        "dur": 4.6
+      },
+      {
+        "items": [
+          { "who": "me", "text": "사진", "image": "drawer" },
+          { "who": "me", "text": "이거 꽉 꼈어ㅠ" }
+        ],
+        "dur": 3.9
+      },
+      {
+        "items": [
+          { "who": "you", "text": "양초 있니?", "typing": true },
+          { "who": "you", "text": "레일에 쓱쓱 문질러." }
+        ],
+        "dur": 5.5
+      },
+      {
+        "summary": true,
+        "label": "엄마표 서랍 살리기",
+        "items": [
+          { "text": "힘으로 당기지 않기" },
+          { "text": "닿는 면에 양초 문지르기" }
+        ],
+        "dur": 5.6
+      },
+      {
+        "items": [
+          { "text": "서랍 낑낑 여는 룸메이트" },
+          { "text": "조용히 보내 주기", "big": true }
+        ],
+        "dur": 5.5
+      }
+    ]
+  }
+}
