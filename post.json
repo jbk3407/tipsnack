@@ -1,197 +1,159 @@
 {
   "version": 2,
-  "visualReview": {
-    "renderId": "cd42cbc359aa",
-    "carousel": "통과",
-    "reel": "통과",
-    "notes": "표지 제목 '빨래'가 가장 먼저 보이고 줄바꿈 자연스러움. 장면 흐름 정상, 엄마 말투 OK. 팬 사진에 손과 휴대폰이 보이나 얼굴·글자 없고 상황과 맞아 통과 (3회차라 재렌더 안 함)."
-  },
-  "topic": "실내에서 빨래 안 마를 때",
-  "category": "계절 살림",
-  "format": "story",
-  "emotion": "편안함",
-  "situation": "비 오는 날 방 안에 빨래를 널고 저녁에 만져 보니 축축해서 카톡한 밤",
-  "summary": "방 안 빨래는 공기가 고여 안 마름. 문틈 열고 선풍기 약풍을 빨래 쪽으로, 옷 간격 벌리기",
+  "topic": "젖은 행주 냄새 잡기",
+  "category": "청소",
+  "format": "practical",
+  "emotion": "고마움",
+  "situation": "설거지하고 닦은 행주에서 계속 냄새가 나 엄마에게 카톡한 저녁",
+  "summary": "젖은 행주는 뭉치지 말고, 세제는 조금만 헹굼 두 번, 펼쳐서 바싹 말리기",
   "insight": {
-    "myth": "빨래는 방 안에 널어 두면 저절로 마른다",
-    "tip": "선풍기 약풍을 빨래 쪽으로 틀고 문틈을 연다",
-    "why": "습한 공기가 고여 있으면 물이 날아가질 못해"
+    "myth": "세제를 듬뿍 넣고 오래 담가 두면 깨끗해진다",
+    "tip": "젖은 행주는 뭉치지 말고 펼쳐서 말린다",
+    "why": "뭉쳐 두면 습기가 갇혀 냄새가 올라와요"
   },
   "share": {
     "to": "같이 사는 사람",
-    "line": "빨래 널어 두고 잊는 룸메이트 한 명씩 있잖아요"
+    "line": "행주 뭉쳐 두는 룸메이트한테 이건 꼭"
   },
   "cover": {
-    "style": "dark",
-    "kicker": "계절 살림",
-    "title": "엄마 빨래가\n방에서 안 말라ㅠ",
-    "emphasis": "빨래",
-    "sub": "엄마의 첫마디: 문 열고 선풍기!"
+    "style": "bubble",
+    "kicker": "청소 꿀팁",
+    "title": "엄마 행주에서\n냄새나ㅠ",
+    "emphasis": "행주",
+    "sub": "엄마의 첫마디: 뭉쳐 두지 마!"
   },
   "cards": [
     {
       "label": "그날",
-      "title": "방 안 빨래의 밤",
-      "desc": "비 오는 날 방에 널고\n저녁에 만져 보니 축축",
-      "example": "“엄마 빨래가 안 말라ㅠ”",
+      "title": "행주가 쿰쿰해",
+      "desc": "설거지하고 닦은 행주\n빨아도 냄새가 나요",
+      "example": "“빨았는데 왜 이래?”",
       "bridge": "엄마의 첫마디는"
     },
     {
       "label": "엄마의 첫마디",
-      "title": "문 열고 선풍기!",
-      "desc": "방문을 열어 공기가\n지나가게 하래요.",
-      "example": "“고인 습기는 안 날아가”",
-      "bridge": "옷 간격도 중요해요"
+      "title": "뭉쳐 두지 마",
+      "desc": "젖은 행주를 뭉쳐 두면\n습기가 갇혀 냄새가 나요.",
+      "example": "“펼쳐서 말려야 해”",
+      "bridge": "그래서 순서가 있어요"
     },
     {
       "label": "1단계",
-      "title": "옷 간격 벌리기",
-      "desc": "옷끼리 붙이지 말고\n한 장씩 떨어뜨려 걸어요.",
-      "example": "두꺼운 옷은 아래쪽으로",
-      "bridge": "그다음 바람을"
+      "title": "세제는 조금만",
+      "desc": "세제를 듬뿍 넣으면\n찌꺼기가 행주에 남아요.",
+      "example": "헹굼은 두 번이면 충분",
+      "bridge": "헹군 다음은"
     },
     {
       "label": "2단계",
-      "title": "선풍기 약풍",
-      "desc": "빨래 쪽으로 약풍을\n틀어 두면 공기가 돌아요.",
-      "example": "세기는 약하게, 오래 틀기",
-      "bridge": "방문도 조금"
+      "title": "뜨거운 물에 한 번",
+      "desc": "뜨거운 물로 한 번 헹구면\n기름 냄새가 덜 나요.",
+      "example": "뜨거우니 고무장갑 끼기",
+      "bridge": "마지막이 제일 중요해요"
     },
     {
       "label": "3단계",
-      "title": "방문 조금 열기",
-      "desc": "문틈을 살짝 열어\n공기길을 만들어요.",
-      "example": "창문이 있으면 같이 열기",
-      "bridge": "이건 꼭 확인해요"
+      "title": "펼쳐서 말리기",
+      "desc": "물기를 짜서 펼쳐\n바싹 말려 주세요.",
+      "example": "통풍 잘 되는 곳에 걸기",
+      "bridge": "그리고 이것도 기억하세요"
     },
     {
       "label": "주의",
-      "title": "두꺼운 옷은 따로",
-      "desc": "후드·청바지처럼 두꺼운 옷은\n마르는 데 오래 걸려요.",
-      "example": "얇은 옷부터 먼저 걷기",
+      "title": "락스랑 섞지 않기",
+      "desc": "락스·산성 세제와 섞으면\n유독가스가 나요.",
+      "example": "행주는 세제 따로 빨기",
       "bridge": "마지막으로"
     },
     {
       "label": "마무리",
-      "title": "솔기부터 확인",
-      "desc": "겉만 말랐는지 솔기를\n만져 보고 옷장에 넣어요.",
-      "example": "덜 말랐으면 꿉꿉한 냄새가 나요"
+      "title": "냄새 없는 행주",
+      "desc": "행주는 자주 바꾸고\n펼쳐서 말리기.",
+      "example": "“이제 냄새 안 나지?”"
     }
   ],
   "outro": {
     "title": "역시 엄마",
     "sub": "엄마한테 물어볼\n다음 꿀팁은?"
   },
-  "caption": "빨래 방 안에 널어 두고 잊는 룸메이트 한 명씩 있잖아요 🧺\n\n“엄마 빨래가 안 말라ㅠ”\n“문 열고 선풍기!”\n\n① 옷 사이 간격 벌려 걸기\n② 선풍기 약풍을 빨래 쪽으로\n③ 문틈 열어 공기길 만들기\n④ 두꺼운 옷은 따로, 솔기까지 확인\n\n고인 습기는 잘 안 날아가요. 덜 말랐으면 옷장에 넣기 전에 한 번 더 말려 주세요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#빨래꿀팁 #실내건조 #살림꿀팁 #엄마꿀팁",
+  "caption": "행주에서 쿰쿰한 냄새 나는 집, 같이 사는 사람한테 보내 주세요 🧽\n\n“엄마 행주에서 냄새나ㅠ”\n“매일 빨아 쓰니?”\n“젖은 채로 뭉쳐 뒀니?”\n“펼쳐서 말려. 뭉쳐 두지 말고.”\n\n젖은 행주는 뭉치지 말고 펼쳐서 바싹 말리기.\n세제는 조금만, 헹굼은 두 번.\n뜨거운 물로 한 번 헹구면 기름 냄새가 덜 나요.\n락스·산성 세제와는 섞지 말고, 뜨거운 물은 고무장갑 끼고.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#청소꿀팁 #행주 #살림꿀팁 #엄마레시피",
   "reel": {
     "mode": "focus",
     "chatName": "엄마",
-    "caption": "엄마한테 빨래 안 마른다고 했더니 문부터 열래요 ㅋㅋ\n\n실내 빨래, 문 열고 선풍기 약풍이면 돼요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#빨래꿀팁 #실내건조",
+    "caption": "행주에서 쿰쿰한 냄새 나면 엄마한테 먼저 물어보세요 ㅋㅋ\n\n뭉쳐 두지 말고 펼쳐서 말리기.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#청소꿀팁 #행주",
     "cover": {
-      "title": "실내 빨래가\n안 마를 때",
-      "emphasis": "빨래",
+      "title": "행주 냄새 안 나게\n엄마가 하는 법",
+      "emphasis": "행주",
       "chat": [
-        {
-          "who": "me",
-          "text": "엄마 빨래가 안 말라ㅠ"
-        },
-        {
-          "who": "you",
-          "dots": true
-        }
+        { "who": "me", "text": "엄마 행주에서 냄새나ㅠ" },
+        { "who": "you", "dots": true }
       ]
     },
     "photos": {
-      "rack": {
-        "prompt": "several damp white cotton t-shirts hung close together on a clothes drying rack in a small room beside a rainy window, close-up, realistic phone photo, no people"
-      },
-      "fan": {
-        "prompt": "a small white desk fan standing on a plain wooden floor in an empty room, blowing toward a clothes drying rack with white shirts hanging, daytime light, empty scene, no people, no hands, no phone, no screen, realistic photo"
-      }
+      "rag-wet": { "prompt": "a damp white kitchen dish towel balled up and left on a stainless steel sink edge, close-up, soft kitchen light" },
+      "rag-dry": { "prompt": "a clean white kitchen dish towel spread flat and hung open on a drying rack by a window, daylight, close-up" }
     },
     "scenes": [
       {
         "card": 1,
-        "label": "비 오는 날 저녁",
+        "label": "설거지 끝난 저녁",
         "items": [
-          {
-            "who": "me",
-            "text": "엄마 빨래가 안 말라ㅠ"
-          },
-          {
-            "who": "you",
-            "text": "방문 닫았니?"
-          }
+          { "who": "me", "text": "엄마 행주에서 냄새나ㅠ" },
+          { "who": "you", "text": "매일 빨아 쓰니?" }
         ],
-        "dur": 4.8
+        "dur": 5.0
       },
       {
-        "card": 2,
         "items": [
-          {
-            "who": "me",
-            "text": "응 방에 널었어"
-          },
-          {
-            "who": "me",
-            "text": "사진",
-            "image": "rack"
-          },
-          {
-            "who": "you",
-            "text": "문 열고 선풍기 틀어."
-          }
-        ],
-        "dur": 6.5
-      },
-      {
-        "card": 3,
-        "items": [
-          {
-            "who": "me",
-            "text": "사진",
-            "image": "fan"
-          },
-          {
-            "who": "me",
-            "text": "이렇게?"
-          },
-          {
-            "who": "you",
-            "text": "선풍기는 약풍으로 빨래 쪽에.",
-            "typing": true
-          }
-        ],
-        "dur": 7.1
-      },
-      {
-        "summary": true,
-        "label": "엄마표 실내 빨래",
-        "items": [
-          {
-            "text": "옷 사이 간격 벌리기"
-          },
-          {
-            "text": "선풍기 약풍, 빨래 쪽으로"
-          },
-          {
-            "text": "방문 조금 열어 두기"
-          }
+          { "who": "me", "text": "사진", "image": "rag-wet" },
+          { "who": "me", "text": "이렇게 뭉쳐 놨는데" },
+          { "who": "you", "text": "젖은 채로 뭉쳐 뒀니?", "typing": true }
         ],
         "dur": 7.5
       },
       {
         "items": [
-          {
-            "text": "빨래 널어 두고 잊는 룸메이트"
-          },
-          {
-            "text": "한 명씩 있잖아요",
-            "big": true
-          }
+          { "who": "me", "text": "아 그랬구나ㅠ" },
+          { "who": "you", "text": "펼쳐서 바싹 말려.", "typing": true }
         ],
-        "dur": 6
+        "dur": 5.2
+      },
+      {
+        "card": 4,
+        "items": [
+          { "who": "me", "text": "사진", "image": "rag-dry" },
+          { "who": "me", "text": "이렇게?" },
+          { "who": "you", "text": "세제는 조금만. 헹굼 두 번.", "typing": true }
+        ],
+        "dur": 7.5
+      },
+      {
+        "card": 5,
+        "items": [
+          { "who": "me", "text": "그럼 냄새 다 빠져?" },
+          { "who": "you", "text": "대부분 빠져. 뜨겁게 헹궈." }
+        ],
+        "dur": 5.0
+      },
+      {
+        "summary": true,
+        "label": "엄마표 행주 관리",
+        "items": [
+          { "text": "젖은 행주 뭉치지 않기" },
+          { "text": "세제는 조금, 헹굼은 두 번" },
+          { "text": "뜨거운 물로 한 번 헹구기" },
+          { "text": "펼쳐서 바싹 말리기" }
+        ],
+        "dur": 9.6
+      },
+      {
+        "items": [
+          { "text": "행주 뭉쳐 두는 룸메이트한테" },
+          { "text": "이건 꼭", "big": true }
+        ],
+        "dur": 4.4
       }
     ]
-  }
+  },
+  "visualReview": { "renderId": "2a05d3795180", "carousel": "통과", "reel": "통과", "notes": "표지·캐러셀·사진(뭉친 행주·말리는 행주)·타임라인 모두 깨짐·잘림 없이 주제가 먼저 보임. 엄마 말투·안전 문구(락스 금지) 이상 없음" }
 }
