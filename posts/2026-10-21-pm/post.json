@@ -1,0 +1,151 @@
+{
+  "version": 2,
+  "topic": "촉촉한 냉동밥 얼리기",
+  "category": "요리",
+  "format": "story",
+  "emotion": "편안함",
+  "situation": "밥을 식혀서 얼렸다가 데웠더니 딱딱해 엄마에게 카톡한 자취 첫 달 저녁",
+  "summary": "밥은 식히지 말고 뜨거울 때 바로 납작하게 싸서 냉동, 데울 땐 물 한 숟갈",
+  "insight": {
+    "myth": "밥은 다 식힌 다음에 얼려야 한다",
+    "tip": "갓 지은 밥을 뜨거울 때 바로 싸서 얼린다",
+    "why": "김이 수분이라 같이 가둬야 데워도 촉촉하다"
+  },
+  "share": {
+    "to": "친구",
+    "line": "밥 한 번에 해서 얼리는 자취생 친구 있잖아요"
+  },
+  "cover": {
+    "style": "bold",
+    "kicker": "밥 꿀팁",
+    "title": "엄마 냉동밥이\n딱딱해ㅠ",
+    "emphasis": "냉동밥",
+    "sub": "엄마의 첫마디: 식혀서 얼렸니?"
+  },
+  "cards": [
+    {
+      "label": "그날",
+      "title": "돌덩이 냉동밥",
+      "desc": "한 번에 밥 해서 얼렸는데\n데우니 딱딱하고 푸석",
+      "example": "“엄마 냉동밥이 딱딱해ㅠ”",
+      "bridge": "엄마의 첫마디는"
+    },
+    {
+      "label": "흔한 실수",
+      "title": "식혀서 얼리기",
+      "desc": "다 식히는 동안\n김과 수분이 날아가요.",
+      "example": "“식혀서 얼렸니?”",
+      "bridge": "그럼 언제 싸냐면"
+    },
+    {
+      "label": "1단계",
+      "title": "뜨거울 때 바로",
+      "desc": "밥이 다 되면 바로\n한 공기씩 덜어요.",
+      "example": "김이 날 때 싸는 게 핵심",
+      "bridge": "쌀 때는"
+    },
+    {
+      "label": "2단계",
+      "title": "납작하게 펴기",
+      "desc": "전자레인지용 용기나 랩에\n납작하게 펴서 싸요.",
+      "example": "얇을수록 고르게 데워져요",
+      "bridge": "그다음엔"
+    },
+    {
+      "label": "3단계",
+      "title": "바로 냉동실로",
+      "desc": "한 김 나가면\n바로 냉동실에 넣어요.",
+      "example": "냉장 보관은 금방 굳어요",
+      "bridge": "데울 때는"
+    },
+    {
+      "label": "데우기",
+      "title": "물 한 숟갈",
+      "desc": "물 한 숟갈 뿌리고\n뚜껑 살짝 열어 데워요.",
+      "example": "시간은 전자레인지\n표시대로 맞추기",
+      "bridge": "이건 꼭 지켜요"
+    },
+    {
+      "label": "주의",
+      "title": "한 번 녹이면 끝",
+      "desc": "녹인 밥은\n다시 얼리지 않아요.",
+      "example": "“이제 갓 한 밥 같지?”"
+    }
+  ],
+  "outro": {
+    "title": "역시 엄마",
+    "sub": "엄마한테 물어볼\n다음 꿀팁은?"
+  },
+  "caption": "밥 한 번에 해서 얼려 두는 자취생 친구 있으면 보내 주세요 🍚\n\n“엄마 냉동밥이 딱딱해ㅠ”\n“식혀서 얼렸니?”\n“응”\n“뜨거울 때 바로 싸.”\n\n① 밥 되자마자 한 공기씩 덜기\n② 전자레인지용 용기나 랩에 납작하게 펴서 싸기\n③ 한 김 나가면 바로 냉동실로\n④ 데울 땐 물 한 숟갈 뿌리고 뚜껑 살짝 열어서\n\n한 번 녹인 밥은 다시 얼리지 않기.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#냉동밥 #자취요리 #살림꿀팁 #엄마꿀팁",
+  "reel": {
+    "mode": "focus",
+    "chatName": "엄마",
+    "caption": "식혀서 얼린 게 문제였대요.\n\n냉동밥은 김 날 때 바로 싸야 데워도 촉촉해요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#냉동밥 #자취요리",
+    "cover": {
+      "title": "촉촉한 냉동밥\n엄마는 이렇게 싸",
+      "emphasis": "냉동밥",
+      "chat": [
+        { "who": "me", "text": "엄마 냉동밥이 딱딱해ㅠ" },
+        { "who": "you", "dots": true }
+      ]
+    },
+    "hook": {
+      "title": "냉동밥 식혀서\n얼리지 마세요",
+      "emphasis": "식혀서",
+      "photo": "rice"
+    },
+    "photos": {
+      "rice": {
+        "prompt": "a hard, dry block of frozen cooked white rice with frost crystals in a small plastic container, on a kitchen counter, close-up"
+      }
+    },
+    "scenes": [
+      {
+        "card": 1,
+        "label": "자취 첫 달의 저녁",
+        "items": [
+          { "who": "me", "text": "엄마 냉동밥이 딱딱해ㅠ" },
+          { "who": "you", "text": "식혀서 얼렸니?" }
+        ],
+        "dur": 4.9
+      },
+      {
+        "items": [
+          { "who": "me", "text": "사진", "image": "rice" },
+          { "who": "me", "text": "응 식혀서 얼렸어" }
+        ],
+        "dur": 4.0
+      },
+      {
+        "items": [
+          { "who": "you", "text": "뜨거울 때 바로 싸." },
+          { "who": "you", "text": "납작하게 펴서 얼려." },
+          { "who": "you", "text": "김이 수분이야." }
+        ],
+        "dur": 7.3
+      },
+      {
+        "summary": true,
+        "label": "엄마표 촉촉 냉동밥",
+        "items": [
+          { "text": "뜨거울 때 바로 싸기" },
+          { "text": "납작하게 펴서 냉동" }
+        ],
+        "dur": 5.3
+      },
+      {
+        "items": [
+          { "text": "밥 한 번에 해서 얼리는" },
+          { "text": "자취생 친구 있잖아요", "big": true }
+        ],
+        "dur": 5.5
+      }
+    ]
+  },
+  "visualReview": {
+    "renderId": "89922bb92ff0",
+    "carousel": "통과",
+    "reel": "통과",
+    "notes": "s0-hook·covers·photo-rice·timeline·reel-sheet·report 확인: 깨짐·잘림 없음, 사진은 용기 속 밥 덩어리로 상황과 맞음(서리 표현은 약함), 엄마 말투·요약 일치"
+  }
+}
