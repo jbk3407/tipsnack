@@ -1,0 +1,151 @@
+{
+  "version": 2,
+  "visualReview": {
+    "renderId": "435fa75cae5c",
+    "carousel": "통과",
+    "reel": "통과",
+    "notes": "s0-hook·covers·photo-banana·timeline·reel-sheet·report 확인: 봉지 속 점박이 바나나 사진이 상황과 맞고 글자 잘림·겹침 없음, 대화·요약 일치"
+  },
+  "topic": "바나나 덜 까매지게 두기",
+  "category": "식재료",
+  "format": "practical",
+  "emotion": "장난·웃음",
+  "situation": "주말에 산 바나나를 봉지째 식탁에 뒀다가 이틀 만에 까매져 카톡한 저녁",
+  "summary": "바나나는 꼭지만 랩으로 감싸고 사과 옆을 피하면 천천히 익음",
+  "insight": {
+    "myth": "바나나는 봉지째 식탁에 두면 된다",
+    "tip": "꼭지만 랩으로 감싸 두면 천천히 익는다",
+    "why": "익게 하는 가스가 꼭지에서 많이 나온다"
+  },
+  "share": {
+    "to": "애인",
+    "line": "바나나 맨날 버리는 애인 이번엔 끝까지 먹자"
+  },
+  "cover": {
+    "style": "dark",
+    "kicker": "보관 꿀팁",
+    "title": "엄마 바나나가\n벌써 까매ㅠ",
+    "emphasis": "바나나",
+    "sub": "엄마의 첫마디: 어디 뒀니?"
+  },
+  "cards": [
+    {
+      "label": "그날",
+      "title": "이틀 만에 까매짐",
+      "desc": "주말에 산 바나나가\n벌써 점박이가 됐어요.",
+      "example": "“엄마 바나나가 벌써 까매ㅠ”",
+      "bridge": "엄마의 첫마디는"
+    },
+    {
+      "label": "엄마의 첫마디",
+      "title": "어디 뒀니?",
+      "desc": "봉지째 식탁에 두면\n가스가 고여 빨리 익어요.",
+      "example": "사 오면 봉지부터 빼기",
+      "bridge": "그다음 엄마 비법"
+    },
+    {
+      "label": "1단계",
+      "title": "꼭지만 랩으로",
+      "desc": "송이 꼭지 부분만\n랩으로 꽁꽁 감싸요.",
+      "example": "바나나 몸통은 그대로",
+      "bridge": "왜 꼭지냐면"
+    },
+    {
+      "label": "이유",
+      "title": "꼭지에서 가스가",
+      "desc": "익게 하는 가스가\n꼭지에서 많이 나와요.",
+      "example": "막아 두면 천천히 익어요",
+      "bridge": "어디에 두냐면"
+    },
+    {
+      "label": "2단계",
+      "title": "사과 옆은 피하기",
+      "desc": "사과·토마토도 가스가\n나와서 같이 익어요.",
+      "example": "서늘한 곳에 따로 두기",
+      "bridge": "하나 더 하자면"
+    },
+    {
+      "label": "주의",
+      "title": "까매져도 괜찮아",
+      "desc": "껍질만 점박이면\n속은 먹어도 돼요.",
+      "example": "물러지거나 냄새나면\n아깝지만 버리기",
+      "bridge": "마지막으로"
+    },
+    {
+      "label": "마무리",
+      "title": "며칠 더 노랗게",
+      "desc": "꼭지 랩 하나로\n조금 더 천천히 익어요.",
+      "example": "“이번엔 다 먹어.”"
+    }
+  ],
+  "outro": {
+    "title": "역시 엄마",
+    "sub": "엄마한테 물어볼\n다음 꿀팁은?"
+  },
+  "caption": "바나나 사면 반은 버리는 애인 있으면 보내 주세요 🍌\n\n“엄마 바나나가 벌써 까매ㅠ”\n“어디 뒀니?”\n“꼭지만 랩으로 감싸.”\n\n① 봉지에서 꺼내 서늘한 곳에\n② 꼭지 부분만 랩으로 감싸기\n③ 사과·토마토 옆은 피하기\n\n껍질 점박이는 괜찮지만, 물러지거나 냄새나면 버려 주세요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#바나나보관 #식재료보관 #자취꿀팁 #살림꿀팁",
+  "reel": {
+    "mode": "focus",
+    "chatName": "엄마",
+    "caption": "바나나 이틀 만에 까매졌다니까 엄마가 꼭지만 감싸래요 🍌\n\n봉지째 식탁 말고, 꼭지에 랩 한 장.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#바나나보관 #자취꿀팁",
+    "cover": {
+      "title": "금방 까매지는\n바나나 보관법",
+      "emphasis": "바나나",
+      "chat": [
+        { "who": "me", "text": "엄마 바나나가 벌써 까매ㅠ" },
+        { "who": "you", "dots": true }
+      ]
+    },
+    "hook": {
+      "title": "바나나 꼭지만\n랩으로 감싸",
+      "emphasis": "꼭지만",
+      "photo": "banana"
+    },
+    "photos": {
+      "banana": {
+        "prompt": "a bunch of ripe yellow bananas covered with many brown spots, still inside a thin clear plastic grocery bag on a wooden kitchen table, close-up"
+      }
+    },
+    "scenes": [
+      {
+        "card": 1,
+        "label": "주말에 산 바나나",
+        "items": [
+          { "who": "me", "text": "엄마 바나나가 벌써 까매ㅠ" },
+          { "who": "you", "text": "어디 뒀니?" }
+        ],
+        "dur": 4.9
+      },
+      {
+        "items": [
+          { "who": "me", "text": "사진", "image": "banana" },
+          { "who": "you", "text": "꼭지만 랩으로 감싸.", "typing": true }
+        ],
+        "dur": 5.0
+      },
+      {
+        "items": [
+          { "who": "me", "text": "꼭지만?" },
+          { "who": "you", "text": "거기서 익게 하는 가스 나와." },
+          { "who": "you", "text": "사과 옆에도 두지 마." }
+        ],
+        "dur": 7.4
+      },
+      {
+        "summary": true,
+        "label": "엄마표 바나나 보관",
+        "items": [
+          { "text": "꼭지만 랩으로 감싸기" },
+          { "text": "사과 옆엔 두지 않기" }
+        ],
+        "dur": 5.2
+      },
+      {
+        "items": [
+          { "text": "바나나 맨날 버리는 애인" },
+          { "text": "이번엔 끝까지 먹자", "big": true }
+        ],
+        "dur": 5.3
+      }
+    ]
+  }
+}
