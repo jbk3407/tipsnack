@@ -1,0 +1,145 @@
+{
+  "ok": true,
+  "renderId": "c1fe233ddde9",
+  "inputHash": "c6fb98ef21bddda0c214db3a624f735ce19cf07784f2646aeed11ccd526820f3",
+  "version": 2,
+  "legacy": false,
+  "checkedAt": "2026-10-29T06:05:34.998Z",
+  "outputs": {
+    "01.png": "6864cb3ccb2f8c73da49a0f8023a413653b75bea52f82e859863f2c87b8c33fb",
+    "02.png": "e2a7d32523bd435bf0bde81782b1101ed4867620b4820782c3427bcf6bc8e27e",
+    "03.png": "a75ada785db3efdd7e26a4b83ba2c96e5f0a173dc729f96141f16b000e013121",
+    "04.png": "7ff962c139e199b8e49584576415940a127f7f0307763858dbc2014a84cfcb34",
+    "05.png": "637a02d80aa1079c69f76d95e2fdc7c85db09c982d56c537c005963103cb2315",
+    "06.png": "6ce11f0f6e0682b4bfa02bb35422e1d121a267842c04767ff8c111e384120c7a",
+    "07.png": "28682a8fa7242916ef6ed352ea1e51b0d8b1ac622360cc5732f9852a739acd6e",
+    "08.png": "3f5a8db503fd717538fb4e567e0ca1672f37d1e964dce1068a5aa2b0e7a7eb1a",
+    "09.png": "2cfbb2cb2ab568e97255c7d4a88dec382e4838978b28c8ba62671612b169f7e2",
+    "caption.txt": "294d58d5405977ec9fb36ecf97328ca3229624717136255d95d59c07441c33e6",
+    "reel-caption.txt": "5e266b4075b40c4e03a6de3c383676a5e2d39cce71ff0aff195537f4a3e2eda3",
+    "reel.mp4": "fecbb0435212c39ee7cefebfe2a7286502ab717831c9f0c9686b53f1f8afba50",
+    "reel-cover.png": "aec88157437ca53b89ef0f31f18db7ce1c3b7928d14fc58db3a21b6f98e1d562"
+  },
+  "checks": [
+    {
+      "id": "post.json 필수 필드·형식",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "version 2 (경고: reel.photos 없음: 상황·과정 사진을 1장 이상 넣는 것이 기본 (ROUTINE.md 사진 절), 릴스 전체 길이 27.8초 (focus 권장 18~26초))"
+    },
+    {
+      "id": "렌더 입력 = 현재 post.json",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "renderId c1fe233ddde9"
+    },
+    {
+      "id": "장면 시간 유효성",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "장면 6개 / 상태 12개 / 합계 27.8초"
+    },
+    {
+      "id": "텍스트 넘침·잘림(레이아웃 실측)",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "캐러셀 9장 + 릴스 장면 8개 검사"
+    },
+    {
+      "id": "출력 파일 존재·최신·입력 일치",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "25개 파일"
+    },
+    {
+      "id": "최종 MP4 디코딩",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "전체 프레임 오류 없이 디코딩"
+    },
+    {
+      "id": "영상 길이 = 장면 시간표",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "MP4 27.8초 / 시간표 27.8초"
+    },
+    {
+      "id": "영상 규격 (H.264, 1080x1920, 30fps)",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1080x1920 [SAR 1:1 DAR 9:16], 218 kb/s, 30 fps, 30 tbr, 15"
+    },
+    {
+      "id": "오디오",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "소리 있음 (max -9.2 dB)"
+    },
+    {
+      "id": "MP4 장면 구성 = 입력 장면 (누락·빈 장면 없음)",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "장면 6개 모두 일치"
+    },
+    {
+      "id": "움직임(문장 등장 애니메이션)",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "reel/s1-2.png 등장 3.90초 전후 프레임 차이 전→중 0.54, 중→후 0.54, 전→후 1.08 (중간 프레임이 양쪽과 달라야 함)"
+    },
+    {
+      "id": "첫 프레임 (시작 상태)",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "0초 프레임이 reel/s0-hook.png 와 일치(차이 0.92), 빈 화면 아님(std 36.7). out/check/first-frame.png, first-0.6s.png"
+    },
+    {
+      "id": "전개 속도 (정지 구간)",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "화면이 그대로인 최장 구간 2.50초(20.25초부터, 상한 5초), 화면 변화 11회(10초당 4.0회). 재미 자체는 육안 판단"
+    },
+    {
+      "id": "타임라인 이미지 생성",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "out/check/timeline.png (2초 간격)"
+    },
+    {
+      "id": "검수용 이미지 생성 (MP4 프레임)",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "out/check/reel-sheet.png"
+    },
+    {
+      "id": "표지 검수 이미지 생성",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "out/check/covers.png (캐러셀 표지 | 릴스 커버 | 첫 프레임)"
+    },
+    {
+      "id": "기존 게시물과 중복·이력 규칙",
+      "kind": "기계",
+      "status": "통과",
+      "detail": "41건과 비교, 가장 비슷한 2026-10-28-am 0.08, 2026-10-26-pm 0.07, 2026-10-23-am 0.07 (글자 기준 유사도: 의미가 같은지는 육안 판단)"
+    },
+    {
+      "id": "표지·첫 장면 육안 검수 (covers.png)",
+      "kind": "육안",
+      "status": "미검증",
+      "detail": "제목이 먼저 보이는지, 강조어·대비·줄바꿈, 제목이 본문 내용과 맞는지. 흥미·공감은 기계로 판정하지 않음"
+    },
+    {
+      "id": "캐러셀 육안 검수 (01·05·09.png)",
+      "kind": "육안",
+      "status": "미검증",
+      "detail": "예약 실행이 Read 로 직접 보고 post.json 의 visualReview 에 기록"
+    },
+    {
+      "id": "릴스 육안 검수 (timeline.png, reel-sheet.png, scene-*.png)",
+      "kind": "육안",
+      "status": "미검증",
+      "detail": "같음. 오디오는 무음이라 음성 검수 대상 없음"
+    }
+  ]
+}
