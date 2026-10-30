@@ -1,0 +1,101 @@
+{
+  "version": 2,
+  "topic": "신발 냄새 안 나게 신기",
+  "category": "청소",
+  "format": "story",
+  "emotion": "장난·웃음",
+  "situation": "퇴근하고 현관에서 벗은 신발에서 냄새가 나 엄마에게 카톡한 저녁",
+  "summary": "같은 신발은 이틀 연속 신지 말고, 벗자마자 구긴 신문지를 넣어 그늘에서 하루 말리기",
+  "insight": {
+    "myth": "신발은 신발장에 넣어 두면 저절로 마른다",
+    "tip": "같은 신발 이틀 연속 금지, 신문지 구겨 넣어 하루 말리기",
+    "why": "하룻밤으로는 신발 속 땀이 다 안 말라서 냄새가 남는다"
+  },
+  "share": {
+    "to": "애인",
+    "line": "맨날 같은 신발 신는 애인 조용히 보내 주기"
+  },
+  "cover": {
+    "style": "bubble",
+    "kicker": "신발 꿀팁",
+    "title": "엄마 신발에서\n냄새나ㅠ",
+    "emphasis": "신발",
+    "sub": "엄마의 첫마디: 매일 신니?"
+  },
+  "cards": [
+    { "label": "그날", "title": "벗자마자 냄새", "desc": "퇴근하고 벗은 신발,\n현관에 냄새가 퍼져요.", "example": "“엄마 신발에서 냄새나ㅠ”", "bridge": "엄마의 첫마디는" },
+    { "label": "엄마의 첫마디", "title": "매일 같은 거 신니?", "desc": "냄새의 이유는\n신는 순서에 있어요.", "example": "“하루는 쉬게 해야지.”", "bridge": "그럼 어떻게" },
+    { "label": "1단계", "title": "이틀 연속 금지", "desc": "같은 신발은 신고 나면\n하루 쉬게 해요.", "example": "신발 두 켤레 돌려 신기", "bridge": "벗자마자" },
+    { "label": "2단계", "title": "신문지 구겨 넣기", "desc": "벗자마자 구긴 신문지를\n신발 속에 넣어요.", "example": "젖었으면 한 번 갈아 주기", "bridge": "그다음" },
+    { "label": "3단계", "title": "그늘에서 말리기", "desc": "현관 말고 바람 통하는\n그늘에 하루 두어요.", "example": "직사광선은 소재가 상해요", "bridge": "마지막으로" },
+    { "label": "주의", "title": "가죽은 살살", "desc": "가죽·스웨이드는\n세탁 표시부터 확인해요.", "example": "물세탁은 제품 표시대로", "bridge": "그럼 이제" },
+    { "label": "마무리", "title": "이제 냄새 덜 나지?", "desc": "신발도 쉬어야\n오래 가요.", "example": "“신발도 하루는 쉬어.”" }
+  ],
+  "outro": { "title": "역시 엄마", "sub": "엄마한테 물어볼\n다음 꿀팁은?" },
+  "caption": "맨날 같은 신발만 신는 애인 있으면 보내 주세요 👟\n\n“엄마 신발에서 냄새나ㅠ”\n“매일 같은 거 신니?”\n“응 맨날 이것만 신어.”\n“하루는 쉬게 해야지.”\n\n①이틀 연속 같은 신발 금지 ②벗자마자 구긴 신문지 넣기 ③그늘에서 하루 말리기\n가죽·스웨이드는 세탁 표시부터 확인하세요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#신발냄새 #신발관리 #엄마꿀팁 #살림꿀팁",
+  "reel": {
+    "mode": "focus",
+    "chatName": "엄마",
+    "caption": "신발도 하루는 쉬어야 한대요 👟\n\n이틀 연속 신지 말고 신문지 구겨 넣기.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#신발냄새 #신발관리 #살림꿀팁",
+    "cover": {
+      "title": "신발 냄새 안 나게\n엄마가 알려 준 법",
+      "emphasis": "신발 냄새",
+      "chat": [
+        { "who": "me", "text": "엄마 신발에서 냄새나ㅠ" },
+        { "who": "you", "dots": true }
+      ]
+    },
+    "hook": { "title": "이틀 연속\n신지 마세요", "emphasis": "이틀 연속", "photo": "shoes" },
+    "photos": {
+      "shoes": { "prompt": "a pair of worn white sneakers left on the tiled floor of an apartment entrance, top-down view, slightly dirty soles" }
+    },
+    "scenes": [
+      {
+        "card": 1,
+        "label": "퇴근 후 현관",
+        "items": [
+          { "who": "me", "text": "엄마 신발에서 냄새나ㅠ" },
+          { "who": "you", "text": "매일 같은 거 신니?" }
+        ],
+        "dur": 4.9
+      },
+      {
+        "items": [
+          { "who": "me", "text": "사진", "image": "shoes" },
+          { "who": "me", "text": "맨날 이것만 신어" }
+        ],
+        "dur": 4.2
+      },
+      {
+        "items": [
+          { "who": "you", "text": "하루는 쉬게 해야지.", "typing": true },
+          { "who": "you", "text": "벗으면 신문지 구겨 넣어." }
+        ],
+        "dur": 6.0
+      },
+      {
+        "summary": true,
+        "label": "엄마표 신발 냄새 관리",
+        "items": [
+          { "text": "이틀 연속 같은 신발 금지" },
+          { "text": "벗자마자 신문지 구겨 넣기" },
+          { "text": "그늘에서 하루 말리기" }
+        ],
+        "dur": 7.5
+      },
+      {
+        "items": [
+          { "text": "맨날 같은 신발 신는 애인" },
+          { "text": "조용히 보내 주기", "big": true }
+        ],
+        "dur": 4.6
+      }
+    ]
+  },
+  "visualReview": {
+    "renderId": "adbbe7f8fc21",
+    "carousel": "통과",
+    "reel": "통과",
+    "notes": "후킹·커버·사진(흰 운동화, 글자·사람 없음)·타임라인 확인, 깨짐·겹침 없음, 요약이 대화와 일치"
+  }
+}
