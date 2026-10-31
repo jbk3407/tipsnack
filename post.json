@@ -1,146 +1,101 @@
 {
   "version": 2,
-  "visualReview": { "renderId": "4e835642c510", "carousel": "통과", "reel": "통과", "notes": "후킹·썸네일·타임라인·장면 확인, 사진은 글자·사람 없음(수건 모양이 약간 어색하나 물방울이 맺힌 수건으로 읽힘), 안전·말투 이상 없음" },
-  "topic": "물 안 먹는 수건 살리기",
-  "category": "세탁·얼룩",
-  "format": "practical",
-  "emotion": "편안함",
-  "situation": "샤워 후 수건으로 닦는데 물이 안 닦여 엄마에게 카톡한 아침",
-  "summary": "수건이 물을 안 먹는 건 유연제 코팅 탓, 유연제 빼고 헹굼 한 번 더 한 뒤 털어 바싹 말리기",
+  "topic": "겨울 창문 결로 줄이기",
+  "category": "계절 살림",
+  "format": "story",
+  "emotion": "안심·위로",
+  "situation": "첫 추위에 아침마다 창문에 물방울이 맺혀 엄마에게 카톡한 아침",
+  "summary": "창문 물방울은 실내 습기 탓, 추워도 아침에 5분 환기하고 창틀 물기는 닦아 내기",
   "insight": {
-    "myth": "유연제를 넣어야 수건이 부들부들하다",
-    "tip": "유연제를 빼고 헹굼을 한 번 더 한다",
-    "why": "유연제가 섬유를 코팅해서 물을 못 먹는다"
+    "myth": "추우니까 창문을 꼭 닫아 두는 게 낫다",
+    "tip": "아침에 창문을 5분 열어 환기하기",
+    "why": "방 안 습기가 빠져야 차가운 유리에 안 맺힌다"
   },
   "share": {
-    "to": "애인",
-    "line": "유연제 듬뿍 넣는 애인 슬쩍 알려 주기"
+    "to": "같이 사는 사람",
+    "line": "창문 꼭 닫고 자는 사람한테 이건 꼭"
   },
   "cover": {
     "style": "bubble",
-    "kicker": "세탁 꿀팁",
-    "title": "엄마 수건이\n물을 안 먹어ㅠ",
-    "emphasis": "수건",
-    "sub": "엄마의 첫마디: 유연제 넣니?"
+    "kicker": "겨울 살림",
+    "title": "엄마 창문에\n물이 맺혀ㅠ",
+    "emphasis": "창문",
+    "sub": "엄마의 첫마디: 닫아 놨니?"
   },
   "cards": [
-    {
-      "label": "그날",
-      "title": "물 안 먹는 수건",
-      "desc": "샤워하고 닦는데\n물이 그대로 남은 날",
-      "example": "“엄마 수건이 물을 안 먹어ㅠ”",
-      "bridge": "엄마의 첫마디는"
-    },
-    {
-      "label": "원인",
-      "title": "유연제 넣니?",
-      "desc": "유연제가 섬유를 덮어\n물을 못 먹게 해요.",
-      "example": "부들부들해도 흡수는 별로",
-      "bridge": "그럼 이제부터"
-    },
-    {
-      "label": "1단계",
-      "title": "유연제 빼기",
-      "desc": "수건은 세제만 넣고\n유연제는 빼요.",
-      "example": "세제도 정량 이하로",
-      "bridge": "그다음엔"
-    },
-    {
-      "label": "2단계",
-      "title": "헹굼 한 번 더",
-      "desc": "세제 찌꺼기가 남지 않게\n헹굼을 추가해요.",
-      "example": "세탁 표시 먼저 확인",
-      "bridge": "마를 때는"
-    },
-    {
-      "label": "3단계",
-      "title": "탈탈 털어 말리기",
-      "desc": "물기 짠 수건을 털어\n펼쳐서 바싹 말려요.",
-      "example": "덜 마르면 꿉꿉해져요",
-      "bridge": "이건 꼭 확인해요"
-    },
-    {
-      "label": "주의",
-      "title": "다른 세제는 금지",
-      "desc": "다른 세제랑 섞지 말고\n표시대로 쓰세요.",
-      "example": "이미 코팅됐다면 몇 번 반복",
-      "bridge": "마지막으로"
-    },
-    {
-      "label": "마무리",
-      "title": "다시 보송보송",
-      "desc": "몇 번 빨면 물을\n쓱쓱 먹어요.",
-      "example": "효과는 수건마다 달라요"
-    }
+    { "label": "그날", "title": "창문에 물방울", "desc": "아침에 일어나니\n창문이 흠뻑 젖어 있어요.", "example": "“엄마 창문에 물이 맺혀ㅠ”", "bridge": "엄마의 첫마디는" },
+    { "label": "엄마 첫마디", "title": "닫아 놨니?", "desc": "추워서 창문을\n꼭 닫아 두었다면?", "example": "“닫아 놓지 마.”", "bridge": "그럼 어떻게" },
+    { "label": "1단계", "title": "아침에 5분 열기", "desc": "일어나서 창문을\n5분만 열어 환기해요.", "example": "문 두 곳이면 더 빨라요", "bridge": "물방울이 남았다면" },
+    { "label": "2단계", "title": "창틀 물기 닦기", "desc": "맺힌 물은\n마른 수건으로 닦아요.", "example": "그대로 두면 곰팡이가 펴요", "bridge": "그래도 맺힌다면" },
+    { "label": "3단계", "title": "빨래는 방 밖으로", "desc": "방 안 빨래는\n습기를 더해요.", "example": "건조대는 환기되는 곳에", "bridge": "마지막으로" },
+    { "label": "주의", "title": "난방은 그대로", "desc": "열었다 닫으면 돼요.\n난방은 끄지 않아도 돼요.", "example": "아이·반려동물 주의", "bridge": "이제" },
+    { "label": "마무리", "title": "추워도 5분만", "desc": "습기가 나가야\n물방울이 줄어요.", "example": "“이제 창문 뽀송하지?”" }
   ],
-  "outro": {
-    "title": "역시 엄마",
-    "sub": "엄마한테 물어볼\n다음 꿀팁은?"
-  },
-  "caption": "유연제 듬뿍 넣는 애인 있으면 보내 주세요 🧺\n\n“엄마 수건이 물을 안 먹어ㅠ”\n“유연제 넣니?”\n\n① 유연제 빼고 세제만 정량 이하로\n② 헹굼 한 번 더\n③ 탈탈 털어 펼쳐서 바싹 말리기\n\n다른 세제랑 섞지 말고, 세탁 표시를 먼저 확인하세요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#수건 #세탁꿀팁 #살림꿀팁 #엄마꿀팁",
+  "outro": { "title": "역시 엄마", "sub": "엄마한테 물어볼\n다음 꿀팁은?" },
+  "caption": "창문 꼭 닫고 자는 사람 있으면 보내 주세요 🪟\n\n“엄마 창문에 물이 맺혀ㅠ”\n“닫아 놨니?”\n“응 추워서 다 닫았어.”\n“닫아 놓지 마.”\n\n① 아침에 창문 5분 환기 ② 창틀 물기는 마른 수건으로 ③ 빨래는 방 밖으로\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#결로 #겨울살림 #엄마꿀팁",
   "reel": {
     "mode": "focus",
     "chatName": "엄마",
-    "caption": "엄마의 첫마디: 유연제 넣니?\n\n부들부들한 수건이 물을 안 먹는 이유.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#수건 #세탁꿀팁 #살림꿀팁",
+    "caption": "추워서 창문 닫았더니 엄마가 열래요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#결로 #겨울살림 #엄마꿀팁 #살림꿀팁",
+    "cover": {
+      "title": "겨울 아침 창문\n물방울 없애는 법",
+      "emphasis": "창문",
+      "chat": [
+        { "who": "me", "text": "엄마 창문에 물이 맺혀ㅠ" },
+        { "who": "you", "dots": true }
+      ]
+    },
+    "hook": { "title": "추워도 창문\n열어야 해요", "emphasis": "열어야", "photo": "window" },
+    "photos": {
+      "window": { "prompt": "a window pane covered with condensation water droplets on a cold winter morning, wet windowsill, close-up, indoor view" }
+    },
     "scenes": [
       {
         "card": 1,
-        "label": "샤워 후 아침",
+        "label": "첫 추위가 온 아침",
         "items": [
-          { "who": "me", "text": "엄마 수건이 물을 안 먹어ㅠ" },
-          { "who": "you", "text": "유연제 넣니?" }
+          { "who": "me", "text": "엄마 창문에 물이 맺혀ㅠ" },
+          { "who": "you", "text": "창문 닫아 놨니?" }
         ],
-        "dur": 4.6
+        "dur": 4.9
       },
       {
         "items": [
-          { "who": "me", "text": "사진", "image": "towel" },
-          { "who": "me", "text": "응 부들부들하라고" }
+          { "who": "me", "text": "사진", "image": "window" },
+          { "who": "me", "text": "추워서 다 닫았어" }
         ],
         "dur": 4.2
       },
       {
         "items": [
-          { "who": "you", "text": "그게 문제야.", "typing": true },
-          { "who": "you", "text": "빼고 헹궈 한 번 더." }
+          { "who": "you", "text": "닫아 놓지 마.", "typing": true },
+          { "who": "you", "text": "아침에 5분 열어." }
         ],
-        "dur": 5.2
+        "dur": 5.5
       },
       {
         "summary": true,
-        "label": "엄마표 수건 되살리기",
+        "label": "엄마표 결로 줄이기",
         "items": [
-          { "text": "유연제 빼고 세제만" },
-          { "text": "헹굼 한 번 더" },
-          { "text": "탈탈 털어 바싹 말리기" }
+          { "text": "아침에 5분 환기하기" },
+          { "text": "창틀 물기는 바로 닦기" },
+          { "text": "빨래는 방 밖에 널기" }
         ],
-        "dur": 7.0
+        "dur": 7.5
       },
       {
         "items": [
-          { "text": "유연제 듬뿍 넣는 애인" },
-          { "text": "슬쩍 알려 주기", "big": true }
+          { "text": "창문 꼭 닫고 자는 사람한테" },
+          { "text": "이건 꼭", "big": true }
         ],
-        "dur": 4.6
+        "dur": 4.3
       }
-    ],
-    "cover": {
-      "title": "물 안 먹는 수건\n엄마는 이렇게 살려",
-      "emphasis": "수건",
-      "chat": [
-        { "who": "me", "text": "엄마 수건이 물을 안 먹어ㅠ" },
-        { "who": "you", "dots": true }
-      ]
-    },
-    "hook": {
-      "title": "수건 물 안 먹죠\n유연제 빼세요",
-      "emphasis": "유연제",
-      "photo": "towel"
-    },
-    "photos": {
-      "towel": {
-        "prompt": "a water droplet sitting on the surface of a plain fluffy white bath towel without soaking in, towel spread flat with no tag, no label, no stitching, top-down close-up"
-      }
-    }
+    ]
+  },
+  "visualReview": {
+    "renderId": "049e210c42fe",
+    "carousel": "통과",
+    "reel": "통과",
+    "notes": "후킹·커버·사진(창문 물방울)·타임라인·장면 모두 확인, 글자 잘림 없고 엄마 말투·안전 원칙 문제 없음"
   }
 }
