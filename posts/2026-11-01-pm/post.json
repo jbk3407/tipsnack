@@ -1,0 +1,145 @@
+{
+  "version": 2,
+  "visualReview": { "renderId": "9fef84ceeb83", "carousel": "통과", "reel": "통과", "notes": "후킹·커버·사진·타임라인·장면 확인, 글자 깨짐·겹침 없음, 사진 글자 없음, 안전·엄마 말투 이상 없음" },
+  "topic": "욕실 하수구 냄새 잡기",
+  "category": "청소",
+  "format": "story",
+  "emotion": "안심·위로",
+  "situation": "여행 다녀온 저녁 욕실에서 하수구 냄새가 올라와 엄마에게 카톡한 밤",
+  "summary": "오래 비운 욕실 하수구 냄새는 닦기 전에 배수구에 물 1L 붓기, 머리카락 걷기",
+  "insight": {
+    "myth": "하수구 냄새는 배수구를 박박 닦아야 빠진다",
+    "tip": "닦기 전에 배수구에 물 한 바가지(1L쯤) 붓는다",
+    "why": "배수구에 고인 물이 냄새 뚜껑인데 오래 비우면 마른다"
+  },
+  "share": {
+    "to": "친구",
+    "line": "자취방 오래 비운 친구한테 이건 꼭"
+  },
+  "cover": {
+    "style": "bubble",
+    "kicker": "청소 꿀팁",
+    "title": "엄마 욕실에서\n하수구 냄새나ㅠ",
+    "emphasis": "하수구",
+    "sub": "엄마의 첫마디: 며칠 비웠니?"
+  },
+  "cards": [
+    {
+      "label": "그날",
+      "title": "집 비운 뒤 냄새",
+      "desc": "여행 다녀온 저녁,\n욕실 문 열자마자",
+      "example": "“엄마 하수구 냄새나ㅠ”",
+      "bridge": "엄마의 첫마디는"
+    },
+    {
+      "label": "첫마디",
+      "title": "며칠 비웠니?",
+      "desc": "냄새 원인부터\n되물어 보셨어요.",
+      "example": "“3일 여행 갔다 왔어”",
+      "bridge": "원인은 바로"
+    },
+    {
+      "label": "원인",
+      "title": "배수구 물이 말랐다",
+      "desc": "배수구에 고인 물이\n냄새를 막는 뚜껑이에요.",
+      "example": "오래 비우면 그 물이 말라요",
+      "bridge": "그래서 먼저"
+    },
+    {
+      "label": "1단계",
+      "title": "물 한 바가지 붓기",
+      "desc": "배수구에 물 1L쯤\n천천히 부어 주세요.",
+      "example": "닦기 전에 물부터",
+      "bridge": "그다음엔"
+    },
+    {
+      "label": "2단계",
+      "title": "머리카락 걷기",
+      "desc": "뚜껑을 열고 엉킨\n머리카락을 걷어 내요.",
+      "example": "고무장갑 끼고 하기",
+      "bridge": "그래도 난다면"
+    },
+    {
+      "label": "주의",
+      "title": "세제 섞지 않기",
+      "desc": "그래도 냄새가 나면\n관리실에 물어보세요.",
+      "example": "세정제 섞어 붓지 않기",
+      "bridge": "마지막으로"
+    },
+    {
+      "label": "마무리",
+      "title": "비우면 가끔 붓기",
+      "desc": "오래 비운 욕실은\n돌아와서 물부터!",
+      "example": "“이제 냄새 안 나지?”"
+    }
+  ],
+  "outro": {
+    "title": "역시 엄마",
+    "sub": "엄마한테 물어볼\n다음 꿀팁은?"
+  },
+  "caption": "자취방 오래 비운 친구 있으면 보내 주세요 🚿\n\n“엄마 욕실에서 하수구 냄새나ㅠ”\n“며칠 비웠니?”\n“3일 여행 갔다 왔어.”\n“배수구 물이 말랐네.”\n\n닦기 전에 배수구에 물 1L쯤 부어 주세요.\n그다음 머리카락을 걷어 내면 대부분 가라앉아요.\n그래도 나면 세제 섞지 말고 관리실에 물어보기.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#하수구냄새 #욕실청소 #자취꿀팁 #엄마꿀팁",
+  "reel": {
+    "mode": "focus",
+    "chatName": "엄마",
+    "caption": "여행 다녀왔더니 욕실에서 냄새가 올라와서 엄마한테 물어봤어요\n\n답은 닦는 게 아니라 물이었어요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#하수구냄새 #욕실청소 #자취꿀팁",
+    "scenes": [
+      {
+        "card": 1,
+        "label": "3일 만에 집에 온 저녁",
+        "items": [
+          { "who": "me", "text": "엄마 욕실에서 하수구 냄새나ㅠ" },
+          { "who": "you", "text": "며칠 비웠니?" }
+        ],
+        "dur": 4.8
+      },
+      {
+        "items": [
+          { "who": "me", "text": "3일 여행 갔다 왔어" },
+          { "who": "me", "text": "사진", "image": "drain" },
+          { "who": "you", "text": "배수구 물이 말랐네.", "typing": true }
+        ],
+        "dur": 7
+      },
+      {
+        "items": [
+          { "who": "you", "text": "물 한 바가지 부어." },
+          { "who": "me", "text": "부었더니 냄새 없어졌어!!" }
+        ],
+        "dur": 4.8
+      },
+      {
+        "summary": true,
+        "label": "엄마표 하수구 냄새 잡기",
+        "items": [
+          { "text": "닦기 전에 물 1L 붓기" },
+          { "text": "머리카락 걷어 내기" },
+          { "text": "오래 비우면 가끔 붓기" }
+        ],
+        "dur": 6.8
+      },
+      {
+        "items": [
+          { "text": "자취방 오래 비운 친구한테" },
+          { "text": "이건 꼭", "big": true }
+        ],
+        "dur": 4.3
+      }
+    ],
+    "cover": {
+      "title": "욕실 하수구 냄새\n엄마는 이렇게 잡아",
+      "emphasis": "하수구 냄새",
+      "chat": [
+        { "who": "me", "text": "엄마 욕실에서 하수구 냄새나ㅠ" },
+        { "who": "you", "dots": true }
+      ]
+    },
+    "hook": {
+      "title": "하수구 냄새\n물부터 부어요",
+      "emphasis": "물부터",
+      "photo": "drain"
+    },
+    "photos": {
+      "drain": { "prompt": "a bathroom floor drain with a round metal cover on grey tile, dry and a little dusty, plain smooth metal frame with no engraving or markings, close-up, top-down view" }
+    }
+  }
+}
