@@ -1,0 +1,151 @@
+{
+  "version": 2,
+  "topic": "겨울 옷 정전기 줄이기",
+  "category": "계절 살림",
+  "format": "story",
+  "emotion": "장난·웃음",
+  "situation": "겨울 아침 건조기에서 꺼낸 옷을 입는데 찌직거려 엄마에게 카톡한 날",
+  "summary": "정전기는 너무 말라서 생김, 건조기는 살짝 덜 말랐을 때 꺼내 털어 널기",
+  "insight": {
+    "myth": "빨래는 바싹 말려야 좋다",
+    "tip": "건조기는 살짝 덜 말랐을 때 꺼내기",
+    "why": "너무 말라 버린 옷에 정전기가 쌓인다"
+  },
+  "share": {
+    "to": "애인",
+    "line": "겨울마다 찌직하는 애인 조용히 보내 주기"
+  },
+  "cover": {
+    "style": "bold",
+    "kicker": "겨울 꿀팁",
+    "title": "엄마 옷에서\n정전기 너무 나ㅠ",
+    "emphasis": "정전기",
+    "sub": "엄마의 첫마디: 건조기 돌리니?"
+  },
+  "cards": [
+    {
+      "label": "그날",
+      "title": "옷이 찌직거려",
+      "desc": "건조기에서 꺼낸 옷이\n몸에 쩍 달라붙은 아침",
+      "example": "“엄마 옷에서 정전기 나ㅠ”",
+      "bridge": "엄마의 첫마디는"
+    },
+    {
+      "label": "첫마디",
+      "title": "건조기 돌리니?",
+      "desc": "정전기는 옷이 너무\n말랐을 때 잘 생겨요.",
+      "example": "바싹 말리면 오히려 손해",
+      "bridge": "그래서 엄마는"
+    },
+    {
+      "label": "1단계",
+      "title": "덜 말랐을 때 꺼내",
+      "desc": "살짝 촉촉할 때\n건조기에서 꺼내요.",
+      "example": "시간은 평소보다 짧게",
+      "bridge": "꺼냈으면 바로"
+    },
+    {
+      "label": "2단계",
+      "title": "탁탁 털어서 널기",
+      "desc": "꺼내자마자 한 벌씩\n털어서 펴 줘요.",
+      "example": "뭉쳐 두면 주름도 생겨요",
+      "bridge": "남은 습기 덕분에"
+    },
+    {
+      "label": "3단계",
+      "title": "남은 습기로 마르기",
+      "desc": "옷걸이에 걸어 두면\n정전기가 줄어요.",
+      "example": "완벽하게 없어지진 않아요",
+      "bridge": "이건 꼭 확인해요"
+    },
+    {
+      "label": "주의",
+      "title": "표시 먼저 확인",
+      "desc": "건조기 못 쓰는 옷은\n세탁 표시대로 말려요.",
+      "example": "울·니트는 특히 주의",
+      "bridge": "마지막으로"
+    },
+    {
+      "label": "마무리",
+      "title": "바싹이 정답은 아냐",
+      "desc": "덜 마른 느낌이\n딱 좋을 때가 있어요.",
+      "example": "겨울엔 이 한 번이 달라요"
+    }
+  ],
+  "outro": {
+    "title": "역시 엄마",
+    "sub": "엄마한테 물어볼\n다음 꿀팁은?"
+  },
+  "caption": "겨울마다 찌직하는 애인 있으면 보내 주세요 ⚡\n\n“엄마 옷에서 정전기 나ㅠ”\n“건조기 돌리니?”\n\n① 건조기는 살짝 덜 말랐을 때 꺼내기\n② 꺼내자마자 탁탁 털어 널기\n③ 남은 습기로 마저 말리기\n\n건조기 못 쓰는 옷은 세탁 표시대로, 효과는 옷마다 달라요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#정전기 #겨울꿀팁 #살림꿀팁 #엄마꿀팁",
+  "reel": {
+    "mode": "focus",
+    "chatName": "엄마",
+    "caption": "엄마의 첫마디: 건조기 돌리니?\n\n정전기는 너무 말라서 생겨요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#정전기 #겨울꿀팁 #살림꿀팁",
+    "scenes": [
+      {
+        "card": 1,
+        "label": "건조기 돌린 겨울 아침",
+        "items": [
+          { "who": "me", "text": "엄마 옷에서 정전기 너무 나ㅠ" },
+          { "who": "you", "text": "건조기 돌리니?" }
+        ],
+        "dur": 4.9
+      },
+      {
+        "items": [
+          { "who": "me", "text": "사진", "image": "dryer" },
+          { "who": "you", "text": "너무 말렸네.", "typing": true }
+        ],
+        "dur": 4.6
+      },
+      {
+        "items": [
+          { "who": "you", "text": "덜 말랐을 때 꺼내." },
+          { "who": "you", "text": "털어서 널어." }
+        ],
+        "dur": 4.8
+      },
+      {
+        "summary": true,
+        "label": "엄마표 정전기 줄이기",
+        "items": [
+          { "text": "건조기는 덜 말랐을 때 꺼내기" },
+          { "text": "꺼내서 탁탁 털어 널기" },
+          { "text": "남은 습기로 마저 말리기" }
+        ],
+        "dur": 7.4
+      },
+      {
+        "items": [
+          { "text": "겨울마다 찌직하는 애인" },
+          { "text": "조용히 보내 주기", "big": true }
+        ],
+        "dur": 4.6
+      }
+    ],
+    "cover": {
+      "title": "겨울 옷 정전기\n엄마는 이렇게 잡아",
+      "emphasis": "정전기",
+      "chat": [
+        { "who": "me", "text": "엄마 옷에서 정전기 너무 나ㅠ" },
+        { "who": "you", "dots": true }
+      ]
+    },
+    "hook": {
+      "title": "빨래 바싹 말리면\n정전기 더 나요",
+      "emphasis": "바싹",
+      "photo": "dryer"
+    },
+    "photos": {
+      "dryer": {
+        "prompt": "a clothes dryer with its door open full of warm dry sweaters and socks, in a laundry corner, close-up"
+      }
+    }
+  },
+  "visualReview": {
+    "renderId": "7965a47c7f6c",
+    "carousel": "통과",
+    "reel": "통과",
+    "notes": "후킹·커버·사진·타임라인·장면 확인, 글자 잘림 없음, 사진 구석 붉은 물체는 경미해 통과"
+  }
+}
