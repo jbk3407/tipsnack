@@ -1,0 +1,149 @@
+{
+  "version": 2,
+  "topic": "검은 옷 색 바램 막기",
+  "category": "세탁·얼룩",
+  "format": "practical",
+  "emotion": "고마움",
+  "situation": "아끼던 검은 티를 몇 번 빨았더니 하얗게 바래서 엄마에게 카톡한 저녁",
+  "summary": "검은 옷은 뒤집어 세탁망에 넣고 30도 이하 찬물로 약하게, 세제는 표시량만",
+  "insight": {
+    "myth": "세제를 많이 넣고 세게 돌려야 깨끗하다",
+    "tip": "검은 옷은 뒤집어 세탁망에 넣고 찬물로 약하게",
+    "why": "겉면이 서로 쓸리면서 염료가 빠진다"
+  },
+  "share": {
+    "to": "친구",
+    "line": "검은 옷만 입는 친구한테 이건 꼭"
+  },
+  "cover": {
+    "style": "bubble",
+    "kicker": "세탁 꿀팁",
+    "title": "엄마 검은 티가\n하얘졌어ㅠ",
+    "emphasis": "검은 티",
+    "sub": "엄마의 첫마디: 뒤집었니?"
+  },
+  "cards": [
+    {
+      "label": "그날",
+      "title": "검은 티가 바랬어",
+      "desc": "몇 번 빨았더니\n겉이 하얘졌어요.",
+      "example": "“엄마 검은 티가 하얘졌어ㅠ”",
+      "bridge": "엄마의 첫마디는"
+    },
+    {
+      "label": "첫마디",
+      "title": "뒤집어서 빨았니?",
+      "desc": "겉면이 쓸리면\n염료가 빠져요.",
+      "example": "그래서 뒤집어야 해",
+      "bridge": "뒤집었으면"
+    },
+    {
+      "label": "1단계",
+      "title": "뒤집어서 지퍼 잠그기",
+      "desc": "안쪽이 겉이 되게\n뒤집고 지퍼를 잠가요.",
+      "example": "단추도 잠그기",
+      "bridge": "그다음"
+    },
+    {
+      "label": "2단계",
+      "title": "세탁망에 넣기",
+      "desc": "세탁망에 넣으면\n쓸림이 줄어요.",
+      "example": "망 하나에 옷 한 벌",
+      "bridge": "물은"
+    },
+    {
+      "label": "3단계",
+      "title": "찬물에 약하게",
+      "desc": "30도 이하 찬물로\n약하게 돌려요.",
+      "example": "세탁 표시 먼저 확인",
+      "bridge": "세제는"
+    },
+    {
+      "label": "주의",
+      "title": "세제는 표시량만",
+      "desc": "많이 넣으면 찌꺼기가\n남아 더 뿌예 보여요.",
+      "example": "건조기는 피하기",
+      "bridge": "마지막으로"
+    },
+    {
+      "label": "마무리",
+      "title": "그늘에서 말리기",
+      "desc": "뒤집은 채로\n그늘에 널어요.",
+      "example": "“이제 안 바랠 거야”"
+    }
+  ],
+  "outro": {
+    "title": "역시 엄마",
+    "sub": "엄마한테 물어볼\n다음 꿀팁은?"
+  },
+  "caption": "검은 옷만 입는 친구 있으면 보내 주세요 🖤\n\n“엄마 검은 티가 하얘졌어ㅠ”\n“뒤집어서 빨았니?”\n“아니 그냥 돌렸어ㅠ”\n\n①뒤집어서 세탁망에 ②30도 이하 찬물로 약하게 ③세제는 표시량만.\n세탁 표시를 먼저 확인하세요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#세탁꿀팁 #검은옷 #자취생활 #엄마꿀팁",
+  "reel": {
+    "mode": "focus",
+    "chatName": "엄마",
+    "caption": "검은 티가 하얘졌다니까 엄마가 제일 먼저 물은 한마디\n\n검은 옷은 뒤집어서 세탁망에, 찬물로 약하게.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#세탁꿀팁 #검은옷 #자취생활",
+    "cover": {
+      "title": "검은 티 바램\n엄마는 이렇게",
+      "emphasis": "검은 티",
+      "chat": [
+        { "who": "me", "text": "엄마 검은 티가 하얘졌어ㅠ" },
+        { "who": "you", "dots": true }
+      ]
+    },
+    "hook": {
+      "title": "검은 옷은\n뒤집어 빨아",
+      "emphasis": "뒤집어",
+      "photo": "faded"
+    },
+    "photos": {
+      "faded": { "prompt": "a black cotton t-shirt faded with pale gray patches and streaks, laid flat on a wooden floor, top-down view, close-up" }
+    },
+    "scenes": [
+      {
+        "card": 1,
+        "label": "아끼던 티를 빤 저녁",
+        "items": [
+          { "who": "me", "text": "엄마 검은 티 바랬어ㅠ" },
+          { "who": "you", "text": "뒤집었니?" }
+        ],
+        "dur": 4.5
+      },
+      {
+        "items": [
+          { "who": "me", "text": "사진", "image": "faded" },
+          { "who": "me", "text": "아니 그냥 돌렸어ㅠ" }
+        ],
+        "dur": 4.0
+      },
+      {
+        "items": [
+          { "who": "you", "text": "뒤집어서 세탁망에 넣어.", "typing": true },
+          { "who": "you", "text": "찬물로 약하게 돌려." }
+        ],
+        "dur": 6.2
+      },
+      {
+        "summary": true,
+        "label": "엄마표 검은 옷 세탁",
+        "items": [
+          { "text": "뒤집어 세탁망에" },
+          { "text": "30도 이하 찬물로" },
+          { "text": "세제는 표시량만" }
+        ],
+        "dur": 7.0
+      },
+      {
+        "items": [
+          { "text": "검은 옷만 입는 친구한테" },
+          { "text": "이건 꼭", "big": true }
+        ],
+        "dur": 4.4
+      }
+    ]
+  },
+  "visualReview": {
+    "renderId": "92e9d1e8838b",
+    "carousel": "통과",
+    "reel": "통과",
+    "notes": "후킹·썸네일·사진·타임라인 확인, 글자 잘림/겹침 없음, 사진 정상(바랜 검은 티, 글자·사람 없음), 안전·말투 문제 없음"
+  }
+}
