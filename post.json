@@ -1,96 +1,149 @@
 {
   "version": 2,
-  "visualReview": { "renderId": "1e1960150ee4", "carousel": "통과", "reel": "통과", "notes": "후킹·커버·사진·타임라인·장면 확인, 글자 깨짐·잘림 없음, 사진은 뿌연 쌀뜨물 그릇(밥솥 모서리 작은 글자 흐림, 허용), 엄마 말투 OK" },
-  "topic": "쿰쿰한 밥 냄새 없애기",
-  "category": "요리",
-  "format": "practical",
-  "emotion": "고마움",
-  "situation": "새로 지은 밥에서 쿰쿰한 냄새가 나 엄마에게 카톡한 자취방 저녁",
-  "summary": "쌀은 물에 담그지 말고 첫 물을 바로 버린 뒤 3~4번 헹구면 밥 냄새가 덜함",
+  "topic": "냉동 고기 안전하게 해동",
+  "category": "식재료",
+  "format": "story",
+  "emotion": "안심·위로",
+  "situation": "냉동 고기가 안 녹아 싱크대에 꺼내 놓고 엄마에게 카톡한 저녁",
+  "summary": "냉동 고기는 실온에 두지 말고 지퍼백째 찬물에 담가 30분마다 물 갈아 해동, 바로 요리",
   "insight": {
-    "myth": "쌀은 물에 담가 두고 천천히 씻는다",
-    "tip": "첫 물은 바로 버리고 재빨리 헹군다",
-    "why": "쌀이 첫 물의 겨 냄새를 먼저 빨아들여서"
+    "myth": "고기는 실온에 꺼내 두면 저절로 녹는다",
+    "tip": "지퍼백에 넣고 찬물에 담가 30분마다 물 갈기",
+    "why": "실온에선 겉이 먼저 녹아 상하기 쉬워서"
   },
   "share": {
-    "to": "친구",
-    "line": "쌀 대충 씻는 친구한테 이건 꼭"
+    "to": "애인",
+    "line": "고기 실온에 두는 애인 조용히 보내 주기"
   },
   "cover": {
     "style": "bubble",
-    "kicker": "밥 짓기 꿀팁",
-    "title": "엄마 밥에서\n쿰쿰한 냄새나",
-    "emphasis": "쿰쿰한",
-    "sub": "엄마의 첫마디: 쌀 어떻게 씻니?"
+    "kicker": "엄마 꿀팁",
+    "title": "엄마 고기 해동\n어떻게 해?",
+    "emphasis": "해동",
+    "sub": "엄마의 첫마디: 실온에 두지 마"
   },
   "cards": [
-    { "label": "그날", "title": "밥에서 쿰쿰한 냄새", "desc": "새로 지은 밥인데\n냄새가 나요.", "example": "“엄마 밥에서 냄새나ㅠ”", "bridge": "엄마의 첫마디는" },
-    { "label": "첫마디", "title": "쌀 어떻게 씻니?", "desc": "냄새는 밥솥이 아니라\n쌀 씻기에서 시작해요.", "example": "첫 물이 제일 중요", "bridge": "먼저" },
-    { "label": "1단계", "title": "첫 물은 바로 버리기", "desc": "물을 붓자마자\n바로 따라 버려요.", "example": "담가 두지 않기", "bridge": "그다음" },
-    { "label": "2단계", "title": "살살 3~4번 헹구기", "desc": "손으로 가볍게 휘저어\n3~4번 헹궈요.", "example": "세게 비비지 않기", "bridge": "그리고" },
-    { "label": "3단계", "title": "30분 불리기", "desc": "맑은 물에 30분\n불렸다가 밥을 지어요.", "example": "물은 새로 갈아 주기", "bridge": "그래도 냄새가 난다면" },
-    { "label": "주의", "title": "오래된 쌀은 확인", "desc": "쌀이 너무 오래됐다면\n새 쌀로 바꿔요.", "example": "밀폐해 서늘하게 보관", "bridge": "마지막으로" },
-    { "label": "마무리", "title": "이제 고슬고슬", "desc": "쌀 씻기만 바꿔도\n밥맛이 달라져요.", "example": "“이제 냄새 안 나지?”" }
+    {
+      "label": "그날",
+      "title": "고기가 꽁꽁 얼었어",
+      "desc": "퇴근하고 저녁 하려는데\n냉동 고기가 돌덩이",
+      "example": "“엄마 고기 해동 어떻게 해?”",
+      "bridge": "엄마의 첫마디는"
+    },
+    {
+      "label": "엄마의 첫마디",
+      "title": "실온에 두지 마",
+      "desc": "싱크대 위에 오래 두면\n겉부터 녹아 상하기 쉬워요.",
+      "example": "“꺼내 놓고 뭐 했니?”",
+      "bridge": "그럼 어떻게 하냐면"
+    },
+    {
+      "label": "1단계",
+      "title": "지퍼백에 넣기",
+      "desc": "물이 안 닿게\n지퍼백에 꼭 닫아요.",
+      "example": "공기는 최대한 빼기",
+      "bridge": "그다음"
+    },
+    {
+      "label": "2단계",
+      "title": "찬물에 담그기",
+      "desc": "큰 그릇에 찬물을 받아\n지퍼백째 담가요.",
+      "example": "뜨거운 물은 금지",
+      "bridge": "물이 미지근해지면"
+    },
+    {
+      "label": "3단계",
+      "title": "30분마다 물 갈기",
+      "desc": "물이 미지근해지니\n30분마다 새 찬물로.",
+      "example": "얇은 고기는 30분이면 충분",
+      "bridge": "시간이 없다면"
+    },
+    {
+      "label": "주의",
+      "title": "녹으면 바로 요리",
+      "desc": "녹인 고기는\n다시 얼리지 말아요.",
+      "example": "바로 못 쓰면 냉장실로",
+      "bridge": "마지막으로"
+    },
+    {
+      "label": "마무리",
+      "title": "다음부턴 미리 냉장",
+      "desc": "자기 전에 냉장실로 옮기면\n아침엔 알맞게 녹아요.",
+      "example": "“이제 알겠지?”"
+    }
   ],
-  "outro": { "title": "역시 엄마", "sub": "엄마한테 물어볼\n다음 꿀팁은?" },
-  "caption": "쌀 대충 씻는 친구 있으면 보내 주세요 🍚\n\n“엄마 밥에서 냄새나ㅠ”\n“쌀 어떻게 씻니?”\n\n①첫 물은 바로 버리기 ②3~4번 헹구기 ③30분 불리기\n쌀이 오래됐다면 새 쌀로.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#밥짓기 #자취요리 #살림꿀팁",
+  "outro": {
+    "title": "역시 엄마",
+    "sub": "엄마한테 물어볼\n다음 꿀팁은?"
+  },
+  "caption": "고기를 실온에 꺼내 두는 애인 있으면 보내 주세요 🥩\n\n“엄마 고기 해동 어떻게 해?”\n“싱크대에 꺼내 놨니?”\n“응 저녁까지 두려고”\n“실온에 두지 마.”\n\n①지퍼백에 넣기 ②찬물에 담그기 ③30분마다 물 갈기\n녹으면 바로 요리하고 다시 얼리지 않기.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#해동 #자취요리 #엄마꿀팁 #살림꿀팁",
   "reel": {
     "mode": "focus",
     "chatName": "엄마",
-    "caption": "쌀 첫 물은 바로 버리래요. 밥 냄새가 달라져요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#밥짓기 #자취요리 #살림꿀팁",
-    "cover": {
-      "title": "쿰쿰한 밥 냄새\n엄마는 이렇게",
-      "emphasis": "밥 냄새",
-      "chat": [
-        { "who": "me", "text": "엄마 밥에서 쿰쿰한 냄새나ㅠ" },
-        { "who": "you", "dots": true }
-      ]
-    },
-    "hook": { "title": "쌀 첫 물은\n바로 버리세요", "emphasis": "첫 물", "photo": "rice" },
-    "photos": {
-      "rice": { "prompt": "a glass bowl of uncooked white rice soaking in cloudy milky water on a kitchen counter, top-down view" }
-    },
+    "caption": "고기 꺼내 놨다니까 엄마가 바로 말렸어요\n\n실온 해동 말고 찬물로, 엄마표 해동법.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#해동 #자취요리",
     "scenes": [
       {
         "card": 1,
-        "label": "자취 첫 달의 저녁",
+        "label": "퇴근하고 저녁 하려는 밤",
         "items": [
-          { "who": "me", "text": "엄마 밥에서 쿰쿰한 냄새나ㅠ" },
-          { "who": "you", "text": "쌀 어떻게 씻니?" }
+          { "who": "me", "text": "엄마 고기 해동 어떻게 해?" },
+          { "who": "you", "text": "꺼내 놨니?" }
         ],
-        "dur": 4.9
+        "dur": 5
       },
       {
         "items": [
-          { "who": "me", "text": "사진", "image": "rice" },
-          { "who": "you", "text": "첫 물 바로 버려.", "typing": true }
+          { "who": "me", "text": "사진", "image": "meat" },
+          { "who": "you", "text": "실온에 두지 마.", "typing": true }
         ],
-        "dur": 4.6
+        "dur": 4.7
       },
       {
         "items": [
-          { "who": "you", "text": "쌀이 그 물 먹어." },
-          { "who": "you", "text": "3번 헹구고 30분 불려." }
+          { "who": "you", "text": "지퍼백째 찬물에 담가." },
+          { "who": "you", "text": "30분마다 물 갈아." }
         ],
-        "dur": 5.0
+        "dur": 5.2
       },
       {
         "summary": true,
-        "label": "엄마표 쌀 씻기",
+        "label": "엄마표 안전 해동",
         "items": [
-          { "text": "첫 물은 바로 버리기" },
-          { "text": "살살 3~4번 헹구기" },
-          { "text": "30분 불렸다 밥 짓기" }
+          { "text": "실온 해동 금지" },
+          { "text": "지퍼백째 찬물에 담그기" },
+          { "text": "30분마다 물 갈아 주기" }
         ],
-        "dur": 6.8
+        "dur": 7
       },
       {
         "items": [
-          { "text": "쌀 대충 씻는 친구한테" },
-          { "text": "이건 꼭", "big": true }
+          { "text": "고기 실온에 두는 애인" },
+          { "text": "조용히 보내 주기", "big": true }
         ],
-        "dur": 4.1
+        "dur": 4.7
       }
-    ]
+    ],
+    "cover": {
+      "title": "냉동 고기 해동\n엄마는 이렇게",
+      "emphasis": "해동",
+      "chat": [
+        { "who": "me", "text": "엄마 고기 해동 어떻게 해?" },
+        { "who": "you", "dots": true }
+      ]
+    },
+    "hook": {
+      "title": "고기 해동\n실온에 두지 마",
+      "emphasis": "실온",
+      "photo": "meat"
+    },
+    "photos": {
+      "meat": { "prompt": "a frozen packaged block of sliced meat in a sealed plastic tray, sitting on a stainless steel kitchen sink counter, frost and small water droplets on the package, top-down close-up" }
+    }
+  },
+  "visualReview": {
+    "renderId": "86ca2ed08bad",
+    "carousel": "통과",
+    "reel": "통과",
+    "notes": "ROUTINE 7절 기준 육안 확인: 후킹·썸네일·타임라인 글자 깨짐/잘림 없음, 사진은 포장된 냉동 고기로 상황 일치(질감은 다소 인공적이나 허용), 안전 원칙·엄마 말투 위반 없음"
   }
 }
