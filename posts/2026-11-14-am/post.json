@@ -1,0 +1,144 @@
+{
+  "version": 2,
+  "visualReview": { "renderId": "73a088bff1ef", "carousel": "통과", "reel": "통과", "notes": "후킹·썸네일·타임라인·사진(글자 없음, 엉킨 선 명확) 확인, 안전·엄마 말투 문제 없음" },
+  "topic": "엉킨 충전기 선 정리하기",
+  "category": "정리수납",
+  "format": "practical",
+  "emotion": "장난·웃음",
+  "situation": "서랍에 돌돌 말아 넣어 둔 충전기 선이 매번 엉켜 엄마에게 카톡한 아침",
+  "summary": "충전기 선은 묶거나 꺾어 감지 말고 휴지심에 헐겁게 감아 세워 두기",
+  "insight": {
+    "myth": "선은 단단히 묶어 서랍에 넣어야 안 엉킨다",
+    "tip": "휴지심에 헐겁게 감아 세워 둔다",
+    "why": "꺾어 감으면 선 속이 상하고 더 엉킨다"
+  },
+  "share": {
+    "to": "친구",
+    "line": "충전기 선 엉킨 친구한테 휴지심 하나면 돼"
+  },
+  "cover": {
+    "style": "bold",
+    "kicker": "정리 꿀팁",
+    "title": "안 엉키는\n엄마 충전기 정리",
+    "emphasis": "충전기",
+    "sub": "엄마의 첫마디: 꺾지 마."
+  },
+  "cards": [
+    {
+      "label": "그날",
+      "title": "또 엉킨 선",
+      "desc": "서랍을 열 때마다\n선이 한 덩어리예요.",
+      "example": "“엄마 충전기 선이 맨날 엉켜ㅠ”",
+      "bridge": "엄마의 첫마디는"
+    },
+    {
+      "label": "엄마 한마디",
+      "title": "꺾어 감지 마",
+      "desc": "세게 꺾어 묶으면\n선 속이 상해요.",
+      "example": "헐겁게 둥글게 감기",
+      "bridge": "그럼 어떻게 하냐면"
+    },
+    {
+      "label": "1단계",
+      "title": "휴지심 준비",
+      "desc": "다 쓴 휴지심을\n하나 준비해요.",
+      "example": "키친타월 심도 좋아요",
+      "bridge": "그다음에는"
+    },
+    {
+      "label": "2단계",
+      "title": "헐겁게 감기",
+      "desc": "선을 심에 둥글게\n여유 있게 감아요.",
+      "example": "팽팽하게 감지 않기",
+      "bridge": "끝은"
+    },
+    {
+      "label": "3단계",
+      "title": "끝은 심 틈에",
+      "desc": "선 끝은 심의 틈에\n살짝 끼워 둬요.",
+      "example": "테이프로 붙이지 않기",
+      "bridge": "다 감았으면"
+    },
+    {
+      "label": "주의",
+      "title": "세워서 보관",
+      "desc": "서랍에 세워 두면\n골라 쓰기 쉬워요.",
+      "example": "뜨거운 곳은 피하기",
+      "bridge": "마지막으로"
+    },
+    {
+      "label": "마무리",
+      "title": "선 하나에 심 하나",
+      "desc": "선마다 심을 하나씩\n나눠 두면 끝이에요.",
+      "example": "“이제 안 엉키지?”"
+    }
+  ],
+  "outro": {
+    "title": "역시 엄마",
+    "sub": "엄마한테 물어볼\n다음 꿀팁은?"
+  },
+  "caption": "서랍 속 선이 맨날 엉키는 친구 있으면 보내 주세요 🔌\n\n“엄마 충전기 선이 맨날 엉켜ㅠ”\n“어떻게 넣어 두니?”\n“서랍에 이렇게 뒀어ㅠ”\n“꺾어서 감지 마.”\n\n① 휴지심 준비 ② 선을 헐겁게 감기 ③ 끝은 심 틈에 끼워 세워 두기\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#충전기정리 #정리수납 #자취꿀팁",
+  "reel": {
+    "mode": "focus",
+    "chatName": "엄마",
+    "caption": "충전기 선 엉킨다니까 엄마가 휴지심 찾아보래요 ㅋㅋ\n\n엄마가 알려 준 선 정리, 휴지심이면 충분해요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#충전기정리 #정리수납 #자취꿀팁",
+    "cover": {
+      "title": "선 안 엉키게 두는\n엄마 충전기 정리",
+      "emphasis": "충전기",
+      "chat": [
+        { "who": "me", "text": "엄마 충전기 선이 맨날 엉켜ㅠ" },
+        { "who": "you", "dots": true }
+      ]
+    },
+    "hook": {
+      "title": "엉킨 선\n휴지심이면 돼",
+      "emphasis": "휴지심",
+      "photo": "tangle"
+    },
+    "photos": {
+      "tangle": { "prompt": "a messy tangled knot of white phone charging cables and earphone wires in an open plain wooden drawer with no handle or lock, top-down view, tight close-up filling the frame" }
+    },
+    "scenes": [
+      {
+        "card": 1,
+        "label": "서랍 열다 지친 아침",
+        "items": [
+          { "who": "me", "text": "엄마 충전기 선이 맨날 엉켜ㅠ" },
+          { "who": "you", "text": "어떻게 넣어 두니?" }
+        ],
+        "dur": 4.8
+      },
+      {
+        "items": [
+          { "who": "me", "text": "사진", "image": "tangle" },
+          { "who": "me", "text": "서랍에 이렇게 뒀어ㅠ" }
+        ],
+        "dur": 4.2
+      },
+      {
+        "items": [
+          { "who": "you", "text": "꺾어서 감지 마.", "typing": true },
+          { "who": "you", "text": "휴지심에 헐겁게 감아." }
+        ],
+        "dur": 5.4
+      },
+      {
+        "summary": true,
+        "label": "엄마표 선 정리",
+        "items": [
+          { "text": "휴지심에 헐겁게 감기" },
+          { "text": "끝은 심 틈에 끼우기" },
+          { "text": "서랍에 세워 두기" }
+        ],
+        "dur": 6.7
+      },
+      {
+        "items": [
+          { "text": "충전기 선 엉킨 친구한테" },
+          { "text": "휴지심 하나면 돼", "big": true }
+        ],
+        "dur": 4.6
+      }
+    ]
+  }
+}
