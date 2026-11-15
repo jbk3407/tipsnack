@@ -1,61 +1,144 @@
 {
   "version": 2,
-  "visualReview": { "renderId": "c465c1886661", "carousel": "통과", "reel": "통과", "notes": "후킹·커버·사진·타임라인·장면 모두 확인, 글자 깨짐·잘림 없음, 사진은 벽에 붙은 테이프로 상황과 일치, 안전·말투 문제 없음" },
-  "topic": "벽 테이프 안 뜯기게 떼기",
-  "category": "생활 수리",
-  "format": "story",
-  "emotion": "편안함",
-  "situation": "벽에 붙인 포스터 테이프를 확 뗐다가 페인트가 뜯겨 엄마에게 카톡한 밤",
-  "summary": "테이프는 확 떼면 페인트가 뜯김, 드라이기 약풍으로 30초 데워 접착제를 무르게 한 뒤 비스듬히 천천히 떼기",
+  "visualReview": { "renderId": "1d60ff593709", "carousel": "통과", "reel": "통과", "notes": "후킹·커버·사진·타임라인·장면 확인, 글자 깨짐·잘림 없음, 사진은 줄어든 니트로 자연스러움, 안전 문구 OK" },
+  "topic": "줄어든 니트 린스로 늘리기",
+  "category": "세탁·얼룩",
+  "format": "practical",
+  "emotion": "안심·위로",
+  "situation": "아끼던 울 니트를 건조기에 돌렸다가 인형 옷만 해져 엄마에게 카톡한 저녁",
+  "summary": "줄어든 울 니트는 버리지 말고 미지근한 물에 린스 1스푼 풀어 10분 담근 뒤 펴서 말리기",
   "insight": {
-    "myth": "테이프는 한 번에 확 떼야 깔끔하다",
-    "tip": "드라이기 약풍 30초로 데운 뒤 천천히 뗀다",
-    "why": "열을 받으면 접착제가 물러져 벽에 안 남는다"
+    "myth": "줄어든 니트는 버려야 한다",
+    "tip": "미지근한 물에 린스 1스푼 풀어 10분 담근다",
+    "why": "린스가 뻣뻣해진 털을 부드럽게 풀어 준다"
   },
   "share": {
-    "to": "친구",
-    "line": "자취방 꾸미는 친구 이건 알려 줘야죠"
+    "to": "애인",
+    "line": "니트 건조기에 돌린 애인 조용히 보내 주기"
   },
   "cover": {
-    "style": "bold",
-    "kicker": "생활 꿀팁",
-    "title": "엄마 벽 테이프가\n안 떼져ㅠ",
-    "emphasis": "테이프",
-    "sub": "엄마의 첫마디: 확 떼지 마."
+    "style": "bubble",
+    "kicker": "세탁 꿀팁",
+    "title": "엄마 니트가\n줄어버렸어ㅠ",
+    "emphasis": "니트",
+    "sub": "엄마의 첫마디: 건조기 돌렸니?"
   },
   "cards": [
-    { "label": "그날", "title": "벽 테이프가 안 떼져", "desc": "포스터를 떼려는데\n테이프가 꽉 붙은 밤", "example": "“엄마 벽 테이프 안 떼져ㅠ”", "bridge": "엄마의 첫마디는" },
-    { "label": "절대 금지", "title": "확 떼지 마", "desc": "세게 떼면 페인트가\n같이 뜯겨 나와요.", "example": "손톱으로 긁는 것도 금지", "bridge": "그다음엔 바로" },
-    { "label": "1단계", "title": "드라이기 약풍", "desc": "벽에서 한 뼘 떨어져\n30초쯤 데워요.", "example": "한 곳에 오래 대지 않기", "bridge": "따뜻해졌다면" },
-    { "label": "2단계", "title": "비스듬히 천천히", "desc": "벽에 붙여 낮은 각도로\n천천히 당겨요.", "example": "위로 확 당기지 않기", "bridge": "그래도 안 떼지면" },
-    { "label": "3단계", "title": "30초 더 데우기", "desc": "다시 데우고\n조금씩 떼어 내요.", "example": "무리하게 힘주지 않기", "bridge": "이건 꼭 확인해요" },
-    { "label": "주의", "title": "벽지는 조심", "desc": "벽지·오래된 페인트는\n안 보이는 곳 먼저.", "example": "열이 약한 풍으로", "bridge": "마지막으로" },
-    { "label": "마무리", "title": "떼고 나면 끝", "desc": "남은 자국이 거슬리면\n그때 닦아 봐요.", "example": "다음엔 붙이기 전에 생각" }
+    {
+      "label": "그날",
+      "title": "니트가 줄었어",
+      "desc": "아끼던 니트를\n건조기에 돌렸더니",
+      "example": "“엄마 니트가 줄었어ㅠ”",
+      "bridge": "엄마의 첫마디는"
+    },
+    {
+      "label": "엄마 첫마디",
+      "title": "건조기 돌렸니?",
+      "desc": "울은 열과 마찰에\n쪼그라들어요.",
+      "example": "세탁 표시 먼저 확인",
+      "bridge": "버리긴 일러요"
+    },
+    {
+      "label": "1단계",
+      "title": "미지근한 물 준비",
+      "desc": "대야에 미지근한 물을\n받아요.",
+      "example": "뜨거운 물은 더 줄어요",
+      "bridge": "거기에"
+    },
+    {
+      "label": "2단계",
+      "title": "린스 1스푼",
+      "desc": "린스를 1스푼 풀고\n니트를 10분 담가요.",
+      "example": "린스가 털을 풀어 줘요",
+      "bridge": "10분 지나면"
+    },
+    {
+      "label": "3단계",
+      "title": "눌러서 물 빼기",
+      "desc": "비틀지 말고 수건에\n올려 눌러 짜요.",
+      "example": "비틀면 모양이 망가져요",
+      "bridge": "그다음"
+    },
+    {
+      "label": "주의",
+      "title": "펴서 눕혀 말리기",
+      "desc": "원래 모양으로 살살\n늘려 펴서 눕혀요.",
+      "example": "옷걸이에 걸면 늘어나요",
+      "bridge": "마지막으로"
+    },
+    {
+      "label": "마무리",
+      "title": "이제 건조기 금지",
+      "desc": "다음엔 세탁 표시 보고\n눕혀서 말려요.",
+      "example": "“이제 입을 만하네”"
+    }
   ],
-  "outro": { "title": "역시 엄마", "sub": "엄마한테 물어볼\n다음 꿀팁은?" },
-  "caption": "자취방 꾸미는 친구 있으면 보내 주세요 🖼️\n\n“엄마 벽 테이프 안 떼져ㅠ”\n“확 떼지 마.”\n\n① 드라이기 약풍으로 한 뼘 떨어져 30초\n② 벽에 붙여 비스듬히 천천히 떼기\n③ 안 떼지면 30초 더\n\n벽지·오래된 페인트는 안 보이는 곳 먼저 확인해요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#벽테이프 #생활꿀팁 #살림꿀팁 #엄마꿀팁",
+  "outro": {
+    "title": "역시 엄마",
+    "sub": "엄마한테 물어볼\n다음 꿀팁은?"
+  },
+  "caption": "니트 건조기에 돌린 애인 있으면 보내 주세요 🧶\n\n“엄마 니트가 줄었어ㅠ”\n“건조기 돌렸니?”\n“응 돌렸어ㅠ”\n“린스 풀어서 담가.”\n\n① 미지근한 물에 린스 1스푼 ② 10분 담근 뒤 눌러 물 빼기 ③ 펴서 눕혀 말리기\n울·실크 소재는 세탁 표시를 먼저 확인하세요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#니트관리 #세탁꿀팁 #엄마꿀팁 #살림꿀팁",
   "reel": {
     "mode": "focus",
     "chatName": "엄마",
-    "caption": "엄마의 첫마디: 확 떼지 마.\n\n벽 테이프, 드라이기 하나면 안 뜯겨요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#벽테이프 #생활꿀팁",
+    "caption": "줄어든 니트 버리려다 엄마한테 물어봤어요\n\n린스 한 스푼이면 된대요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#니트관리 #세탁꿀팁",
     "cover": {
-      "title": "벽 테이프 떼기\n엄마는 이렇게",
-      "emphasis": "테이프",
+      "title": "줄어든 니트\n엄마는 이렇게 늘려",
+      "emphasis": "니트",
       "chat": [
-        { "who": "me", "text": "엄마 벽 테이프 안 떼져ㅠ" },
+        { "who": "me", "text": "엄마 니트가 줄었어ㅠ" },
         { "who": "you", "dots": true }
       ]
     },
-    "hook": { "title": "테이프 확 떼면\n벽이 뜯겨요", "emphasis": "뜯겨요", "photo": "tape" },
+    "hook": {
+      "title": "줄어든 니트\n버리지 마세요",
+      "emphasis": "버리지",
+      "photo": "knit"
+    },
     "photos": {
-      "tape": { "prompt": "a strip of masking tape stuck on a white painted wall, one end lifted with a small torn patch of paint, close-up" }
+      "knit": { "prompt": "a small shrunken beige wool knit sweater laid flat on a wooden floor, looking tiny and tightly felted, top-down view" }
     },
     "scenes": [
-      { "card": 1, "label": "포스터 떼던 밤", "items": [ { "who": "me", "text": "엄마 벽 테이프 안 떼져ㅠ" }, { "who": "you", "text": "확 떼지 마." } ], "dur": 4.9 },
-      { "items": [ { "who": "me", "text": "사진", "image": "tape" }, { "who": "you", "text": "드라이기 있니?", "typing": true } ], "dur": 4.6 },
-      { "items": [ { "who": "me", "text": "응 있어" }, { "who": "you", "text": "한 뼘 떨어져 30초 데워." }, { "who": "you", "text": "그러고 천천히 떼." } ], "dur": 7.2 },
-      { "summary": true, "label": "엄마의 벽 테이프 떼기", "items": [ { "text": "한 뼘 떨어져 약풍 30초" }, { "text": "비스듬히 천천히 떼기" }, { "text": "안 떼지면 30초 더" } ], "dur": 7.2 },
-      { "items": [ { "text": "자취방 꾸미는 친구" }, { "text": "이건 알려 줘야죠", "big": true } ], "dur": 4.5 }
+      {
+        "card": 1,
+        "label": "건조기 돌린 퇴근길 저녁",
+        "items": [
+          { "who": "me", "text": "엄마 니트가 줄었어ㅠ" },
+          { "who": "you", "text": "건조기 돌렸니?" }
+        ],
+        "dur": 4.7
+      },
+      {
+        "items": [
+          { "who": "me", "text": "사진", "image": "knit" },
+          { "who": "me", "text": "응 돌렸어ㅠ" }
+        ],
+        "dur": 3.6
+      },
+      {
+        "items": [
+          { "who": "you", "text": "미지근한 물에 린스 1스푼." },
+          { "who": "you", "text": "10분 담갔다 펴서 말려." }
+        ],
+        "dur": 5.6
+      },
+      {
+        "summary": true,
+        "label": "엄마표 니트 살리기",
+        "items": [
+          { "text": "미지근한 물에 린스 1스푼" },
+          { "text": "10분 담가 눌러서 물 빼기" },
+          { "text": "펴서 눕혀 말리기" }
+        ],
+        "dur": 7.1
+      },
+      {
+        "items": [
+          { "text": "니트 건조기에 돌린 애인" },
+          { "text": "조용히 보내 주기", "big": true }
+        ],
+        "dur": 4.5
+      }
     ]
   }
 }
