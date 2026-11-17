@@ -1,0 +1,144 @@
+{
+  "version": 2,
+  "visualReview": { "renderId": "b4f3291e3fed", "carousel": "통과", "reel": "통과", "notes": "후킹·커버·사진·타임라인·시트 확인: 글자깨짐·사람·글자 없음, 사진이 딱딱한 속을 보여 줌, 엄마 말투·안전 원칙 이상 없음" },
+  "topic": "고구마 딱딱해지지 않게 보관",
+  "category": "식재료",
+  "format": "story",
+  "emotion": "고마움",
+  "situation": "냉장고에 넣어 둔 고구마를 쪘더니 속이 딱딱해 엄마에게 카톡한 저녁",
+  "summary": "고구마는 냉장고에 넣지 말고 신문지에 싸서 서늘한 실온에, 10도 아래는 피하기",
+  "insight": {
+    "myth": "고구마는 냉장고에 넣어야 오래간다",
+    "tip": "신문지에 싸서 서늘한 실온에 둔다",
+    "why": "차가우면 속이 상해서 쪄도 딱딱해진다"
+  },
+  "share": {
+    "to": "애인",
+    "line": "고구마 냉장고에 넣는 애인 한 명 있잖아요"
+  },
+  "cover": {
+    "style": "dark",
+    "kicker": "식재료 꿀팁",
+    "title": "엄마 고구마가\n자꾸 딱딱해ㅠ",
+    "emphasis": "고구마",
+    "sub": "엄마의 첫마디: 냉장고에 뒀니?"
+  },
+  "cards": [
+    {
+      "label": "그날",
+      "title": "찐 고구마가 딱딱해",
+      "desc": "오래 두려고 넣어 둔 고구마\n쪘더니 속이 딱딱해요.",
+      "example": "“엄마 고구마가 딱딱해ㅠ”",
+      "bridge": "엄마의 첫마디는"
+    },
+    {
+      "label": "엄마의 첫마디",
+      "title": "냉장고에 뒀니?",
+      "desc": "고구마는 냉장고를\n싫어해요.",
+      "example": "차가우면 속이 상해요",
+      "bridge": "그럼 어디에 두냐면"
+    },
+    {
+      "label": "1단계",
+      "title": "냉장고에서 꺼내기",
+      "desc": "넣어 둔 고구마는\n바로 꺼내 두세요.",
+      "example": "이미 딱딱한 속은 못 살려요",
+      "bridge": "다음은"
+    },
+    {
+      "label": "2단계",
+      "title": "신문지에 싸기",
+      "desc": "고구마를 신문지로\n한 개씩 싸요.",
+      "example": "젖은 건 빼고 마른 것만",
+      "bridge": "싼 다음엔"
+    },
+    {
+      "label": "3단계",
+      "title": "서늘한 실온에 두기",
+      "desc": "햇빛 없는 서늘한 곳,\n상자나 바구니에 두세요.",
+      "example": "10도 아래는 피하기",
+      "bridge": "혹시 겨울이라면"
+    },
+    {
+      "label": "주의",
+      "title": "상한 건 버리기",
+      "desc": "곰팡이나 무른 부분이\n보이면 먹지 마세요.",
+      "example": "가끔 꺼내서 살펴보기",
+      "bridge": "마지막으로"
+    },
+    {
+      "label": "마무리",
+      "title": "이제 달고 촉촉해",
+      "desc": "냉장고 대신 실온,\n신문지로 싸서요.",
+      "example": "“역시 엄마 말이 맞네”"
+    }
+  ],
+  "outro": {
+    "title": "역시 엄마",
+    "sub": "엄마한테 물어볼\n다음 꿀팁은?"
+  },
+  "caption": "고구마 냉장고에 넣는 애인 있으면 떠올려 보세요 🍠\n\n“엄마 고구마가 딱딱해ㅠ”\n“냉장고에 뒀니?”\n“응 상할까 봐 넣었어”\n“냉장고에 넣지 마.”\n\n①냉장고에서 꺼내기 ②신문지에 싸기 ③서늘한 실온에 두기\n10도 아래는 피하고, 곰팡이나 무른 건 먹지 마세요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#고구마보관 #자취요리 #엄마꿀팁 #살림팁",
+  "reel": {
+    "mode": "focus",
+    "chatName": "엄마",
+    "caption": "고구마는 냉장고에 넣으면 안 된대요.\n엄마가 알려 준 보관법.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#고구마보관 #살림팁",
+    "cover": {
+      "title": "냉장고 없이 두는\n엄마 고구마",
+      "emphasis": "고구마",
+      "chat": [
+        { "who": "me", "text": "엄마 고구마가 딱딱해ㅠ" },
+        { "who": "you", "dots": true }
+      ]
+    },
+    "hook": {
+      "title": "고구마 냉장고\n넣지 마세요",
+      "emphasis": "냉장고",
+      "photo": "hard"
+    },
+    "photos": {
+      "hard": { "prompt": "a steamed sweet potato cut in half on a white plate, the center looks pale, dry and chalky, top-down view" }
+    },
+    "scenes": [
+      {
+        "card": 1,
+        "label": "고구마 쪄 먹는 저녁",
+        "items": [
+          { "who": "me", "text": "엄마 고구마가 딱딱해ㅠ" },
+          { "who": "you", "text": "냉장고에 뒀니?" }
+        ],
+        "dur": 4.9
+      },
+      {
+        "items": [
+          { "who": "me", "text": "사진", "image": "hard" },
+          { "who": "me", "text": "응 상할까 봐 넣었어" }
+        ],
+        "dur": 4.0
+      },
+      {
+        "items": [
+          { "who": "you", "text": "냉장고에 넣지 마.", "typing": true },
+          { "who": "you", "text": "신문지 싸서 서늘한 데." }
+        ],
+        "dur": 5.5
+      },
+      {
+        "summary": true,
+        "label": "엄마표 고구마 보관",
+        "items": [
+          { "text": "냉장고에는 넣지 않기" },
+          { "text": "신문지에 싸서 서늘한 실온" },
+          { "text": "10도 아래는 피하기" }
+        ],
+        "dur": 7.2
+      },
+      {
+        "items": [
+          { "text": "고구마 냉장고에 넣는 애인" },
+          { "text": "한 명 있잖아요", "big": true }
+        ],
+        "dur": 4.6
+      }
+    ]
+  }
+}
