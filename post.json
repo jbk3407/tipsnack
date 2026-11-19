@@ -1,145 +1,146 @@
 {
   "version": 2,
-  "visualReview": { "renderId": "c78d0f90bfe6", "carousel": "통과", "reel": "통과", "notes": "후킹·썸네일·타임라인·장면 확인, 글자 깨짐 없음. 사진은 볶음밥 실사로 무난(노란 큐브는 옥에 티)" },
-  "topic": "고슬고슬 볶음밥 만들기",
-  "category": "요리",
-  "format": "practical",
-  "emotion": "편안함",
-  "situation": "갓 지은 밥으로 볶음밥을 했다가 죽처럼 질척해져 엄마에게 카톡한 밤",
-  "summary": "볶음밥은 갓 지은 밥 말고 찬밥에 달걀을 먼저 비벼 센불에 볶으면 고슬고슬",
+  "visualReview": { "renderId": "b59822c4a922", "carousel": "통과", "reel": "통과", "notes": "ROUTINE 7절·4-1절 기준 확인. 후킹·썸네일·타임라인 문제 없음, 사진은 건조대에 빽빽한 빨래라 상황과 일치(작은 택 글자만 흐림)" },
+  "topic": "겨울 실내 빨래 빨리 말리기",
+  "category": "계절 살림",
+  "format": "story",
+  "emotion": "장난·웃음",
+  "situation": "건조대에 빨래를 꽉 채워 널었더니 이틀째 안 말라 엄마에게 카톡한 저녁",
+  "summary": "실내 빨래는 빽빽하게 널지 말고 주먹 하나 간격, 긴 옷은 바깥·짧은 옷은 안쪽, 선풍기 약풍",
   "insight": {
-    "myth": "따끈한 밥으로 볶아야 맛있다",
-    "tip": "찬밥에 달걀을 먼저 비벼 볶는다",
-    "why": "달걀이 밥알을 감싸 물기가 덜 배고 안 뭉쳐"
+    "myth": "건조대에 한 번에 꽉 채워 널어야 효율적이다",
+    "tip": "빨래 사이를 주먹 하나만큼 띄워 바람길을 낸다",
+    "why": "바람이 지나가야 물기가 날아간다"
   },
   "share": {
-    "to": "애인",
-    "line": "볶음밥 맨날 죽 되는 애인 이건 꼭"
+    "to": "같이 사는 사람",
+    "line": "빽빽하게 너는 룸메 조용히 보내 주기"
   },
   "cover": {
     "style": "dark",
-    "kicker": "엄마 레시피",
-    "title": "엄마 볶음밥이\n맨날 질척해ㅠ",
-    "emphasis": "볶음밥",
-    "sub": "엄마의 첫마디: 밥 뭐로 했니?"
+    "kicker": "겨울 살림",
+    "title": "엄마 빨래가\n안 말라ㅠ",
+    "emphasis": "빨래",
+    "sub": "엄마의 첫마디: 빽빽하게 널었니?"
   },
   "cards": [
     {
       "label": "그날",
-      "title": "볶음밥이 죽 됐다",
-      "desc": "팬에 볶았는데\n밥이 다 질척해요.",
-      "example": "“엄마 볶음밥이 질척해ㅠ”",
+      "title": "이틀째 안 마른 빨래",
+      "desc": "건조대에 꽉 채워 널었는데\n이틀째 축축해요.",
+      "example": "“엄마 빨래가 안 말라ㅠ”",
       "bridge": "엄마의 첫마디는"
     },
     {
       "label": "첫마디",
-      "title": "밥부터 확인",
-      "desc": "갓 지은 밥은 수분이\n많아서 뭉쳐요.",
-      "example": "“밥 갓 지은 거니?”",
-      "bridge": "그럼 어떻게 하냐면"
+      "title": "빽빽하게 널었니?",
+      "desc": "꽉 채워 널면\n바람이 지나가질 못해요.",
+      "example": "바람길이 있어야 말라요",
+      "bridge": "그럼 어떻게"
     },
     {
       "label": "1단계",
-      "title": "찬밥을 써요",
-      "desc": "식은 밥이나\n하루 된 밥이 좋아요.",
-      "example": "갓 지은 밥은 펼쳐 식히기",
-      "bridge": "그다음이 핵심"
+      "title": "주먹 하나 띄우기",
+      "desc": "빨래 사이를 주먹 하나만큼\n띄워서 널어요.",
+      "example": "한 번에 적게 널기",
+      "bridge": "널 때는"
     },
     {
       "label": "2단계",
-      "title": "달걀 먼저 비비기",
-      "desc": "볶기 전에 밥에\n달걀을 풀어 비벼요.",
-      "example": "밥 1공기에 달걀 1개",
-      "bridge": "이제 팬에"
+      "title": "긴 옷은 바깥에",
+      "desc": "긴 옷은 바깥, 짧은 건 안쪽\n지붕 모양으로 널어요.",
+      "example": "바람이 가운데로 들어가요",
+      "bridge": "그래도 눅눅하면"
     },
     {
       "label": "3단계",
-      "title": "센불에 볶기",
-      "desc": "달군 팬에 기름 두르고\n물기를 날리며 볶아요.",
-      "example": "주걱으로 3분, 자주 젓기",
-      "bridge": "간은 마지막에"
+      "title": "선풍기 약풍",
+      "desc": "선풍기를 약풍으로\n빨래 쪽에 틀어 둬요.",
+      "example": "너무 가까이 두지 않기",
+      "bridge": "이건 꼭 확인해요"
     },
     {
       "label": "주의",
-      "title": "간은 마지막에",
-      "desc": "간장은 팬 가장자리에\n둘러 향을 내요.",
-      "example": "기름 튈 수 있으니 조심",
+      "title": "히터 바로 앞은 피해요",
+      "desc": "난방기구에 너무 붙여\n널지 않아요.",
+      "example": "전열기 위에 널기 금지",
       "bridge": "마지막으로"
     },
     {
       "label": "마무리",
-      "title": "고슬고슬 완성",
-      "desc": "밥알이 하나하나\n살아 있어요.",
-      "example": "“이제 식당 맛 나지?”"
+      "title": "탈수 한 번 더",
+      "desc": "세탁 후 탈수를 한 번 더 하면\n더 빨리 말라요.",
+      "example": "물기가 적을수록 빨라요"
     }
   ],
   "outro": {
     "title": "역시 엄마",
     "sub": "엄마한테 물어볼\n다음 꿀팁은?"
   },
-  "caption": "볶음밥 맨날 죽 되는 애인 있으면 보내 주세요 🍳\n\n“엄마 볶음밥이 질척해ㅠ”\n“밥 갓 지은 거니?”\n“응.”\n“찬밥 써.”\n\n① 찬밥에 달걀 먼저 비비기\n② 센불에서 3분 볶기\n③ 간장은 마지막에 가장자리로\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#볶음밥 #자취요리 #엄마레시피 #집밥",
+  "caption": "빨래 빽빽하게 너는 룸메가 있으면 보내 주세요 🧺\n\n“엄마 빨래가 안 말라ㅠ”\n“빽빽하게 널었니?”\n\n① 빨래 사이 주먹 하나 간격\n② 긴 옷은 바깥, 짧은 옷은 안쪽\n③ 선풍기 약풍\n\n난방기구 바로 앞이나 위에는 널지 않기.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#빨래꿀팁 #겨울살림 #살림꿀팁 #엄마꿀팁",
   "reel": {
     "mode": "focus",
     "chatName": "엄마",
-    "caption": "갓 지은 밥으로 볶음밥 하면 죽 된대요.\n\n찬밥에 달걀부터 비비면 고슬고슬해요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#볶음밥 #자취요리",
+    "caption": "엄마의 첫마디: 빽빽하게 널었니?\n\n겨울 실내 빨래, 바람길만 내면 돼요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#빨래꿀팁 #겨울살림",
     "cover": {
-      "title": "죽 안 되는\n엄마 볶음밥",
-      "emphasis": "볶음밥",
+      "title": "겨울 실내 빨래\n엄마는 이렇게 널어",
+      "emphasis": "실내 빨래",
       "chat": [
-        { "who": "me", "text": "엄마 볶음밥이 질척해ㅠ" },
+        { "who": "me", "text": "엄마 빨래가 안 말라ㅠ" },
         { "who": "you", "dots": true }
       ]
     },
     "hook": {
-      "title": "볶음밥은\n달걀 먼저 비벼",
-      "emphasis": "달걀",
-      "photo": "mushy"
+      "title": "빨래는 빽빽하게\n널지 마세요",
+      "emphasis": "빽빽하게",
+      "photo": "rack"
     },
     "photos": {
-      "mushy": { "prompt": "a frying pan full of soggy mushy fried rice with egg pieces, top-down view on a kitchen stove, close-up" }
+      "rack": {
+        "prompt": "a wooden clothes drying rack overloaded with tightly packed damp clothes and towels in a small apartment living room, winter daylight, wide shot"
+      }
     },
     "scenes": [
       {
         "card": 1,
-        "label": "자취 2년 차의 밤",
+        "label": "겨울 저녁의 눅눅한 빨래",
         "items": [
-          { "who": "me", "text": "엄마 볶음밥이 질척해ㅠ" },
-          { "who": "you", "text": "밥 갓 지은 거니?" }
+          { "who": "me", "text": "엄마 빨래가 안 말라ㅠ" },
+          { "who": "you", "text": "빽빽하게 널었니?" }
         ],
         "dur": 4.8
       },
       {
         "items": [
-          { "who": "me", "text": "사진", "image": "mushy" },
-          { "who": "me", "text": "응 갓 지은 밥" },
-          { "who": "you", "text": "찬밥 써." }
+          { "who": "me", "text": "사진", "image": "rack" },
+          { "who": "me", "text": "응 이렇게ㅠ" },
+          { "who": "you", "text": "주먹 하나 띄워.", "typing": true }
         ],
-        "dur": 5.4
+        "dur": 6.6
       },
       {
         "items": [
-          { "who": "me", "text": "어떻게 해?" },
-          { "who": "you", "text": "달걀부터 밥에 비벼." },
-          { "who": "you", "text": "그다음 센불에 볶아." }
+          { "who": "you", "text": "긴 건 바깥, 짧은 건 안." },
+          { "who": "you", "text": "선풍기 약풍으로 틀어." }
         ],
-        "dur": 6.8
+        "dur": 5.3
       },
       {
         "summary": true,
-        "label": "엄마표 고슬 볶음밥",
+        "label": "엄마의 실내 빨래 널기",
         "items": [
-          { "text": "찬밥에 달걀 먼저 비비기" },
-          { "text": "센불에 3분 자주 젓기" },
-          { "text": "간장은 마지막에" }
+          { "text": "주먹 하나 띄워 널기" },
+          { "text": "긴 옷 바깥·짧은 옷 안" },
+          { "text": "선풍기 약풍 틀기" }
         ],
-        "dur": 6.8
+        "dur": 6.9
       },
       {
         "items": [
-          { "text": "볶음밥 맨날 죽 되는 애인" },
-          { "text": "이건 꼭", "big": true }
+          { "text": "빽빽하게 너는 룸메" },
+          { "text": "조용히 보내 주기", "big": true }
         ],
-        "dur": 4.2
+        "dur": 4.6
       }
     ]
   }
