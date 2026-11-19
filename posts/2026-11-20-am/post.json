@@ -1,0 +1,58 @@
+{
+  "version": 2,
+  "visualReview": { "renderId": "2fe8c545e41a", "carousel": "통과", "reel": "통과", "notes": "hook·covers·photo-wilt·timeline·reel-sheet 직접 확인, 글자 깨짐·겹침 없음, 사진이 시든 상추 상황과 일치, 엄마 말투·안전 문구 이상 없음" },
+  "topic": "시든 상추 아삭하게 살리기",
+  "category": "식재료",
+  "format": "practical",
+  "emotion": "편안함",
+  "situation": "냉장고 구석에서 축 처진 상추를 발견하고 엄마에게 카톡한 주말 저녁",
+  "summary": "시든 상추는 버리지 말고 끝을 살짝 자른 뒤 찬물에 20분 담갔다 물기 털기, 무르거나 곰팡이 있으면 버리기",
+  "insight": {
+    "myth": "축 처진 채소는 이미 죽은 거라 버린다",
+    "tip": "끝을 살짝 자르고 찬물에 20분 담근다",
+    "why": "수분만 빠진 거라 물을 먹으면 다시 선다"
+  },
+  "share": {
+    "to": "애인",
+    "line": "냉장고 채소 시들리는 애인 슬쩍 보내 봐요"
+  },
+  "cover": {
+    "style": "dark",
+    "kicker": "식재료 꿀팁",
+    "title": "엄마 상추가\n축 처졌어ㅠ",
+    "emphasis": "상추",
+    "sub": "엄마의 첫마디: 버리지 마."
+  },
+  "cards": [
+    { "label": "그날", "title": "축 처진 상추", "desc": "냉장고 구석에서\n발견한 시든 상추", "example": "“엄마 상추가 축 처졌어ㅠ”", "bridge": "엄마의 첫마디는" },
+    { "label": "절대 금지", "title": "바로 버리지 마", "desc": "수분만 빠진 거라\n물을 먹으면 살아나요.", "example": "무르거나 곰팡이는 버리기", "bridge": "먼저" },
+    { "label": "1단계", "title": "끝을 살짝 자르기", "desc": "마른 밑동 끝을\n얇게 잘라 내요.", "example": "물이 잘 올라가요", "bridge": "그다음엔" },
+    { "label": "2단계", "title": "찬물에 20분", "desc": "찬물에 잠기게\n20분쯤 담가 둬요.", "example": "미지근한 물은 안 돼요", "bridge": "건져서" },
+    { "label": "3단계", "title": "물기 털어 보관", "desc": "물기를 탈탈 털고\n키친타월에 싸요.", "example": "냉장실에 넣기", "bridge": "이건 꼭 확인해요" },
+    { "label": "주의", "title": "상한 건 버려요", "desc": "미끌거리거나 냄새나면\n살리지 말고 버려요.", "example": "먹기 전에 한 번 더 씻기", "bridge": "마지막으로" },
+    { "label": "마무리", "title": "다음엔 바로 먹기", "desc": "살린 상추는\n빨리 먹는 게 좋아요.", "example": "오래 두면 또 시들어요" }
+  ],
+  "outro": { "title": "역시 엄마", "sub": "엄마한테 물어볼\n다음 꿀팁은?" },
+  "caption": "냉장고 채소 맨날 시들리는 애인 있으면 보내 주세요 🥬\n\n“엄마 상추가 축 처졌어ㅠ”\n“버리지 마.”\n\n① 끝을 살짝 잘라 내기\n② 찬물에 20분 담그기\n③ 물기 털어 키친타월에 싸서 냉장\n\n미끌거리거나 곰팡이·냄새가 나면 버리기.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#채소보관 #살림꿀팁 #엄마꿀팁",
+  "reel": {
+    "mode": "focus",
+    "chatName": "엄마",
+    "caption": "엄마의 첫마디: 버리지 마.\n\n시든 상추, 찬물이면 다시 서요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#채소보관 #살림꿀팁",
+    "scenes": [
+      { "card": 1, "label": "주말 저녁 냉장고 앞", "items": [ { "who": "me", "text": "엄마 상추가 축 처졌어ㅠ" }, { "who": "you", "text": "버리지 마." } ], "dur": 4.9 },
+      { "items": [ { "who": "me", "text": "사진", "image": "wilt" }, { "who": "you", "text": "곰팡이 없으면 돼.", "typing": true } ], "dur": 5.0 },
+      { "items": [ { "who": "you", "text": "찬물에 20분 담가." }, { "who": "you", "text": "끝은 살짝 잘라." } ], "dur": 4.8 },
+      { "summary": true, "label": "엄마표 시든 상추 살리기", "items": [ { "text": "밑동 끝 살짝 자르기" }, { "text": "찬물에 20분 담그기" }, { "text": "물기 털어 냉장 보관" } ], "dur": 7.0 },
+      { "items": [ { "text": "냉장고 채소 시들리는 애인" }, { "text": "슬쩍 보내 봐요", "big": true } ], "dur": 4.5 }
+    ],
+    "cover": {
+      "title": "시든 상추\n엄마는 이렇게 살려",
+      "emphasis": "시든 상추",
+      "chat": [ { "who": "me", "text": "엄마 상추가 축 처졌어ㅠ" }, { "who": "you", "dots": true } ]
+    },
+    "hook": { "title": "시든 상추\n버리지 마세요", "emphasis": "버리지", "photo": "wilt" },
+    "photos": {
+      "wilt": { "prompt": "a head of wilted limp green lettuce leaves drooping on a kitchen counter, top-down close-up" }
+    }
+  }
+}
