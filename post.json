@@ -1,58 +1,150 @@
 {
   "version": 2,
-  "visualReview": { "renderId": "2fe8c545e41a", "carousel": "통과", "reel": "통과", "notes": "hook·covers·photo-wilt·timeline·reel-sheet 직접 확인, 글자 깨짐·겹침 없음, 사진이 시든 상추 상황과 일치, 엄마 말투·안전 문구 이상 없음" },
-  "topic": "시든 상추 아삭하게 살리기",
-  "category": "식재료",
-  "format": "practical",
-  "emotion": "편안함",
-  "situation": "냉장고 구석에서 축 처진 상추를 발견하고 엄마에게 카톡한 주말 저녁",
-  "summary": "시든 상추는 버리지 말고 끝을 살짝 자른 뒤 찬물에 20분 담갔다 물기 털기, 무르거나 곰팡이 있으면 버리기",
+  "visualReview": { "renderId": "4cc666ed7562", "carousel": "통과", "reel": "통과", "notes": "후킹·썸네일·사진·타임라인·장면 확인, 글자 깨짐·겹침 없고 안전·말투 문제 없음" },
+  "topic": "뻑뻑한 서랍 양초로 살리기",
+  "category": "생활 수리",
+  "format": "story",
+  "emotion": "장난·웃음",
+  "situation": "자취방 서랍이 뻑뻑해 매번 힘주어 당기다 엄마에게 카톡한 저녁",
+  "summary": "뻑뻑한 서랍은 억지로 당기지 말고 레일 먼지를 턴 뒤 불 안 붙인 양초를 문지르기",
   "insight": {
-    "myth": "축 처진 채소는 이미 죽은 거라 버린다",
-    "tip": "끝을 살짝 자르고 찬물에 20분 담근다",
-    "why": "수분만 빠진 거라 물을 먹으면 다시 선다"
+    "myth": "서랍은 힘주어 당기거나 기름을 바른다",
+    "tip": "불 안 붙인 양초를 레일에 문지른다",
+    "why": "양초 왁스가 마찰을 줄여 매끄럽게 한다"
   },
   "share": {
     "to": "애인",
-    "line": "냉장고 채소 시들리는 애인 슬쩍 보내 봐요"
+    "line": "서랍 쾅 닫는 애인한테 양초 하나면 돼"
   },
   "cover": {
-    "style": "dark",
-    "kicker": "식재료 꿀팁",
-    "title": "엄마 상추가\n축 처졌어ㅠ",
-    "emphasis": "상추",
-    "sub": "엄마의 첫마디: 버리지 마."
+    "style": "bubble",
+    "kicker": "엄마 수리",
+    "title": "엄마 서랍이\n자꾸 뻑뻑해ㅠ",
+    "emphasis": "서랍",
+    "sub": "엄마의 첫마디: 당기지 마."
   },
   "cards": [
-    { "label": "그날", "title": "축 처진 상추", "desc": "냉장고 구석에서\n발견한 시든 상추", "example": "“엄마 상추가 축 처졌어ㅠ”", "bridge": "엄마의 첫마디는" },
-    { "label": "절대 금지", "title": "바로 버리지 마", "desc": "수분만 빠진 거라\n물을 먹으면 살아나요.", "example": "무르거나 곰팡이는 버리기", "bridge": "먼저" },
-    { "label": "1단계", "title": "끝을 살짝 자르기", "desc": "마른 밑동 끝을\n얇게 잘라 내요.", "example": "물이 잘 올라가요", "bridge": "그다음엔" },
-    { "label": "2단계", "title": "찬물에 20분", "desc": "찬물에 잠기게\n20분쯤 담가 둬요.", "example": "미지근한 물은 안 돼요", "bridge": "건져서" },
-    { "label": "3단계", "title": "물기 털어 보관", "desc": "물기를 탈탈 털고\n키친타월에 싸요.", "example": "냉장실에 넣기", "bridge": "이건 꼭 확인해요" },
-    { "label": "주의", "title": "상한 건 버려요", "desc": "미끌거리거나 냄새나면\n살리지 말고 버려요.", "example": "먹기 전에 한 번 더 씻기", "bridge": "마지막으로" },
-    { "label": "마무리", "title": "다음엔 바로 먹기", "desc": "살린 상추는\n빨리 먹는 게 좋아요.", "example": "오래 두면 또 시들어요" }
+    {
+      "label": "그날",
+      "title": "서랍이 안 열려",
+      "desc": "열 때마다 걸려서\n두 손으로 당기는 저녁",
+      "example": "“엄마 서랍이 뻑뻑해ㅠ”",
+      "bridge": "엄마의 첫마디는"
+    },
+    {
+      "label": "엄마의 첫마디",
+      "title": "억지로 당기지 마",
+      "desc": "힘주어 당기면\n레일이 더 상해요.",
+      "example": "“억지로 당기지 마.”",
+      "bridge": "먼저 안쪽부터"
+    },
+    {
+      "label": "1단계",
+      "title": "레일 먼지 털기",
+      "desc": "서랍을 빼서\n레일의 먼지를 털어요.",
+      "example": "마른 천으로 쓱 닦기",
+      "bridge": "깨끗해졌으면"
+    },
+    {
+      "label": "2단계",
+      "title": "양초 문지르기",
+      "desc": "불 안 붙인 양초를\n레일에 쓱쓱 문질러요.",
+      "example": "향초든 일반 초든 OK",
+      "bridge": "그다음엔"
+    },
+    {
+      "label": "3단계",
+      "title": "여닫아 펴기",
+      "desc": "서랍을 끼워 넣고\n몇 번 여닫아 펴요.",
+      "example": "왁스가 고르게 퍼져요",
+      "bridge": "기름은 안 되냐고요?"
+    },
+    {
+      "label": "주의",
+      "title": "기름은 피하기",
+      "desc": "식용유는 먼지가 붙어\n더 끈적해질 수 있어요.",
+      "example": "레일이 부러졌다면 교체",
+      "bridge": "마지막으로"
+    },
+    {
+      "label": "마무리",
+      "title": "스르륵 열려요",
+      "desc": "양초 하나로\n서랍이 부드러워졌어요.",
+      "example": "“이제 한 손으로 열리지?”"
+    }
   ],
-  "outro": { "title": "역시 엄마", "sub": "엄마한테 물어볼\n다음 꿀팁은?" },
-  "caption": "냉장고 채소 맨날 시들리는 애인 있으면 보내 주세요 🥬\n\n“엄마 상추가 축 처졌어ㅠ”\n“버리지 마.”\n\n① 끝을 살짝 잘라 내기\n② 찬물에 20분 담그기\n③ 물기 털어 키친타월에 싸서 냉장\n\n미끌거리거나 곰팡이·냄새가 나면 버리기.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#채소보관 #살림꿀팁 #엄마꿀팁",
+  "outro": {
+    "title": "역시 엄마",
+    "sub": "엄마한테 물어볼\n다음 꿀팁은?"
+  },
+  "caption": "서랍 쾅 닫는 애인 있으면 보내 주세요 🕯️\n\n“엄마 서랍이 뻑뻑해ㅠ”\n“억지로 당기지 마.”\n“양초 있니?”\n“응 있어”\n\n①레일 먼지 털기 ②불 안 붙인 양초 문지르기 ③여닫아 펴기\n식용유는 더 끈적해질 수 있어요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n\n#서랍 #자취꿀팁 #생활꿀팁 #살림꿀팁",
   "reel": {
     "mode": "focus",
     "chatName": "엄마",
-    "caption": "엄마의 첫마디: 버리지 마.\n\n시든 상추, 찬물이면 다시 서요.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#채소보관 #살림꿀팁",
-    "scenes": [
-      { "card": 1, "label": "주말 저녁 냉장고 앞", "items": [ { "who": "me", "text": "엄마 상추가 축 처졌어ㅠ" }, { "who": "you", "text": "버리지 마." } ], "dur": 4.9 },
-      { "items": [ { "who": "me", "text": "사진", "image": "wilt" }, { "who": "you", "text": "곰팡이 없으면 돼.", "typing": true } ], "dur": 5.0 },
-      { "items": [ { "who": "you", "text": "찬물에 20분 담가." }, { "who": "you", "text": "끝은 살짝 잘라." } ], "dur": 4.8 },
-      { "summary": true, "label": "엄마표 시든 상추 살리기", "items": [ { "text": "밑동 끝 살짝 자르기" }, { "text": "찬물에 20분 담그기" }, { "text": "물기 털어 냉장 보관" } ], "dur": 7.0 },
-      { "items": [ { "text": "냉장고 채소 시들리는 애인" }, { "text": "슬쩍 보내 봐요", "big": true } ], "dur": 4.5 }
-    ],
+    "caption": "서랍이 뻑뻑하다니까 엄마가 양초를 꺼내래요\n\n양초 하나면 서랍이 스르륵.\n\n엄마한테 물어본 꿀팁 @tip.snack\n#서랍 #자취꿀팁 #살림꿀팁",
     "cover": {
-      "title": "시든 상추\n엄마는 이렇게 살려",
-      "emphasis": "시든 상추",
-      "chat": [ { "who": "me", "text": "엄마 상추가 축 처졌어ㅠ" }, { "who": "you", "dots": true } ]
+      "title": "뻑뻑한 서랍\n엄마는 이렇게",
+      "emphasis": "서랍",
+      "chat": [
+        { "who": "me", "text": "엄마 서랍이 뻑뻑해ㅠ" },
+        { "who": "you", "dots": true }
+      ]
     },
-    "hook": { "title": "시든 상추\n버리지 마세요", "emphasis": "버리지", "photo": "wilt" },
+    "hook": {
+      "title": "서랍 뻑뻑하면\n양초를 문질러",
+      "emphasis": "양초",
+      "photo": "drawer"
+    },
     "photos": {
-      "wilt": { "prompt": "a head of wilted limp green lettuce leaves drooping on a kitchen counter, top-down close-up" }
-    }
+      "drawer": { "prompt": "a wooden drawer pulled halfway open with a dusty metal slide rail visible, close-up, home interior" }
+    },
+    "scenes": [
+      {
+        "card": 1,
+        "label": "자취방 저녁",
+        "items": [
+          { "who": "me", "text": "엄마 서랍이 뻑뻑해ㅠ" },
+          { "who": "you", "text": "억지로 당기지 마." }
+        ],
+        "dur": 4.9
+      },
+      {
+        "items": [
+          { "who": "me", "text": "사진", "image": "drawer" },
+          { "who": "me", "text": "여기 걸려ㅠ" }
+        ],
+        "dur": 3.7
+      },
+      {
+        "items": [
+          { "who": "you", "text": "양초 있니?", "typing": true },
+          { "who": "me", "text": "응 있어" }
+        ],
+        "dur": 4.6
+      },
+      {
+        "items": [
+          { "who": "you", "text": "레일에 양초 문질러." }
+        ],
+        "dur": 3.4
+      },
+      {
+        "summary": true,
+        "label": "엄마표 서랍 살리기",
+        "items": [
+          { "text": "레일 먼지 털기" },
+          { "text": "양초 쓱쓱 문지르기" },
+          { "text": "여닫아 펴기" }
+        ],
+        "dur": 6.6
+      },
+      {
+        "items": [
+          { "text": "서랍 쾅 닫는 애인한테" },
+          { "text": "양초 하나면 돼", "big": true }
+        ],
+        "dur": 4.4
+      }
+    ]
   }
 }
